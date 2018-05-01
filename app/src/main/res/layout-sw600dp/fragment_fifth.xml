@@ -1,0 +1,56 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/group_5"
+            android:layout_marginBottom="119dp"
+            android:layout_above="@+id/info"
+            android:id="@+id/image"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/tab_heading28"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="#2196f3"
+            android:letterSpacing="0.04"
+            android:lineSpacingExtra="0.3sp"
+            android:text="Parents"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:id="@+id/info"
+            android:layout_above="@+id/summary"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/summary"
+            android:textSize="@dimen/tab_body_text24sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:textColor="#2f2f2f"
+            android:lineSpacingExtra="6.8sp"
+            android:gravity="center_horizontal"
+            android:text="Parents can keep track of the progress of the
+Child-athlete"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            />
+    </RelativeLayout>
+
+
+</FrameLayout>

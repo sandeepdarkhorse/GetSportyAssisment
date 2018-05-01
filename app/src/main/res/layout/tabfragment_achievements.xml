@@ -1,0 +1,235 @@
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDFDFD"
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:fillViewport="true"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:padding="2dp">
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/result_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/best_result_text"
+                    android:textColor="#666666"
+                    android:textSize="@dimen/notification_body_size" />
+                <!--<LinearLayout-->
+                <!--android:id="@+id/linear_classjoin"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_toRightOf="@+id/result_title"-->
+                <!--android:layout_toLeftOf="@+id/sport_edit"-->
+                <!--android:gravity="bottom|center_horizontal"-->
+                <!--&gt;-->
+                <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@android:drawable/arrow_up_float"-->
+                <!--android:id="@+id/iv_arrow1"-->
+                <!--android:layout_marginRight="5dp"/>-->
+                <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@android:drawable/arrow_up_float"-->
+                <!--android:id="@+id/iv_arrow2"-->
+                <!--android:layout_marginLeft="5dp"/>-->
+
+                <!--</LinearLayout>-->
+                <TextView
+                    android:id="@+id/sport_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/add"
+                    android:textColor="@color/colorPrimary" />
+            </RelativeLayout>
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="2dp"-->
+            <!--android:background="@color/underline"-->
+            <!--/>-->
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycle_view_best"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:scrollbars="horizontal" />
+
+
+            <LinearLayout
+                android:id="@+id/linear_visible_bestresult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/degree"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="@string/result_text"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/body_text1" />
+
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/org_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:text="@string/round_hit_text_profile"
+                    android:textSize="@dimen/body_text_small" />
+
+                <TextView
+                    android:id="@+id/stream"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:text="@string/competition_name_text"
+                    android:textSize="@dimen/body_text_small" />
+
+                <TextView
+                    android:id="@+id/degree_duraction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:text="@string/competition_date_text"
+                    android:textSize="@dimen/body_text_small" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/award"
+                    android:textSize="@dimen/notification_body_size" />
+
+                <TextView
+                    android:id="@+id/formal_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/add"
+                    android:textColor="@color/colorPrimary" />
+            </RelativeLayout>
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="2dp"-->
+            <!--android:background="@color/underline"-->
+            <!--/>-->
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycle_award"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:scrollbars="vertical" />
+
+            <LinearLayout
+                android:id="@+id/linear_visible_award"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:text="@string/award_name_text"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/body_text1" />
+
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:text="@string/description_text"
+                    android:textSize="@dimen/body_text_small" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:text="@string/award_date_text"
+                    android:textSize="@dimen/body_text_small" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
+

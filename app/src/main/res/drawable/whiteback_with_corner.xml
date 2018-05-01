@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shape="rectangle">
+
+    <gradient
+        android:angle="270"
+        android:endColor="@color/statusbar_home"
+        android:startColor="@color/statusbar_home"/>
+    <!--<solid android:color="#e0ffed"/>-->
+    <corners
+        android:bottomLeftRadius="0dp"
+        android:bottomRightRadius="0dp"
+        android:topLeftRadius="0dp"
+        android:topRightRadius="0dp"
+        />
+    <stroke android:width="2dp" android:color="@color/primary_white"/>
+
+
+</shape>

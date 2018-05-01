@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent_layout"
+    android:layout_width="295dp"
+    android:layout_height="190dp"
+    android:layout_margin="1dp"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|left"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="9sp"
+                android:text="BEST RESULT "
+                android:textColor="#ffffff"
+                android:textSize="15.8sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/stream"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="5dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/profile_font_size" />
+
+        <TextView
+            android:id="@+id/org_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/profile_font_size" />
+
+
+        <TextView
+            android:id="@+id/degree_duraction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/profile_font_size" />
+
+        <TextView
+            android:id="@+id/degree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/profile_font_size" />
+
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
+
+
+
+
+

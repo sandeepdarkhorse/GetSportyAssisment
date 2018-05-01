@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/close"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:editable="false"
+        android:gravity="center|top"
+        android:text="x"
+        android:textColor="@color/primary_white"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_heading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:lineSpacingExtra="5.0sp"
+                android:text="DO YOU WANT TO APPLY FOR \n THIS JOB."
+                android:textColor="@color/primary_white"
+                android:textSize="@dimen/heading_text" />
+
+            <Button
+                android:id="@+id/edit_yes"
+                android:layout_width="160dp"
+                android:layout_height="@dimen/body_text"
+                android:layout_marginTop="60dp"
+                android:background="@color/tab_selected_color_athletic"
+                android:text="YES "
+                android:textColor="@color/primary_white" />
+
+            <Button
+                android:id="@+id/edit_no"
+                android:layout_width="160dp"
+                android:layout_height="@dimen/body_text"
+                android:layout_marginTop="40dp"
+                android:background="@color/job_listing_connect"
+                android:text="NO"
+                android:textColor="@color/primary_white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+

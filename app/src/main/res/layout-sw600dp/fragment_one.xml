@@ -1,0 +1,61 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@mipmap/slider1"-->
+        <!--android:scaleType="fitXY" />-->
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_above="@+id/info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="120dp"
+            android:background="@drawable/group_4" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/tab_heading28"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textColor="#2196f3"
+            android:letterSpacing="0.04"
+            android:lineSpacingExtra="0.3sp"
+            android:text="Info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:id="@+id/info"
+            android:layout_above="@+id/summary"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/tab_body_text24sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:textColor="#2f2f2f"
+            android:lineSpacingExtra="6.8sp"
+            android:gravity="center_horizontal"
+            android:text="Find information about domestic events,
+tournaments, competitions &amp; sports professionals"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/summary"
+            android:layout_marginBottom="30dp"
+            />
+    </RelativeLayout>
+
+
+</FrameLayout>

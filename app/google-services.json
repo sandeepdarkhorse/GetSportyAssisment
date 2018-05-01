@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "553581377997",
+    "firebase_url": "https://getsportyassisment-202207.firebaseio.com",
+    "project_id": "getsportyassisment-202207",
+    "storage_bucket": "getsportyassisment-202207.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553581377997:android:2b88c32ef48aeaa4",
+        "android_client_info": {
+          "package_name": "main.darkhorse.com.getsportyassisment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553581377997-hrjnultlpj2v5arsog1406i9p4qjcsep.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "main.darkhorse.com.getsportyassisment",
+            "certificate_hash": "10fc400e9de760e8a4e4cdfb33c78f723fd57f06"
+          }
+        },
+        {
+          "client_id": "553581377997-s7k8q5lki0hfvb6dvk66g2g4alovtpoa.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "553581377997-huq68tl1anlq7e0588bi2hs73fmuk8mc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvFsfWQzV3Yic7LcusAXAzBmtp8vhzEro"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553581377997-s7k8q5lki0hfvb6dvk66g2g4alovtpoa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
