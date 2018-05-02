@@ -174,8 +174,6 @@ public class ActivityParticipateList extends AppCompatActivity implements SwipeR
                     tournamentappliedDataArray.clear();
                     JobAppliedAdapter adapter = new JobAppliedAdapter(tournamentappliedDataArray);
                     applicantjobView.setAdapter(adapter);
-
-
                 }
             }
 

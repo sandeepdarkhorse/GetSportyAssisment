@@ -78,11 +78,13 @@
                         android:gravity="top|left"
                         android:layout_marginTop="5dp">
                         <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_marginLeft="5dp"
                             android:src="@drawable/date_blue"
-                            android:tint="@color/statusbar_profile"/>
+                            android:scaleType="fitCenter"
+                            android:tint="@color/statusbar_profile"
+                            android:layout_marginTop="2dp"/>
                         <TextView
                             android:id="@+id/event_date"
                             android:layout_marginLeft="5dp"
@@ -92,7 +94,8 @@
                             android:background="@android:color/transparent"
                             android:text="27th Nov - 30th Nov 2015"
                             android:textSize="@dimen/tab_body_text18"
-                            android:textColor="@color/statusbar_profile"/>
+                            android:textColor="@color/statusbar_profile"
+                            android:gravity="center"/>
 
                     </LinearLayout>
 
@@ -104,11 +107,13 @@
                         android:gravity="top|left"
                         android:layout_marginTop="5dp">
                         <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_marginLeft="5dp"
+                            android:scaleType="fitCenter"
                             android:src="@drawable/location_blue"
-                            android:tint="@color/statusbar_profile"/>
+                            android:tint="@color/statusbar_profile"
+                            android:layout_marginTop="2dp"/>
                         <TextView
                             android:id="@+id/event_location"
                             android:layout_marginLeft="5dp"
@@ -117,6 +122,7 @@
                             android:layout_below="@+id/relative_back"
                             android:background="@android:color/transparent"
                             android:textSize="@dimen/tab_body_text18"
+                            android:gravity="center"
                             android:textColor="@color/statusbar_profile"/>
                     </LinearLayout>
 
@@ -127,11 +133,14 @@
                         android:gravity="top|left"
                         android:layout_marginTop="5dp">
                         <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_marginLeft="5dp"
                             android:src="@drawable/ic_soccer_black_18dp"
-                            android:tint="@color/statusbar_profile"  />
+                            android:tint="@color/statusbar_profile"
+                            android:scaleType="fitCenter"
+                            android:layout_marginTop="2dp"
+                            />
                         <TextView
                             android:id="@+id/sport_name"
                             android:layout_marginLeft="5dp"
@@ -139,6 +148,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/event_id"
                             android:textSize="@dimen/tab_body_text18"
+                            android:gravity="center"
                             android:textColor="@color/statusbar_profile"
                             />
                         <TextView

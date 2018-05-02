@@ -56,10 +56,10 @@ public class AboutActivity extends AppCompatActivity implements CustomDialogNoIn
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(AboutActivity.this, MainActivity.class);
-        startActivity(i);
+//        Intent i = new Intent(AboutActivity.this, MainActivity.class);
+//        startActivity(i);
+//        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     @Override

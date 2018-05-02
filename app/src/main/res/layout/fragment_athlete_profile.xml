@@ -164,7 +164,7 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="5dp"
                     android:scaleType="center"
-                    android:src="@mipmap/share_copy_3" />
+                    android:src="@drawable/share_copy_3" />
             </RelativeLayout>
 
 
@@ -472,6 +472,7 @@
                 app:tabMode="scrollable"
                 app:tabSelectedTextColor="@color/colorPrimary"
                 app:tabTextColor="@color/text_color"
+                app:tabTextAppearance="@style/CustomTextStyle"
 
                 />
 

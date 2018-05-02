@@ -10,4 +10,74 @@
         <item name="android:textSize">24sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/toolbar_color_home</item>
+        <item name="colorPrimaryDark">@color/statusbar_home</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:icon">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/text_heading_color</item>
+        <item name="android:textSize">15sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/text_heading_color</item>
+        <item name="colorControlNormal">@color/text_heading_color</item>
+        <item name="colorControlActivated">@color/text_heading_color</item>
+    </style>
+
+    <style name="TextLabelInput" parent="ThemeOverlay.AppCompat.Light">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/text_heading_color</item>
+        <item name="android:textSize">15sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/text_heading_color</item>
+        <item name="colorControlNormal">@color/text_heading_color</item>
+        <item name="colorControlActivated">@color/text_heading_color</item>
+    </style>
+
+
+    <style name="textInputlayout" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/text_heading_color</item>
+        <item name="android:textSize">15sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/statusbar_home</item>
+        <item name="colorControlNormal">@color/statusbar_home</item>
+        <item name="colorControlActivated">@color/text_heading_color</item>
+    </style>
+
+    <style name="ProfileImageZoomAni">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_bottom</item>
+
+        <!--<item name="android:windowEnterAnimation">@anim/zoom_in</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/zoom_out</item>-->
+
+    </style>
+
+    <style name="MyHomeButtonTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:homeAsUpIndicator">@mipmap/backbutton</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="Toolbar.TitleText2" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>

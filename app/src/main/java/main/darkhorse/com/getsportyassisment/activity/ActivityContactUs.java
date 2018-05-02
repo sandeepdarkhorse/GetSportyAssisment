@@ -93,10 +93,11 @@ public class ActivityContactUs extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(ActivityContactUs.this, MainActivity.class);
-        startActivity(i);
+//        Intent i = new Intent(ActivityContactUs.this, MainActivity.class);
+//        startActivity(i);
+//        finish();
+//        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
 

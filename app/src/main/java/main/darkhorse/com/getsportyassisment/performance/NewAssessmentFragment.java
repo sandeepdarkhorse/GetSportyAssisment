@@ -472,8 +472,6 @@ public class NewAssessmentFragment extends Fragment implements View.OnClickListe
                 }
             });
         }
-
-
     }
 
     private String modulesAvg(String data, ArrayList<String> modulesArrayList){

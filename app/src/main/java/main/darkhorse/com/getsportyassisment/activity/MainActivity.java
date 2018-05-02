@@ -15,6 +15,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.FileProvider;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -63,6 +65,7 @@ import main.darkhorse.com.getsportyassisment.UtilsFile.MainUrls;
 import main.darkhorse.com.getsportyassisment.UtilsFile.NetworkStatus;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress;
 import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
+import main.darkhorse.com.getsportyassisment.fragment.Fragment_Share;
 import main.darkhorse.com.getsportyassisment.model_classes.MyTournamentDataModel;
 import main.darkhorse.com.getsportyassisment.model_classes.MyTournamentResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.TournamentListingResponse;
@@ -95,6 +98,8 @@ public class MainActivity extends AppCompatActivity
     private ApiAtheliteCall apiCall;
     private ArrayList<MyTournamentDataModel> tournament_dataitem = new ArrayList<MyTournamentDataModel>();
     Uri uri;
+    private FragmentManager fm;
+
 
 
     @Override
@@ -111,6 +116,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         customProgress= CustomProgress.getInstance();
+        fm = getSupportFragmentManager();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -238,9 +244,6 @@ public class MainActivity extends AppCompatActivity
                     // myRelativeLayout.setVisibility(View.GONE);
                     textViewDefault.setVisibility(View.VISIBLE);
 
-
-
-
                 }
             }
 
@@ -347,7 +350,6 @@ public class MainActivity extends AppCompatActivity
         @Override
         public ProfessionalClassesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             rootview = LayoutInflater.from(getApplicationContext()).inflate(R.layout.tournament_listing_item, parent, false);
-
 
             return new ProfessionalClassesAdapter.ViewHolder(rootview);
         }
@@ -568,26 +570,26 @@ public class MainActivity extends AppCompatActivity
 
                         SharedPreferences sharedPreferences_login = getSharedPreferences("Login", Context.MODE_PRIVATE);
                         boolean login = sharedPreferences_login.getBoolean("login", false);
-//                        if (login == true) {
-//
-//                            int position = recycleview_tournamentListing.getChildAdapterPosition(itemView);
-//
-//                            String jobid = tournament_dataitem.get(position).getId();
-//                            final String link = "https://www.getsporty.in/share.php/referrer=share&module=3&id=" + jobid;
-//                            Bitmap bm = DateConversion.screenShot(rootview);
-//                            File file = DateConversion.saveBitmap(bm, "mantis_image.png");
-//                            Log.i("chase", "filepath: " + file.getAbsolutePath());
-//                            if (Build.VERSION.SDK_INT >= 21) {
-//                                uri = FileProvider.getUriForFile(context, "darkhorsesports.getsporty", file);
-//                                showDialog(link, uri);
-//                            } else {
-//                                uri = Uri.fromFile(file);
-//                                showDialog(link, uri);
-//                            }
-//
-//                        } else {
-//
-//                        }
+                        if (login == true) {
+
+                            int position = recycleview_tournamentListing.getChildAdapterPosition(itemView);
+
+                            String jobid = tournament_dataitem.get(position).getId();
+                            final String link = "https://www.getsporty.in/share.php/referrer=share&module=3&id=" + jobid;
+                            Bitmap bm = DateConversion.screenShot(rootview);
+                            File file = DateConversion.saveBitmap(bm, "mantis_image.png");
+                            Log.i("chase", "filepath: " + file.getAbsolutePath());
+                            if (Build.VERSION.SDK_INT >= 21) {
+                                uri = FileProvider.getUriForFile(context, "main.darkhorse.com.getsportyassisment", file);
+                                showDialog(link, uri);
+                            } else {
+                                uri = Uri.fromFile(file);
+                                showDialog(link, uri);
+                            }
+
+                        } else {
+
+                        }
                     }
                 });
 
@@ -699,6 +701,12 @@ public class MainActivity extends AppCompatActivity
 
 
             }
+        }
+
+        void showDialog(String lin, Uri uri) {
+
+            DialogFragment newFragment = Fragment_Share.newInstance(lin, uri);
+            newFragment.show(fm, "SHARE");
         }
     }
 }

@@ -463,19 +463,21 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
         if (indiacterforprofile != null) {
             switch (indiacterforprofile) {
                 case "1":
-                    Intent base1 = new Intent(UserProfile.this, MainActivity.class);
-                    startActivity(base1);
+//                    Intent base1 = new Intent(UserProfile.this, MainActivity.class);
+//                    startActivity(base1);
+//                    finish();
+//                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     finish();
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     break;
                 case "2":
 
                     break;
                 case "3":
-                    Intent base2 = new Intent(UserProfile.this, MainActivity.class);
-                    startActivity(base2);
+//                    Intent base2 = new Intent(UserProfile.this, MainActivity.class);
+//                    startActivity(base2);
+//                    finish();
+//                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     finish();
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 //                    userinfo.putString("jobId", job_id);
 //                    userinfo.putString("jobTitle", job_title);
 //                    userinfo.putString("BackPress", "1");
@@ -500,10 +502,11 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
                     break;
             }
         } else {
-            Intent base3 = new Intent(UserProfile.this, MainActivity.class);
-            startActivity(base3);
+//            Intent base3 = new Intent(UserProfile.this, MainActivity.class);
+//            startActivity(base3);
+//            finish();
+//            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             finish();
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         }
 
 

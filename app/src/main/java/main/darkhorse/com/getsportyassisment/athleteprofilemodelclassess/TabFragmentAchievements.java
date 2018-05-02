@@ -223,9 +223,9 @@ public class TabFragmentAchievements extends Fragment implements ApiAtheliteData
                 description.setText(s.getDescription());
                 tvDate.setText(s.getDate());
                 if (position % 2 == 0) {
-                  //  linearLayoutParent.setBackgroundResource(R.drawable.light_pink_background);
+                    linearLayoutParent.setBackgroundResource(R.drawable.light_pink_background);
                 } else {
-                  //  linearLayoutParent.setBackgroundResource(R.drawable.light_blue_background);
+                    linearLayoutParent.setBackgroundResource(R.drawable.light_blue_background);
                 }
             }
         }
@@ -281,9 +281,9 @@ public class TabFragmentAchievements extends Fragment implements ApiAtheliteData
                 stream.setText(s.getNameComptation());
                 textViewHeading.setText("BEST RESULT " + (position + 1));
                 if (position % 2 == 0) {
-                 //   linearLayoutParent.setBackgroundResource(R.drawable.purple_background);
+                    linearLayoutParent.setBackgroundResource(R.drawable.purple_background);
                 } else {
-                   // linearLayoutParent.setBackgroundResource(R.drawable.pink_background);
+                    linearLayoutParent.setBackgroundResource(R.drawable.pink_background);
                 }
             }
         }

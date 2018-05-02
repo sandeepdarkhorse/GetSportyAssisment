@@ -18,7 +18,7 @@ android {
     }
     sourceSets {
         main {
-            res.srcDirs = ['src/main/res', 'src/main/res/layout-sw600dp', 'src/main/res/drawable/date']
+            res.srcDirs = ['src/main/res', 'src/main/res/layout-sw600dp', 'src/main/res/drawable/date', 'src/main/res/xml']
         }
     }
 }

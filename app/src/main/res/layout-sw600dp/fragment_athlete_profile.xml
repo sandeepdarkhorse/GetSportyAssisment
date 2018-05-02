@@ -164,7 +164,8 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="5dp"
                     android:scaleType="center"
-                    android:src="@mipmap/share_copy_3" />
+                    android:src="@mipmap/share_copy_3"
+                    />
             </RelativeLayout>
 
 

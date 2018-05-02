@@ -154,6 +154,7 @@ public class AthleteProfile extends Fragment implements View.OnClickListener, Ap
     private String sport;
     private String indiacator;
     private FragmentManager fm;
+    Context context;
 
     public AthleteProfile() {
     }
@@ -242,7 +243,7 @@ public class AthleteProfile extends Fragment implements View.OnClickListener, Ap
                 Log.i("chase", "filepath: " + file.getAbsolutePath());
 
                 if (Build.VERSION.SDK_INT >= 21) {
-                    uri = FileProvider.getUriForFile(context, "darkhorsesports.getsporty", file);
+                    uri = FileProvider.getUriForFile(getContext(), "main.darkhorse.com.getsportyassisment", file);
                     showDialog(link, uri);
                 } else {
                     uri = Uri.fromFile(file);
@@ -509,6 +510,7 @@ public class AthleteProfile extends Fragment implements View.OnClickListener, Ap
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tad_achivement));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_bio));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
         mAdapter = new AthleteUserAdapter(getChildFragmentManager(), tabLayout.getTabCount());
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(mAdapter);
@@ -520,16 +522,19 @@ public class AthleteProfile extends Fragment implements View.OnClickListener, Ap
 
                 TextView tabTextView = new TextView(getContext());
                 tab.setCustomView(tabTextView);
+                tabTextView.setTextSize(18f);
 
                 tabTextView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
                 tabTextView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
                 tabTextView.setText(tab.getText());
 
+
                 // First tab is the selected tab, so if i==0 then set BOLD typeface
                 if (i == 0) {
                     tabTextView.setTypeface(null, Typeface.BOLD);
                     tabTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.toolbar_color_home));
+
                 }
 
             }
@@ -554,6 +559,7 @@ public class AthleteProfile extends Fragment implements View.OnClickListener, Ap
                 assert text != null;
                 text.setTypeface(null, Typeface.BOLD);
                 text.setTextColor(ContextCompat.getColor(getContext(), R.color.toolbar_color_home));
+                text.setTextSize(18f);
 
             }
 
@@ -566,6 +572,7 @@ public class AthleteProfile extends Fragment implements View.OnClickListener, Ap
                 assert text != null;
                 text.setTypeface(null, Typeface.NORMAL);
                 text.setTextColor(ContextCompat.getColor(getContext(), R.color.text_color));
+                text.setTextSize(18f);
 
             }
 
