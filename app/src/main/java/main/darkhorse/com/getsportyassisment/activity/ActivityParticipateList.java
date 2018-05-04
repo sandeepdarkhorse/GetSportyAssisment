@@ -251,13 +251,15 @@ public class ActivityParticipateList extends AppCompatActivity implements SwipeR
                     String liteSport = professionalsDataItems.get(position).getSport();
                     String doB=professionalsDataItems.get(position).getDob();
                     String applicantId= professionalsDataItems.get(position).getApplicant_id();
+                    String gender=professionalsDataItems.get(position).getGender();
 
                     Intent i = new Intent(ActivityParticipateList.this, PerformanceActivity.class);
-                    i.putExtra("gender", "Male");
+                    i.putExtra("gender", gender);
                     i.putExtra("dob", doB);
                     i.putExtra("studentid",applicantId );
                     i.putExtra("sport", liteSport);
                     startActivity(i);
+
 
                 }
             });

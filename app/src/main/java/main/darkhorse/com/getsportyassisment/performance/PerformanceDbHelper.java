@@ -30,7 +30,7 @@ import static main.darkhorse.com.getsportyassisment.performance.PerformanceDatab
 import static main.darkhorse.com.getsportyassisment.performance.PerformanceDatabase.TABLE_NAME;
 
 /**
- * Created by kumargaurav on 29/03/17.
+ * Created by  on 29/03/17.
  */
 
 public class PerformanceDbHelper {

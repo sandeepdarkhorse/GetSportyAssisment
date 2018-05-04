@@ -6,7 +6,7 @@ package main.darkhorse.com.getsportyassisment.UtilsFile;
 
 public class  SharedPrefs {
 
-    public static final String DASHBOARD_PREFS = "Dashboard_Prefs";
+    public static final String DASHBOARD_PREFS = "Dashboard_prefs";
     public static final String SPORT = "sport";
 
     public static final String PERFORMANCE = "performance";

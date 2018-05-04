@@ -117,6 +117,7 @@ public class PerformanceAssessmentFragment extends Fragment implements View.OnCl
         }
     }
 
+    String dob,gender,studentId,sport;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -128,10 +129,13 @@ public class PerformanceAssessmentFragment extends Fragment implements View.OnCl
 //        btNewAssessment = (Button)rootView.findViewById(R.id.new_assessment);
         textViewDefault = (TextView)rootView.findViewById(R.id.default_text);
         fabNew = (FloatingActionButton) rootView.findViewById(R.id.new_assessment);
-//        mParam1="53";
+       // mParam1="53";//this value pass static to run code
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SharedPrefs.PERFORMANCE,MODE_PRIVATE);
         mParam1=sharedPreferences.getString("studentid","");
+ //       mParam1="53";
+        dob=sharedPreferences.getString("dob","");
+        sport=sharedPreferences.getString("sport","");
 
         //toolbar = (Toolbar)getActivity().findViewById(R.id.toolbar);
         getActivity().setTitle(getResources().getString(R.string.performance));
@@ -218,12 +222,14 @@ public class PerformanceAssessmentFragment extends Fragment implements View.OnCl
                     Log.e("Tag", "next  = "+response.body().getNext_assessment());
 
                     int count = performanceDbHelper.getCount(Integer.parseInt(mParam1));
+                    Log.e("Tag","number of counts:: "+count);
 
                     int saveCount = 0;
                     if (response.body().getStatus() == 1){
                         try {
 
                             textViewDefault.setVisibility(View.GONE);
+                            Log.e("Tag","data in perform assesment: "+response.body().getData().toString());
 
                             JSONArray jsonArray = new JSONArray(response.body().getData().toString());
 
@@ -238,6 +244,8 @@ public class PerformanceAssessmentFragment extends Fragment implements View.OnCl
                                 int status = JsonParser.getInt(jsonObject, JsonKeys.STATUS);
                                 String dateCreated = JsonParser.getString(jsonObject, JsonKeys.DATE_CREATED);
                                 String datePublished = JsonParser.getString(jsonObject, JsonKeys.DATE_PUBLISHED);
+                                Log.e("Tag","name :"+name+"id :"+id+"coachId :"+coachId+"athlete id :"+athleteId+"data:: "+data);
+
 
 
                                 if (JsonParser.getInt(jsonObject, JsonKeys.STATUS)==0){

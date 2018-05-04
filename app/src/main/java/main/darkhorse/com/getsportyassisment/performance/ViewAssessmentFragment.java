@@ -57,7 +57,9 @@ public class ViewAssessmentFragment extends Fragment implements View.OnClickList
     TextView textViewParentAvg;
 
 
+
     //private OnFragmentInteractionListener mListener;
+
 
     public ViewAssessmentFragment() {
         // Required empty public constructor

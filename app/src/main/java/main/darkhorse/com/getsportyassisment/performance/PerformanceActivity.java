@@ -41,6 +41,7 @@ public class PerformanceActivity extends AppCompatActivity implements View.OnCli
         editor.putString(SharedPrefs.SPORT, bundle.getString("sport",""));
         editor.putString(SharedPrefs.STUDENTID, bundle.getString("studentid"));
         editor.commit();
+
         ImageView imageViewGuideLines = (ImageView)toolbar.findViewById(R.id.guidelines);
         imageViewGuideLines.setOnClickListener(PerformanceActivity.this);
         FragmentManager fragmentManager = getSupportFragmentManager();

@@ -101,6 +101,7 @@ public class AnalysisFragment extends Fragment implements View.OnClickListener{
 
             module = getArguments().getString(ARG_PARAM3);
             data = getArguments().getString(ARG_PARAM4);
+            Log.e("Tag","data values::: "+data);
         }
     }
 
@@ -191,6 +192,7 @@ public class AnalysisFragment extends Fragment implements View.OnClickListener{
                 int answer = JsonParser.getInt(jsonObject1,JsonKeys.ANSWER);
                 String question = JsonParser.getString(jsonObject1,JsonKeys.KEY_QUESTION);
                 String submodule1 = JsonParser.getString(jsonObject1, JsonKeys.SUB_MODULE);
+                Log.e("Tag","questions::"+question);
 
                 if (module.equals(module1)&& submodule.equals(submodule1)){
 
@@ -212,6 +214,7 @@ public class AnalysisFragment extends Fragment implements View.OnClickListener{
 
         PerformanceDbHelper performanceDbHelper = new PerformanceDbHelper(getActivity());
         ArrayList<String> arrayList = performanceDbHelper.getAllSubModules(module,studentid);
+        Log.e("Tag","arraylist data:: "+arrayList);
 
         recyclerViewParent.setAdapter(new SubModulesAdapter(arrayList));
 
@@ -417,9 +420,6 @@ public class AnalysisFragment extends Fragment implements View.OnClickListener{
             jsonObject.put("athlete", String.valueOf(athlAvg));
 
 
-
-
-
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -583,8 +583,9 @@ public class AnalysisFragment extends Fragment implements View.OnClickListener{
             else {
 
                 performanceAssessment = getQuestions(submodule);
-            }
 
+
+            }
 
         }
 
@@ -729,7 +730,6 @@ public class AnalysisFragment extends Fragment implements View.OnClickListener{
                 for (int j = value;j<10;j++){
                     imageViews[j].setBackground(getActivity().getResources().getDrawable(R.drawable.days_background));
                     textViews[j].setTextColor(getActivity().getResources().getColor(R.color.text_color));
-
 
                 }
 

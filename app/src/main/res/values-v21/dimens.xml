@@ -1,0 +1,58 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="heading_text">20sp</dimen>
+    <dimen name="body_text">16sp</dimen>
+    <dimen name="body_text_small">14sp</dimen>
+
+
+    <dimen name="body_text_large">18sp</dimen>
+    <dimen name="body_text_smaller">9sp</dimen>
+    <dimen name="heading_text_small">13sp</dimen>
+
+    <dimen name="body_text_small1">12sp</dimen>
+    <dimen name="submitbutton_text">20sp</dimen>
+    <dimen name="body_text1">14sp</dimen>
+    <dimen name="body_text_small10">10sp</dimen>
+    <dimen name="edittext_size">50dp</dimen>
+    <dimen name="edittext_height">50dp</dimen>
+    <dimen name="edittext_margin">20dp</dimen>
+    <dimen name="heading_text_mediam">17sp</dimen>
+    <dimen name="job_details_margintop">5dp</dimen>
+    <dimen name="job_details_textsize">11dp</dimen>
+    <dimen name="job_details_heading_textsize">13dp</dimen>
+
+    <dimen name="heading">22sp</dimen>
+    <dimen name="textsize12">12sp</dimen>
+
+    <dimen name="tab_heading">24sp</dimen>
+    <dimen name="tab_heading26">26sp</dimen>
+    <dimen name="tab_heading28">28sp</dimen>
+    <dimen name="tab_body_text16">16sp</dimen>
+    <dimen name="tab_body_text18">18sp</dimen>
+    <dimen name="tab_body_text">20sp</dimen>
+    <dimen name="tab_body_text22sp">22sp</dimen>
+    <dimen name="tab_body_text24sp">24sp</dimen>
+
+
+
+    <!-- dateTitleLayout -->
+    <!--<dimen name="dateTitlePaddingBottom">5dp</dimen>-->
+    <!-- weekLayout -->
+    <!-- weekRowLayout -->
+    <!--<dimen name="week_bottom_padding">5dp</dimen>-->
+    <!-- Day of the month -->
+    <dimen name="padding">8dp</dimen>
+    <!--New dimens-->
+    <dimen name="calendarTitlePaddingTop">8dp</dimen>
+    <dimen name="calendarTitlePaddingBottom">8dp</dimen>
+    <dimen name="weekTitlePaddingTop">8dp</dimen>
+    <dimen name="weekTitlePaddingBottom">8dp</dimen>
+    <dimen name="minDayCellHeight">40dp</dimen>
+    <dimen name="profile_font_size">14sp</dimen>
+    <dimen name="notification_body_size">16sp</dimen>
+</resources>

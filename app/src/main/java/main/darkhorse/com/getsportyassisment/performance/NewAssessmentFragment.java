@@ -141,7 +141,7 @@ public class NewAssessmentFragment extends Fragment implements View.OnClickListe
 
         modulesArrayList = new ArrayList<>();
 
-
+//mParam1="53";
 
         loadModules();
 
@@ -188,9 +188,9 @@ public class NewAssessmentFragment extends Fragment implements View.OnClickListe
             PerformanceApiCall apiCall = retrofit.create(PerformanceApiCall.class);
 
             Call<GetPerformanceModulesResponse> getPerformanceModulesResponseCall = apiCall.getPerformanceModuleRequest("get_modules",
-                    new GetPerformanceModuleRequest(sharedPreferences.getString(SharedPrefs.GENDER,"Male"),
-                            sharedPreferences.getString(SharedPrefs.SPORT,"Football"),sharedPreferences.getString(SharedPrefs.DOB,"12-4-2000"),
-                            sharedPreferences.getString(SharedPrefs.USERID,"7"),mParam1));
+                    new GetPerformanceModuleRequest(sharedPreferences.getString(SharedPrefs.GENDER,""),
+                            sharedPreferences.getString(SharedPrefs.SPORT,""),sharedPreferences.getString(SharedPrefs.DOB,""),
+                            sharedPreferences.getString(SharedPrefs.USERID,""),mParam1));
 
 
             Log.e("publish url", getPerformanceModulesResponseCall.request().url().toString());
@@ -438,8 +438,7 @@ public class NewAssessmentFragment extends Fragment implements View.OnClickListe
 
             Call<SavePerformanceResponse> getPerformanceModulesResponseCall = apiCall.savePerformanceRequest("save_performance", new SavePerformanceRequest(sharedPreferences.getString(SharedPrefs.USERID, "7"), mParam1, performanceDbHelper.getAllData(Integer.parseInt(mParam1)), status, String.valueOf(performanceDbHelper.getRowId(Integer.parseInt(mParam1))), modulesAverage, String.valueOf(avg)));
 
-
-            Log.e("publish url", getPerformanceModulesResponseCall.request().url().toString());
+            Log.e("save url", getPerformanceModulesResponseCall.request().url().toString());
             getPerformanceModulesResponseCall.enqueue(new Callback<SavePerformanceResponse>() {
                 @Override
                 public void onResponse(Call<SavePerformanceResponse> call, Response<SavePerformanceResponse> response) {
@@ -472,6 +471,8 @@ public class NewAssessmentFragment extends Fragment implements View.OnClickListe
                 }
             });
         }
+
+
     }
 
     private String modulesAvg(String data, ArrayList<String> modulesArrayList){

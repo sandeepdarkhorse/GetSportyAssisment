@@ -28,7 +28,7 @@
         android:layout_margin="5dp"
         android:text="Question"
         android:textColor="@color/my_creation"
-        android:textSize="@dimen/body_text"/>
+        android:textSize="@dimen/tab_body_text18"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,8 +44,8 @@
 
             <ImageView
                 android:id="@+id/image1"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/days_background"
                 />
@@ -56,7 +56,7 @@
                 android:layout_centerInParent="true"
                 android:text="1"
                 android:textColor="@color/text_color"
-                android:textSize="13dp"/>
+                android:textSize="@dimen/tab_body_text16"/>
 
         </RelativeLayout>
 
@@ -68,8 +68,8 @@
 
             <ImageView
                 android:id="@+id/image2"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/days_background"
                 />
@@ -80,7 +80,7 @@
                 android:layout_centerInParent="true"
                 android:text="2"
                 android:textColor="@color/text_color"
-                android:textSize="13dp"/>
+                android:textSize="@dimen/tab_body_text16"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -91,8 +91,8 @@
 
             <ImageView
                 android:id="@+id/image3"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/days_background"
                 />
@@ -103,7 +103,7 @@
                 android:layout_centerInParent="true"
                 android:text="3"
                 android:textColor="@color/text_color"
-                android:textSize="13dp"/>
+                android:textSize="@dimen/tab_body_text16"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -114,8 +114,8 @@
 
             <ImageView
                 android:id="@+id/image4"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/days_background"
                 />
@@ -126,7 +126,7 @@
                 android:layout_centerInParent="true"
                 android:text="4"
                 android:textColor="@color/text_color"
-                android:textSize="13dp"/>
+                android:textSize="@dimen/tab_body_text16"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -137,8 +137,8 @@
 
             <ImageView
                 android:id="@+id/image5"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/days_background"
                 />
@@ -149,7 +149,7 @@
                 android:layout_centerInParent="true"
                 android:text="5"
                 android:textColor="@color/text_color"
-                android:textSize="13dp"/>
+                android:textSize="@dimen/tab_body_text16"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -160,8 +160,8 @@
 
             <ImageView
                 android:id="@+id/image6"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/days_background"
                 />
@@ -172,7 +172,7 @@
                 android:layout_centerInParent="true"
                 android:text="6"
                 android:textColor="@color/text_color"
-                android:textSize="13dp"/>
+                android:textSize="@dimen/tab_body_text16"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -183,8 +183,8 @@
 
             <ImageView
                 android:id="@+id/image7"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/days_background"
                 />
@@ -195,7 +195,7 @@
                 android:layout_centerInParent="true"
                 android:text="7"
                 android:textColor="@color/text_color"
-                android:textSize="13dp"/>
+                android:textSize="@dimen/tab_body_text16"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -206,8 +206,8 @@
 
             <ImageView
                 android:id="@+id/image8"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/days_background"
                 />
@@ -218,7 +218,7 @@
                 android:layout_centerInParent="true"
                 android:text="8"
                 android:textColor="@color/text_color"
-                android:textSize="13dp"/>
+                android:textSize="@dimen/tab_body_text16"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -229,8 +229,8 @@
 
             <ImageView
                 android:id="@+id/image9"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/days_background"
                 />
@@ -241,7 +241,7 @@
                 android:layout_centerInParent="true"
                 android:text="9"
                 android:textColor="@color/text_color"
-                android:textSize="13dp"/>
+                android:textSize="@dimen/tab_body_text16"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -252,8 +252,8 @@
 
             <ImageView
                 android:id="@+id/image10"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/days_background"
                 />
@@ -264,7 +264,7 @@
                 android:layout_centerInParent="true"
                 android:text="10"
                 android:textColor="@color/text_color"
-                android:textSize="13dp"/>
+                android:textSize="@dimen/tab_body_text16"/>
 
         </RelativeLayout>
 
