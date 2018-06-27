@@ -21,7 +21,9 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer"
-        app:itemTextAppearance="@style/Toolbar.TitleText"/>
+        app:itemTextAppearance="@style/Toolbar.TitleText"
+        app:itemIconTint="@color/statusbar_home"
+        />
     />
 
 </android.support.v4.widget.DrawerLayout>

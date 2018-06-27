@@ -200,11 +200,8 @@ public class MainActivity extends AppCompatActivity
 
                     }
                 }, 500);
-
             }
         });
-
-
     }
 
 
@@ -519,9 +516,6 @@ public class MainActivity extends AppCompatActivity
 //                            fragmentManger.beginTransaction().replace(R.id.container, TournamentApplicantListing.newInstance(tournamentid, tournament_dataitem.get(position).getCategory(),sport)).addToBackStack("tournament_applicant").commit();
 //
 //                        }
-
-
-
 
                     }
                 });

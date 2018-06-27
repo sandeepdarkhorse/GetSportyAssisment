@@ -300,6 +300,7 @@ public class PerformanceAssessmentFragment extends Fragment implements View.OnCl
 //                        btNewAssessment.setText("New Assessment");
 //                        btNewAssessment.setClickable(true);
 
+
                     }
                     customProgress.hideProgress();
                 }
@@ -325,7 +326,6 @@ public class PerformanceAssessmentFragment extends Fragment implements View.OnCl
         }
 
         swipeRefreshLayout.setRefreshing(false);
-
     }
 
     @Override

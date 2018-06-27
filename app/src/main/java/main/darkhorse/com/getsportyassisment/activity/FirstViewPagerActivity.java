@@ -238,7 +238,7 @@ public class FirstViewPagerActivity extends AppCompatActivity implements View.On
 
             case R.id.google_signin:
 
-                Toast.makeText(context,"In google click:: ",Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(context,"In google click:: ",Toast.LENGTH_SHORT).show();
                 signInGoogle();
 
                 if (network_status.isConnectingToInternet()) {

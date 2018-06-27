@@ -133,6 +133,8 @@ public class NewAssessmentFragment extends Fragment implements View.OnClickListe
 //        cardViewSelf.setOnClickListener(this);
 //        cardViewParent.setOnClickListener(this);
         buttonPublish.setOnClickListener(this);
+        buttonPublish.setVisibility(View.GONE);
+
 //        buttonRecomPhysio.setOnClickListener(this);
 //        buttonRecomPsycho.setOnClickListener(this);
 //
@@ -299,7 +301,6 @@ public class NewAssessmentFragment extends Fragment implements View.OnClickListe
             savePerformance("0");
 
         }
-
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -588,9 +589,6 @@ public class NewAssessmentFragment extends Fragment implements View.OnClickListe
             jsonObject.put("psychological", String.valueOf(psyAvg));
             jsonObject.put("parent", String.valueOf(pareAvg));
             jsonObject.put("athlete", String.valueOf(athlAvg));
-
-
-
 
 
         }catch (Exception e){

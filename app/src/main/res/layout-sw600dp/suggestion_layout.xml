@@ -10,7 +10,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="Suggestion"
-        android:textSize="20sp"
+        android:textSize="@dimen/tab_body_text24sp"
         android:textStyle="bold"/>
     <TextView
         android:id="@+id/close"
@@ -21,7 +21,7 @@
         android:layout_marginTop="10dp"
         android:padding="5dp"
         android:text="X"
-        android:textSize="20sp"
+        android:textSize="@dimen/tab_body_text24sp"
         android:textStyle="bold"/>
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:text="Title"
-        android:textSize="18sp"
+        android:textSize="@dimen/tab_body_text22sp"
         />
 
     <android.support.design.widget.TextInputLayout
@@ -49,6 +49,8 @@
             android:hint="Enter title"
             android:maxLines="1"
             android:paddingLeft="8dp"
+            android:textSize="@dimen/tab_body_text22sp"
+
             />
     </android.support.design.widget.TextInputLayout>
 
@@ -60,7 +62,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:text="Description"
-        android:textSize="18sp"
+        android:textSize="@dimen/tab_body_text22sp"
         />
 
     <android.support.design.widget.TextInputLayout
@@ -80,15 +82,18 @@
             android:layout_height="wrap_content"
             android:hint="Enter description"
             android:paddingLeft="8dp"
+            android:textSize="@dimen/tab_body_text22sp"
+
             />
     </android.support.design.widget.TextInputLayout>
     <Button
         android:id="@+id/submit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:background="@color/my_creation"
         android:text="Submit"
+        android:textSize="@dimen/tab_body_text22sp"
         android:textAllCaps="false"
         android:textColor="@color/primary_white"
         />

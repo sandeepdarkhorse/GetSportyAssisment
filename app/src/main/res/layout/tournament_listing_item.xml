@@ -81,7 +81,7 @@
                             android:layout_height="16dp"
                             android:layout_marginLeft="5dp"
                             android:src="@mipmap/date"
-                            android:tint="@color/statusbar_profile"/>
+                            />
                         <TextView
                             android:id="@+id/event_date"
                             android:layout_marginLeft="5dp"
@@ -107,7 +107,8 @@
                             android:layout_height="16dp"
                             android:layout_marginLeft="5dp"
                             android:src="@mipmap/location"
-                            android:tint="@color/statusbar_profile"/>
+
+                            />
                         <TextView
                             android:id="@+id/event_location"
                             android:layout_marginLeft="5dp"

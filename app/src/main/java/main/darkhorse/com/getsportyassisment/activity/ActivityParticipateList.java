@@ -123,7 +123,6 @@ public class ActivityParticipateList extends AppCompatActivity implements SwipeR
 
             Toast.makeText(getApplicationContext(), "Internet is not connected", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private void initView() {
@@ -344,5 +343,4 @@ public class ActivityParticipateList extends AppCompatActivity implements SwipeR
                 return super.onOptionsItemSelected(item);
         }
     }
-
 }

@@ -49,6 +49,7 @@ public class PerformanceDbHelper {
 
             JSONObject jsonObjectPerformance = new JSONObject(data);
 
+
         JSONObject jsonObjectQuestion = jsonObjectPerformance.getJSONObject(JsonKeys.KEY_QUESTION);
             String performanceId = JsonParser.getString(jsonObjectPerformance, JsonKeys.PERFORMANCE_ID);
 
@@ -79,7 +80,6 @@ public class PerformanceDbHelper {
                     contentValues.put(COLUMN_ROW_ID, performanceId);
 
                     sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
-
                 }
 
             }
