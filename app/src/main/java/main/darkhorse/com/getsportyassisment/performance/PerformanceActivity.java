@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -34,12 +35,16 @@ public class PerformanceActivity extends AppCompatActivity implements View.OnCli
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         Bundle bundle = getIntent().getExtras();
+
         SharedPreferences sharedPreferences = getSharedPreferences(SharedPrefs.PERFORMANCE,MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(SharedPrefs.DOB,bundle.getString("dob",""));
         editor.putString(SharedPrefs.GENDER,bundle.getString("gender",""));
         editor.putString(SharedPrefs.SPORT, bundle.getString("sport",""));
         editor.putString(SharedPrefs.STUDENTID, bundle.getString("studentid"));
+        String dob=(bundle.getString("dob",""));
+        Log.e("Tag","data in shared pref:: "+bundle.getString("dob","")+bundle.getString("sport","")+bundle.getString("studentid"));
+
         editor.commit();
 
         ImageView imageViewGuideLines = (ImageView)toolbar.findViewById(R.id.guidelines);

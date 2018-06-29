@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity
 
                     ProfessionalClassesAdapter log_adapter = new ProfessionalClassesAdapter(tournament_dataitem);
                     recycleview_tournamentListing.setAdapter(log_adapter);
-                    // myRelativeLayout.setVisibility(View.VISIBLE);
+
                     textViewDefault.setVisibility(View.GONE);
 
 
@@ -250,8 +250,6 @@ public class MainActivity extends AppCompatActivity
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
-
-
     }
 
     @Override
@@ -487,7 +485,7 @@ public class MainActivity extends AppCompatActivity
                         myIntent.putExtra("tournamnet_id",tournamentid);
                         myIntent.putExtra("sport",sport);
                         startActivity(myIntent);
-
+                        Log.e("Tag"," tornament_id and sport::"+tournamentid +" & "+sport);
 
 //                        Bundle userinfo = new Bundle();
 //                        userinfo.putSerializable("tournamentdata", (Serializable) tournamentdata_item);

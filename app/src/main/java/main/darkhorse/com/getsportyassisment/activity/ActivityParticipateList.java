@@ -236,7 +236,6 @@ public class ActivityParticipateList extends AppCompatActivity implements SwipeR
                     i.putExtras(userinfo);
                     startActivity(i);
 
-
                 }
             });
 
@@ -254,11 +253,10 @@ public class ActivityParticipateList extends AppCompatActivity implements SwipeR
 
                     Intent i = new Intent(ActivityParticipateList.this, PerformanceActivity.class);
                     i.putExtra("gender", gender);
-                    i.putExtra("dob", doB);
+                    i.putExtra("dob", doB);//doB
                     i.putExtra("studentid",applicantId );
                     i.putExtra("sport", liteSport);
                     startActivity(i);
-
 
                 }
             });

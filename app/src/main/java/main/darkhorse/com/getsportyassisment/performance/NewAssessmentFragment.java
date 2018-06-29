@@ -195,6 +195,8 @@ public class NewAssessmentFragment extends Fragment implements View.OnClickListe
                             sharedPreferences.getString(SharedPrefs.USERID,""),mParam1));
 
 
+
+
             Log.e("publish url", getPerformanceModulesResponseCall.request().url().toString());
             getPerformanceModulesResponseCall.enqueue(new Callback<GetPerformanceModulesResponse>() {
                 @Override
