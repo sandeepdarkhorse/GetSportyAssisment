@@ -26,6 +26,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.LoggingBehavior;
 import com.facebook.Profile;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
@@ -90,13 +91,17 @@ public class FirstViewPagerActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        FacebookSdk.setIsDebugEnabled(true);
+        FacebookSdk.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         context=getApplicationContext();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.slider_view_pager);
 
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        FacebookSdk.setIsDebugEnabled(true);
+
 
         viewpager = (ViewPager) findViewById(R.id.pager);
         progressDialog = new ProgressDialog(FirstViewPagerActivity.this);
@@ -163,10 +168,13 @@ public class FirstViewPagerActivity extends AppCompatActivity implements View.On
                                         if (jsonObject.has("email")) {
                                             email = jsonObject.getString("email");
                                         }
+                                        if (jsonObject.has("gender")) {
+                                            gender = jsonObject.getString("gender");
+                                            gender = gender.substring(0, 1).toUpperCase() + gender.substring(1);
+
+                                        }
 
 
-                                        gender = jsonObject.getString("gender");
-                                        gender = gender.substring(0, 1).toUpperCase() + gender.substring(1);
 
                                         AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
 
@@ -213,7 +221,12 @@ public class FirstViewPagerActivity extends AppCompatActivity implements View.On
         });
 
     }
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (googleclient.mGoogleApiClient.isConnected())
+            googleclient.mGoogleApiClient.disconnect();
+    }
     @Override
     public void onClick(View v) {
 
@@ -237,14 +250,11 @@ public class FirstViewPagerActivity extends AppCompatActivity implements View.On
                 break;
 
             case R.id.google_signin:
-
-              //  Toast.makeText(context,"In google click:: ",Toast.LENGTH_SHORT).show();
-                signInGoogle();
-
-                if (network_status.isConnectingToInternet()) {
+                if (network_status.isConnectingToInternet())
+                {
 
                     try {
-
+                        signInGoogle();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -266,7 +276,8 @@ public class FirstViewPagerActivity extends AppCompatActivity implements View.On
 
         callbackManager.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == RC_SIGN_IN) {
+        if (requestCode == RC_SIGN_IN)
+        {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             handleSignInResult(result);
         }
@@ -299,8 +310,11 @@ public class FirstViewPagerActivity extends AppCompatActivity implements View.On
 
                 checklogin(datapojo, "2");
 
-            } catch (Exception e) {
+            } catch (Exception e)
+            { e.printStackTrace();
+            Toast.makeText(this,"Exception:::::"+e.toString(),Toast.LENGTH_SHORT).show();
             }
+
 
         }
 
@@ -308,7 +322,7 @@ public class FirstViewPagerActivity extends AppCompatActivity implements View.On
 
     //google sign in
     private void signInGoogle() {
-     //   googleclient.mGoogleApiClient.clearDefaultAccountAndReconnect();
+        googleclient.mGoogleApiClient.clearDefaultAccountAndReconnect();
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleclient.mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
