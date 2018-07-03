@@ -191,7 +191,7 @@ public class NewAssessmentFragment extends Fragment implements View.OnClickListe
 
             Call<GetPerformanceModulesResponse> getPerformanceModulesResponseCall = apiCall.getPerformanceModuleRequest("get_modules",
                     new GetPerformanceModuleRequest(sharedPreferences.getString(SharedPrefs.GENDER,""),
-                            sharedPreferences.getString(SharedPrefs.SPORT,""),sharedPreferences.getString(SharedPrefs.DOB,""),
+                            sharedPreferences.getString(SharedPrefs.SPORT,"Tennis"),sharedPreferences.getString(SharedPrefs.DOB,""),
                             sharedPreferences.getString(SharedPrefs.USERID,""),mParam1));
 
 
