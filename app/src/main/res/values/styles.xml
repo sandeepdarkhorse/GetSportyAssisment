@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:ns1="http://schemas.android.com/tools">
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -80,4 +80,15 @@
     <style name="Toolbar.TitleText2" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">20sp</item>
     </style>
+
+
+    <style name="AppTheme.Transparent" parent="@android:style/Theme.Holo.Light.Dialog" ns1:ignore="NewApi">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:excludeFromRecents">true</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:colorButtonNormal">@color/primary_green</item>
+    </style>
+
 </resources>

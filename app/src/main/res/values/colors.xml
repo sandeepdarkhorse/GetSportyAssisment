@@ -103,4 +103,5 @@
 
     <color name="viewpager_tital">#000000</color>
     <color name="description_color">#f7504a4a</color>
+    <color name="primary_green">#6ac451</color>
 </resources>

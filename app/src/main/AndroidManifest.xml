@@ -96,6 +96,18 @@
             android:name=".activity.AboutActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
+
+        <activity
+            android:name=".activity.ActivityPlacesSportDetail"
+            android:theme="@style/AppTheme.Transparent"
+
+            android:parentActivityName=".activity.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+        </activity>
+
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="main.darkhorse.com.getsportyassisment"

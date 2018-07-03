@@ -1,6 +1,8 @@
 package main.darkhorse.com.getsportyassisment.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -8,11 +10,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.DimenRes;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.DialogFragment;
@@ -24,10 +29,12 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -68,8 +75,10 @@ import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
 import main.darkhorse.com.getsportyassisment.fragment.Fragment_Share;
 import main.darkhorse.com.getsportyassisment.model_classes.MyTournamentDataModel;
 import main.darkhorse.com.getsportyassisment.model_classes.MyTournamentResponse;
+import main.darkhorse.com.getsportyassisment.model_classes.PlacesSportsdetail;
 import main.darkhorse.com.getsportyassisment.model_classes.TournamentListingResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.TournamentListingResponseItem;
+import main.darkhorse.com.getsportyassisment.model_classes.sportspojo;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -101,10 +110,11 @@ public class MainActivity extends AppCompatActivity
     private FragmentManager fm;
 
 
-
+    ArrayList<sportspojo> sportfacilitylist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
  //       setSupportActionBar(toolbar);
@@ -129,29 +139,41 @@ public class MainActivity extends AppCompatActivity
         initView();
     }
 
-    private void initView() {
+    private void initView()
+    {
+        sportfacilitylist = new ArrayList<sportspojo>();
+        sportspojo s0 = new sportspojo("Cricket", R.mipmap.cricket);
+        sportspojo s1 = new sportspojo("Football", R.mipmap.football);
+        sportspojo s2 = new sportspojo("Lawn tennis", R.mipmap.tennis);
+        sportspojo s3 = new sportspojo("Swimming", R.mipmap.swimming);
+        sportspojo s4 = new sportspojo("Baseball", R.mipmap.baseball);
+        sportspojo s5 = new sportspojo("Badminton", R.mipmap.badminton);
+        sportfacilitylist.add(0, s0);
+        sportfacilitylist.add(1, s1);
+        sportfacilitylist.add(2, s2);
+        sportfacilitylist.add(3, s3);
+        sportfacilitylist.add(4, s4);
+        sportfacilitylist.add(5, s5);
+
+//
+//        ArrayList<Integer> imageresourse = new ArrayList<Integer>();
+//        imageresourse.add(0, R.mipmap.cricket);
+//        imageresourse.add(1, R.mipmap.football);
+//        imageresourse.add(2, R.mipmap.hockey);
+//        imageresourse.add(3, R.mipmap.table_tennis);
+//        imageresourse.add(4, R.mipmap.tennis);
 
 
-        recycleview_tournamentListing = (RecyclerView) findViewById(R.id.tournament_list);
-        myLayoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
-        recycleview_tournamentListing.setLayoutManager(myLayoutManager);
-
-//        ApplyTournamentArrayList = new ArrayList<ApplyTournamentModel>();
-//        ApplyCategory = new ArrayList<Category>();
-
-//        SharedPreferences sharedPreferences_user = getActivity().getSharedPreferences("LoginCredentials", 0);
-//        user_id = sharedPreferences_user.getString("userid", "");
-
-
-        textViewDefault = (TextView) findViewById(R.id.default_text);
-        swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh_layout);
-        swipeRefreshLayout.setRefreshing(false);
-//        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.tournament_color, R.color.event_color);
-        noInternetLayout = (RelativeLayout)findViewById(R.id.noInternetLayout);
-        noInternetLayout.setVisibility(View.GONE);
-        noInternetProgressBar = (ProgressBar) findViewById(R.id.noInternetProgress);
-        noInternetProgressBar.setVisibility(View.GONE);
-        //instantiation();
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_sport);
+        GridLayoutManager mLayoutManager = new GridLayoutManager(MainActivity.this, 2);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(MainActivity.this, R.dimen.recycleview_space);
+        mRecyclerView.addItemDecoration(itemDecoration);
+        // Initialize a new instance of RecyclerView Adapter instance
+        sportsfacilityadapter mAdapter = new sportsfacilityadapter(sportfacilitylist);
+        // Set the adapter for RecyclerView
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setNestedScrollingEnabled(false);
         SharedPreferences sharedPreferences = getSharedPreferences("ResourcePref", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("current_fragment", "listing");
@@ -244,6 +266,116 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+
+    public class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
+
+        private int mItemOffset;
+
+        public ItemOffsetDecoration(int itemOffset) {
+
+            mItemOffset = itemOffset;
+
+        }
+
+
+        public ItemOffsetDecoration(@NonNull Context context, @DimenRes int itemOffsetId) {
+
+            this(context.getResources().getDimensionPixelSize(itemOffsetId));
+
+        }
+
+        @Override
+
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
+
+                                   RecyclerView.State state) {
+
+            super.getItemOffsets(outRect, view, parent, state);
+
+            outRect.set(mItemOffset, mItemOffset, mItemOffset, mItemOffset);
+
+        }
+
+    }
+    @SuppressLint("NewApi")
+    public class sportsfacilityadapter extends RecyclerView.Adapter<sportsfacilityadapter.ViewHolder> {
+
+        ImageView sport_image;
+        TextView sport_name;
+        View rootView;
+        ArrayList<sportspojo> sportfacilitylist = new ArrayList<sportspojo>();
+        private View rootview;
+        sportsfacilityadapter(
+                ArrayList<sportspojo> sportfacilitylist) {
+            this.sportfacilitylist = sportfacilitylist;
+
+        }
+
+        @Override
+        public sportsfacilityadapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            rootview = LayoutInflater.from(parent.getContext()).inflate(R.layout.academy_item_view, parent, false);
+            return new sportsfacilityadapter.ViewHolder(rootview);
+        }
+
+        @Override
+        public void onBindViewHolder(sportsfacilityadapter.ViewHolder holder, int position) {
+
+
+
+            holder.setItem(sportfacilitylist.get(position));
+
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return sportfacilitylist.size();
+        }
+
+        public class ViewHolder extends RecyclerView.ViewHolder {
+
+
+            public ViewHolder(final View itemView) {
+                super(itemView);
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view)
+                    {
+                        int position=getAdapterPosition();
+                        PlacesSportsdetail places=new PlacesSportsdetail(sportfacilitylist.get(position).getName(),
+                                sportfacilitylist.get(position).getDrawable_id(),"",
+                                "4 Hard,2 Clay","5.00 AM -12 PM","Rs. 2000 Monthly","Yes");
+
+                        Bundle userinfo = new Bundle();
+                        userinfo.putSerializable("sportdetail", (Serializable) places);
+                        Intent i = new Intent(new Intent(MainActivity.this, ActivityPlacesSportDetail.class));
+                        i.putExtras(userinfo);
+
+                        ActivityOptions options = ActivityOptions
+                                .makeSceneTransitionAnimation(MainActivity.this,
+                                        Pair.create(view.findViewById(R.id.sport_image),"image_transition"),
+                                        Pair.create(view.findViewById(R.id.sport_text), "sport_transition"));
+                        startActivity(i, options.toBundle());
+
+
+
+                    }
+                });
+                sport_image = (ImageView) itemView.findViewById(R.id.sport_image);
+                sport_name = (TextView) itemView.findViewById(R.id.sport_text);
+
+            }
+
+            public void setItem(sportspojo s)
+
+            {
+                sport_name.setText(s.getName());
+                sport_image.setImageResource(s.getDrawable_id());
+
+            }
+
+        }
+    }
 
 
 

@@ -55,4 +55,5 @@
     <dimen name="minDayCellHeight">40dp</dimen>
     <dimen name="profile_font_size">14sp</dimen>
     <dimen name="notification_body_size">16sp</dimen>
+    <dimen name="recycleview_space">4dp</dimen>
 </resources>
