@@ -351,8 +351,8 @@ public class FirstViewPagerActivity extends AppCompatActivity implements View.On
 
 //
                     } else if (prof_id.equals("1")) {
-                        Toast.makeText(FirstViewPagerActivity.this, "in first condition.", Toast.LENGTH_LONG).show();
-
+                       // Toast.makeText(FirstViewPagerActivity.this, "in first condition.", Toast.LENGTH_LONG).show();
+                        //  LoginToActovity(jsonElement.toString());
                     } else {
                         LoginToActovity(jsonElement.toString());
                     }

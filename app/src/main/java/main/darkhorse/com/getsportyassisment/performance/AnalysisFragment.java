@@ -125,7 +125,6 @@ public class AnalysisFragment extends Fragment implements View.OnClickListener{
 
         buttonSuggestion.setOnClickListener(this);
         buttonSave.setOnClickListener(this);
-
         buttonSave.setVisibility(View.GONE);
 
         Log.e("Tag", module);
