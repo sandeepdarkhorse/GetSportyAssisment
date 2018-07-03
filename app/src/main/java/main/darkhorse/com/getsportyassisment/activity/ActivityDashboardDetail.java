@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,7 +17,7 @@ import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.model_classes.PlacesSportsdetail;
 
 @SuppressLint("NewApi")
-public class ActivityPlacesSportDetail extends Activity implements Serializable {
+public class ActivityDashboardDetail extends Activity implements Serializable {
     public static PlacesSportsdetail sportdataitem;
 
 
@@ -64,6 +65,18 @@ public class ActivityPlacesSportDetail extends Activity implements Serializable 
                 finishAfterTransition();
             }
         });
+
+        CardView  cardviewathlete=(CardView)findViewById(R.id.athletecard);
+
+        cardviewathlete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
+
 
     }
 }

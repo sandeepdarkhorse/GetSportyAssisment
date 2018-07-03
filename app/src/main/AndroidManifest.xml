@@ -98,7 +98,7 @@
 
 
         <activity
-            android:name=".activity.ActivityPlacesSportDetail"
+            android:name=".activity.ActivityDashboardDetail"
             android:theme="@style/AppTheme.Transparent"
 
             android:parentActivityName=".activity.MainActivity" >

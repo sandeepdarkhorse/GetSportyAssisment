@@ -1,91 +1,52 @@
 package main.darkhorse.com.getsportyassisment.activity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ActivityOptions;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.content.FileProvider;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.util.Pair;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.gson.JsonElement;
-import com.squareup.picasso.Picasso;
-
-import java.io.File;
 import java.io.Serializable;
-import java.net.URLEncoder;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.UtilsFile.ApiAtheliteCall;
-import main.darkhorse.com.getsportyassisment.UtilsFile.ApiCall;
-import main.darkhorse.com.getsportyassisment.UtilsFile.ApiClient;
-import main.darkhorse.com.getsportyassisment.UtilsFile.CommonUtils;
 import main.darkhorse.com.getsportyassisment.UtilsFile.MainUrls;
 import main.darkhorse.com.getsportyassisment.UtilsFile.NetworkStatus;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress;
-import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
-import main.darkhorse.com.getsportyassisment.fragment.Fragment_Share;
 import main.darkhorse.com.getsportyassisment.model_classes.MyTournamentDataModel;
-import main.darkhorse.com.getsportyassisment.model_classes.MyTournamentResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.PlacesSportsdetail;
-import main.darkhorse.com.getsportyassisment.model_classes.TournamentListingResponse;
-import main.darkhorse.com.getsportyassisment.model_classes.TournamentListingResponseItem;
 import main.darkhorse.com.getsportyassisment.model_classes.sportspojo;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 
 import static main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress.customProgress;
-import static main.darkhorse.com.getsportyassisment.custom_classes.DateConversion.context;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -348,7 +309,7 @@ public class MainActivity extends AppCompatActivity
 
                         Bundle userinfo = new Bundle();
                         userinfo.putSerializable("sportdetail", (Serializable) places);
-                        Intent i = new Intent(new Intent(MainActivity.this, ActivityPlacesSportDetail.class));
+                        Intent i = new Intent(new Intent(MainActivity.this, ActivityDashboardDetail.class));
                         i.putExtras(userinfo);
 
                         ActivityOptions options = ActivityOptions
