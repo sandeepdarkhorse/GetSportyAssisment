@@ -276,7 +276,8 @@ public class FirstViewPagerActivity extends AppCompatActivity implements View.On
 
 
     private void handleSignInResult(GoogleSignInResult result) {
-        if (result.isSuccess()) {
+        if (result.isSuccess())
+        {
             // Signed in successfully, show authenticated UI.
             try {
                 GoogleSignInAccount acct = result.getSignInAccount();
