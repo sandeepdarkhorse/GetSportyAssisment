@@ -117,6 +117,13 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <activity
+            android:name=".activity.ActivityPerfAssist"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+
+
     </application>
 
 </manifest>

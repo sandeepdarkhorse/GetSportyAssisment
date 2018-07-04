@@ -3,6 +3,7 @@ package main.darkhorse.com.getsportyassisment.activity;
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Rect;
@@ -16,11 +17,13 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -147,16 +150,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -337,6 +330,52 @@ public class MainActivity extends AppCompatActivity
 
         }
     }
+
+
+
+    @Override
+    public void onBackPressed()
+    {
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+
+            final AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this, R.style.MyDialogTheme);
+            alertDialog.setTitle(Html.fromHtml("<font color='#ffffff'>Quit GetSporty Assisment ?</font>"));
+            alertDialog.setMessage(Html.fromHtml("<font color='#ffffff'>Do you want to exit?</font>"));
+
+            // Setting Icon to Dialog
+            alertDialog.setIcon(R.mipmap.ic_launcher);
+            // Setting Positive "Yes" Button
+            alertDialog.setPositiveButton(Html.fromHtml("<font color='#ffffff'>YES</font>"), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+
+                    dialog.cancel();
+                    Intent main = new Intent(Intent.ACTION_MAIN);
+                    main.addCategory(Intent.CATEGORY_HOME);
+                    main.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(main);
+                    finish();
+                }
+            });
+
+            // Setting Negative "NO" Button
+            alertDialog.setNegativeButton(Html.fromHtml("<font color='#ffffff'>NO</font>"), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            // Showing Alert Message
+            alertDialog.show();
+
+        }
+
+
+    }
+
 
 
 
