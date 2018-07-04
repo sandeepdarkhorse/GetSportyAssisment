@@ -3,6 +3,7 @@ package main.darkhorse.com.getsportyassisment.activity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
@@ -46,13 +47,7 @@ public class ActivityDashboardDetail extends Activity implements Serializable {
                 imageView.setImageResource(sportdataitem.getDrawable_id());
                 sports.setText(sportdataitem.getName());
 
-//                place_name.setText("At  "+ sportdataitem.getPlacename());
-//                coartNo.setText(sportdataitem.getCourt());
-//                timming.setText(sportdataitem.getTimming());
-//                fee.setText(sportdataitem.getFee());
-//                avCoachin.setText(sportdataitem.getCoachingAv());
-
-            } else {
+                } else {
 
             }
 
@@ -71,6 +66,9 @@ public class ActivityDashboardDetail extends Activity implements Serializable {
         cardviewathlete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent i = new Intent(ActivityDashboardDetail.this, ActivityPerfAssist.class);
+                startActivity(i);
+                finish();
 
             }
         });

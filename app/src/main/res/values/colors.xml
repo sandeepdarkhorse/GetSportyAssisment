@@ -4,6 +4,9 @@
 
     <color name="my_creation_tab">#02569c</color>
     <color name="colorPrimary">#99cc00</color>
+
+
+
     <color name="colorPrimaryDark">#333333</color>
     <color name="colorAccent">#FF4081</color>
 
@@ -104,4 +107,7 @@
     <color name="viewpager_tital">#000000</color>
     <color name="description_color">#f7504a4a</color>
     <color name="primary_green">#6ac451</color>
+
+    <color name="colorPrimarytab">#2196f3</color>
+
 </resources>

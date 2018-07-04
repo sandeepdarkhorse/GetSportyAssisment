@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/event_tab_back"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/default_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="No Data"
+        android:visibility="gone"/>
+
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_sport"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animationCache="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5px"
+        android:padding="2dp"
+        android:scrollbars="none"
+        android:scrollingCache="false"
+        android:smoothScrollbar="true"/>
+
+
+    <RelativeLayout
+        android:id="@+id/noInternetLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:visibility="gone">
+
+
+        <ImageView
+            android:id="@+id/noInternet"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+
+        <ProgressBar
+            android:id="@+id/noInternetProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/noInternet"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="No Internet connection \nTap to refresh"
+            android:textColor="@color/primary_white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+</RelativeLayout>
