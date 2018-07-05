@@ -19,6 +19,7 @@ import main.darkhorse.com.getsportyassisment.model_classes.DietLogResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.GooglePlaceApiResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.SendOfferData;
 import main.darkhorse.com.getsportyassisment.model_classes.ShortlistCandidate;
+import main.darkhorse.com.getsportyassisment.model_classes.Signbody;
 import main.darkhorse.com.getsportyassisment.profileotherid.OtherProfileEditRequest;
 import main.darkhorse.com.getsportyassisment.profileotherid.OtherProfileResponse;
 import retrofit2.Call;
@@ -433,12 +434,20 @@ public interface ApiAtheliteCall {
 //    @POST("create_database.php")
 //    Call<CreateJobResponse> createJob(@Query("act") String act, @Body CreateJobData body);
 //
-//    @GET
-//    Call<JsonElement> getsports(@Url String url);
-//
+
 //    @GET
 //    Call<EventTypeListResponse> getevent_type_list(@Url String url);
 
+
+//    @GET
+//    Call<JsonElement> getsportysignin(@Url String url);
+
+    @GET
+    Call<JsonElement> ForgetPassword(@Url String url);
+
+
+    @POST("adminUserController.php")
+    Call<JsonElement> getsportysignin(@Query("act") String act, @Body Signbody body);
 
 
 

@@ -33,7 +33,6 @@ public class AboutActivity extends AppCompatActivity implements CustomDialogNoIn
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        CheckAndroidPermission.checkAndRequestPermissions(getApplicationContext(),this );
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("About Us");
         setSupportActionBar(toolbar);

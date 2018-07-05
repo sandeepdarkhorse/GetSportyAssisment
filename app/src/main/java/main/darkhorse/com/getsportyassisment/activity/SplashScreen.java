@@ -1,5 +1,6 @@
 package main.darkhorse.com.getsportyassisment.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,7 +19,7 @@ import org.json.JSONObject;
 
 import main.darkhorse.com.getsportyassisment.R;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreen extends Activity {
     private static int SPLASH_TIME_OUT = 1500;
     boolean logged_in = false;
     @Override
@@ -26,53 +27,48 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_splash_screen);
 
         showSplash();
     }
 
-    private void showSplash() {
 
+
+
+    public void showSplash() {
         new Handler().postDelayed(new Runnable()
         {
 
             @Override
-            public void run() {
-
-                Thread background = new Thread()
+            public void run()
+            {
+                SharedPreferences sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
+                boolean login = sharedPreferences.getBoolean("login", false);
+                if (login == false)
                 {
-                    public void run() {
-                        try {
+
+                    // Intent i = new Intent(SplashScreen.this, FirstViewPagerActivity.class);
+//
+                    Intent i = new Intent(SplashScreen.this, ActivityLoginAdmin.class);
+                    startActivity(i);
+                    finish();
 
 
 
-                            sleep(2 * 1000);
-
-                            SharedPreferences sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
-                            boolean login = sharedPreferences.getBoolean("login", false);
-                            if (login == false) {
-
-//                            Intent i = new Intent(ActivitySplashScreen.this, FirstScreen.class);
-
-                                Intent i = new Intent(SplashScreen.this, FirstViewPagerActivity.class);
-                                startActivity(i);
-                                finish();
-                            } else {
-                                Intent i = new Intent(SplashScreen.this, MainActivity.class);
-                                startActivity(i);
-                                finish();
-                            }
-
-                        } catch (Exception e) {
-                        }
-                    }
-                };
-                background.start();
+                } else {
+                    Intent i = new Intent(SplashScreen.this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+                }
 
 
             }
         }, SPLASH_TIME_OUT);
     }
+
+
+
 
     private void check_login() {
         GraphRequest request = GraphRequest.newMeRequest(
@@ -96,10 +92,5 @@ public class SplashScreen extends AppCompatActivity {
         request.setParameters(parameters);
         request.executeAsync();
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-
-    }
 }

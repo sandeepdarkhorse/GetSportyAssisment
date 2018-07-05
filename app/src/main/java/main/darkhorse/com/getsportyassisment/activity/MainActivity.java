@@ -41,6 +41,7 @@ import java.util.ArrayList;
 
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.UtilsFile.ApiAtheliteCall;
+import main.darkhorse.com.getsportyassisment.UtilsFile.CheckAndroidPermission;
 import main.darkhorse.com.getsportyassisment.UtilsFile.MainUrls;
 import main.darkhorse.com.getsportyassisment.UtilsFile.NetworkStatus;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress;
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CheckAndroidPermission.checkAndRequestPermissions(getApplicationContext(),this );
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -95,9 +97,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-//        sharedpref = getSharedPreferences("PROFILEDATA", Context.MODE_PRIVATE);
-//        userId = sharedpref.getString("user_id", "");
-//        profId = sharedpref.getString("prof_id", "");
+
         SharedPreferences sharedPreferences_user = getSharedPreferences("Dashboard_prefs", 0);
         user_id = sharedPreferences_user.getString("user_id", "");
         initView();
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity
             editor2.clear();
             editor2.commit();
 
-            Intent main = new Intent(MainActivity.this, FirstViewPagerActivity.class);
+            Intent main = new Intent(MainActivity.this, ActivityLoginAdmin.class);
             main.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 

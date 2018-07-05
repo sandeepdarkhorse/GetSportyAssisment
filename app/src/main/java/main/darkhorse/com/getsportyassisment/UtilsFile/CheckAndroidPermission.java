@@ -43,10 +43,10 @@ public class CheckAndroidPermission {
     Activity currentactivity;
 
     public static boolean checkAndRequestPermissions(Context context, Activity currentactivity) {
-        int camera = ContextCompat.checkSelfPermission(context, android.Manifest.permission.CAMERA);
-        int storage = ContextCompat.checkSelfPermission(context, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int loc = ContextCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION);
-        int loc2 = ContextCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION);
+        int camera = ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA);
+        int storage = ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int loc = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION);
+        int loc2 = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
 
         int internet = ContextCompat.checkSelfPermission(context, Manifest.permission.INTERNET);
         int read_sms = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_SMS);
@@ -60,43 +60,43 @@ public class CheckAndroidPermission {
         List<String> listPermissionsNeeded = new ArrayList<>();
 
         if (camera != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.CAMERA);
+            listPermissionsNeeded.add(Manifest.permission.CAMERA);
         }
         if (storage != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            listPermissionsNeeded.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
         if (loc2 != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.ACCESS_FINE_LOCATION);
+            listPermissionsNeeded.add(Manifest.permission.ACCESS_FINE_LOCATION);
         }
         if (loc != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.ACCESS_COARSE_LOCATION);
+            listPermissionsNeeded.add(Manifest.permission.ACCESS_COARSE_LOCATION);
         }
 
 
         if (internet != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.INTERNET);
+            listPermissionsNeeded.add(Manifest.permission.INTERNET);
         }
         if (read_sms != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.READ_SMS);
+            listPermissionsNeeded.add(Manifest.permission.READ_SMS);
         }
         if (recivive_sms != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.RECEIVE_SMS);
+            listPermissionsNeeded.add(Manifest.permission.RECEIVE_SMS);
         }
         if (read_external_storage != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.READ_EXTERNAL_STORAGE);
+            listPermissionsNeeded.add(Manifest.permission.READ_EXTERNAL_STORAGE);
         }
 
         if (access_network != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.ACCESS_NETWORK_STATE);
+            listPermissionsNeeded.add(Manifest.permission.ACCESS_NETWORK_STATE);
         }
         if (cell_phone != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.CALL_PHONE);
+            listPermissionsNeeded.add(Manifest.permission.CALL_PHONE);
         }
         if (send_sms != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.SEND_SMS);
+            listPermissionsNeeded.add(Manifest.permission.SEND_SMS);
         }
         if (wake_lock != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.WAKE_LOCK);
+            listPermissionsNeeded.add(Manifest.permission.WAKE_LOCK);
         }
 
 

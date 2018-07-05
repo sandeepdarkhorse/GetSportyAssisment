@@ -30,13 +30,6 @@ public class ActivityDashboardDetail extends Activity implements Serializable {
         ImageView imageView = (ImageView) findViewById(R.id.imagezoom);
         TextView sports = (TextView) findViewById(R.id.sports_name);
 
-//        TextView place_name = (TextView) findViewById(R.id.place_name);
-//        TextView coartNo = (TextView) findViewById(R.id.courtdetail);
-//        TextView timming = (TextView) findViewById(R.id.timming);
-//        TextView fee = (TextView) findViewById(R.id.fee);
-//        TextView avCoachin = (TextView) findViewById(R.id.av_coaching);
-
-
         Bundle userinfo = getIntent().getExtras();
         if (userinfo != null) {
 
