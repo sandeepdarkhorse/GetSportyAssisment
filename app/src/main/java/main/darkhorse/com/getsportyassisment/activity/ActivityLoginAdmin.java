@@ -205,10 +205,11 @@ public class ActivityLoginAdmin extends AppCompatActivity {
         SharedPreferences sharedPreferences_user = getSharedPreferences("Token", 0);
         String tokin = sharedPreferences_user.getString("tokin", "");
 
-        InputMethodManager inputManager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
-        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-        if (network_status.isConnectingToInternet())
+//        InputMethodManager inputManager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+//        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+//
 
+        if (network_status.isConnectingToInternet())
         {
             Retrofit retrofit = ApiClient.getClient();
             ApiAtheliteCall apiCall = retrofit.create(ApiAtheliteCall.class);

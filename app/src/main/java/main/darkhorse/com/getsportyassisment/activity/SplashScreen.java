@@ -92,10 +92,5 @@ public class SplashScreen extends Activity {
         request.setParameters(parameters);
         request.executeAsync();
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-
-    }
 }
