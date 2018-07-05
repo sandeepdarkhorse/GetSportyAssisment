@@ -23,8 +23,12 @@
           }
         },
         {
-          "client_id": "553581377997-s7k8q5lki0hfvb6dvk66g2g4alovtpoa.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "553581377997-mrq2sp98j4pt3f0s7026l7op4g9vo5lg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "main.darkhorse.com.getsportyassisment",
+            "certificate_hash": "7465303de493fe4494e051364313f2c81bcba2bc"
+          }
         },
         {
           "client_id": "553581377997-huq68tl1anlq7e0588bi2hs73fmuk8mc.apps.googleusercontent.com",

@@ -20,8 +20,8 @@
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="$USER_HOME$/Desktop/sport/club.png" />
-                                      <entry key="outputName" value="club" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Desktop/ic_done.png" />
+                                      <entry key="outputName" value="ic_done" />
                                     </map>
                                   </option>
                                 </PersistentState>

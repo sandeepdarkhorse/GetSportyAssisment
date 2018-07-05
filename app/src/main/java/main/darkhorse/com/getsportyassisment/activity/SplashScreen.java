@@ -31,48 +31,42 @@ public class SplashScreen extends AppCompatActivity {
         showSplash();
     }
 
-    private void showSplash() {
 
+
+
+    public void showSplash() {
         new Handler().postDelayed(new Runnable()
         {
 
             @Override
-            public void run() {
-
-                Thread background = new Thread()
+            public void run()
+            {
+                SharedPreferences sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
+                boolean login = sharedPreferences.getBoolean("login", false);
+                if (login == false)
                 {
-                    public void run() {
-                        try {
+
+                    // Intent i = new Intent(SplashScreen.this, FirstViewPagerActivity.class);
+//
+                    Intent i = new Intent(SplashScreen.this, ActivityLoginAdmin.class);
+                    startActivity(i);
+                    finish();
 
 
 
-                            sleep(2 * 1000);
-
-                            SharedPreferences sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
-                            boolean login = sharedPreferences.getBoolean("login", false);
-                            if (login == false) {
-
-//                            Intent i = new Intent(ActivitySplashScreen.this, FirstScreen.class);
-
-                                Intent i = new Intent(SplashScreen.this, FirstViewPagerActivity.class);
-                                startActivity(i);
-                                finish();
-                            } else {
-                                Intent i = new Intent(SplashScreen.this, MainActivity.class);
-                                startActivity(i);
-                                finish();
-                            }
-
-                        } catch (Exception e) {
-                        }
-                    }
-                };
-                background.start();
+                } else {
+                    Intent i = new Intent(SplashScreen.this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+                }
 
 
             }
         }, SPLASH_TIME_OUT);
     }
+
+
+
 
     private void check_login() {
         GraphRequest request = GraphRequest.newMeRequest(

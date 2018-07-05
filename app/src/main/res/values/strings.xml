@@ -380,6 +380,11 @@
 
         <string name="participated">Participated</string>
         <string name="attended">Attended</string>
+
+    <string name="login_validation">Please enter valid username or password</string>
+
+
+
     </resources>
 
 

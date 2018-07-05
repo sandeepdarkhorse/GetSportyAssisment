@@ -48,6 +48,7 @@ import butterknife.ButterKnife;
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.UtilsFile.ApiAtheliteCall;
 import main.darkhorse.com.getsportyassisment.UtilsFile.ApiClient;
+import main.darkhorse.com.getsportyassisment.UtilsFile.CheckAndroidPermission;
 import main.darkhorse.com.getsportyassisment.UtilsFile.GoogleClient;
 import main.darkhorse.com.getsportyassisment.UtilsFile.NetworkStatus;
 import main.darkhorse.com.getsportyassisment.UtilsFile.SharedPrefs;
@@ -91,18 +92,15 @@ public class FirstViewPagerActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CheckAndroidPermission.checkAndRequestPermissions(getApplicationContext(),this );
 
         FacebookSdk.sdkInitialize(getApplicationContext());
         FacebookSdk.setIsDebugEnabled(true);
         FacebookSdk.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
-
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         context=getApplicationContext();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.slider_view_pager);
-
-
-
         viewpager = (ViewPager) findViewById(R.id.pager);
         progressDialog = new ProgressDialog(FirstViewPagerActivity.this);
 
