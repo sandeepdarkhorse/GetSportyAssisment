@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.IntegerRes;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -47,7 +48,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 
-public class ActivityLoginAdmin extends Activity implements View.OnClickListener, View.OnFocusChangeListener {
+public class ActivityLoginAdmin extends AppCompatActivity {
 
     NetworkStatus network_status;
     EditText editText_email, editText_password;
@@ -172,15 +173,7 @@ public class ActivityLoginAdmin extends Activity implements View.OnClickListener
     }
 
 
-    @Override
-    public void onClick(View view) {
 
-    }
-
-    @Override
-    public void onFocusChange(View view, boolean b) {
-
-    }
 
     @Override
     public void onBackPressed() {
