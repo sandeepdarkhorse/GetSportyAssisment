@@ -1,5 +1,6 @@
 package main.darkhorse.com.getsportyassisment.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,7 +19,7 @@ import org.json.JSONObject;
 
 import main.darkhorse.com.getsportyassisment.R;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreen extends Activity {
     private static int SPLASH_TIME_OUT = 1500;
     boolean logged_in = false;
     @Override
@@ -26,6 +27,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_splash_screen);
 
         showSplash();
