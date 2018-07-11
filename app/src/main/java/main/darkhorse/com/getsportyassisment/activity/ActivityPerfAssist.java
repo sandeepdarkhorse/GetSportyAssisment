@@ -21,20 +21,22 @@ import android.widget.TextView;
 import java.io.Serializable;
 
 import main.darkhorse.com.getsportyassisment.R;
+import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.TabFragmentLatestResults;
 import main.darkhorse.com.getsportyassisment.fragment.FragmentPerAssistment;
 
 public class ActivityPerfAssist
         extends AppCompatActivity implements Serializable {
 
+    String sport;
+    String usertype;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perf_assist);
-
+        setTitle("Athlete Assessment");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("");
+//        toolbar.setTitle("");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -46,6 +48,12 @@ public class ActivityPerfAssist
     PagerAdapterCreation mAdapter;
 
     public void tabview() {
+
+        Bundle b = getIntent().getExtras();
+
+        sport = b.getString("sport");
+        usertype = b.getString("usertype");
+
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         final ViewPager viewPager = findViewById(R.id.pager);
         tabLayout.addTab(tabLayout.newTab().setText("New"));
@@ -53,7 +61,7 @@ public class ActivityPerfAssist
         tabLayout.addTab(tabLayout.newTab().setText("History"));
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        mAdapter = new PagerAdapterCreation(ActivityPerfAssist.this,getSupportFragmentManager(), tabLayout.getTabCount());
+        mAdapter = new PagerAdapterCreation(ActivityPerfAssist.this, getSupportFragmentManager(), tabLayout.getTabCount(), sport, usertype);
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(mAdapter);
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
@@ -134,40 +142,49 @@ class PagerAdapterCreation extends FragmentStatePagerAdapter {
     Fragment fragment = null;
     String userId;
 
-    public PagerAdapterCreation(Context context, FragmentManager fm, int NumOfTabs) {
+    String sport;
+    String usertype;
+    static FragmentPerAssistment tab1;
+
+    static FragmentPerAssistment tab2;
+    static FragmentPerAssistment tab3;
+
+    public PagerAdapterCreation(Context context, FragmentManager fm, int NumOfTabs, String sport, String usertype) {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
         this.context = context;
+        this.sport = sport;
+        this.usertype = usertype;
+
     }
 
 
     @Override
-    public Fragment getItem(int position)
-    { switch (position) {
+    public Fragment getItem(int position) {
+        switch (position) {
             case 0:
-                return new FragmentPerAssistment().newInstance( "","");
 
+                tab1 = new FragmentPerAssistment().newInstance(sport, usertype);
+                return tab1;
             case 1:
-                return new FragmentPerAssistment().newInstance( "","");
-            case 2:
-                return new FragmentPerAssistment().newInstance( "","");
 
+                tab2 = new FragmentPerAssistment().newInstance("", "");
+                return tab2;
+            case 2:
+                tab3 = new FragmentPerAssistment().newInstance("", "");
+                return tab3;
+            default:
+                return null;
         }
 
-        return null;
 
     }
-
 
 
     @Override
     public int getCount() {
         return mNumOfTabs;
     }
-
-
-
-
 
 
 }

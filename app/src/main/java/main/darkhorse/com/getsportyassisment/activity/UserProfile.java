@@ -121,8 +121,8 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
             // finally change the color
             window.setStatusBarColor(this.getResources().getColor(R.color.statusbar_profile));
         }
-       // CheckAndroidPermission.checkAndRequestPermissions(getApplicationContext(), this);
-     //   mNetworkReceiver = new ConnectivityReceiver();
+        // CheckAndroidPermission.checkAndRequestPermissions(getApplicationContext(), this);
+        //   mNetworkReceiver = new ConnectivityReceiver();
         registerNetworkBroadcastForNougat();
 //        netStatus = NetworkBrodcastLisner.checkConnection();
 
@@ -150,8 +150,7 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
         try {
 
             Bundle userinfo = getIntent().getExtras();
-            if (userinfo != null)
-            {
+            if (userinfo != null) {
                 Connectionid = userinfo.getString("Connectionid");
                 liteuserid = userinfo.getString("liteuserid");
                 liteuserprofid = userinfo.getString("liteuserprofid");
@@ -167,11 +166,9 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
                 Log.e("Tag", "job status" + job_status);
                 job_id = userinfo.getString("job_id");
                 indiacterforprofile = userinfo.getString("indiacterforprofile");
-                if (indiacterforprofile != null)
-                {
+                if (indiacterforprofile != null) {
 
-                    switch (indiacterforprofile)
-                    {
+                    switch (indiacterforprofile) {
                         case "1":
 
                             switch (liteuserprofid) {
@@ -186,7 +183,6 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
                                     break;
 
                                 case "3":
-
 
 
                                     break;
@@ -218,7 +214,7 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
 
                                     break;
                                 case "2":
-                                    fm.beginTransaction().replace(R.id.user_profile, new CoachProfile().newInstance(Connectionid, liteuserid, liteuserprofid,job_status,indiacterforprofile,job_id)).commit();
+                                    fm.beginTransaction().replace(R.id.user_profile, new CoachProfile().newInstance(Connectionid, liteuserid, liteuserprofid, job_status, indiacterforprofile, job_id)).commit();
 
                                     break;
 
@@ -236,8 +232,6 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
                                     break;
 
 
-
-
                                 case "13":
 
                                     fm.beginTransaction().replace(R.id.user_profile, new OtherProfile().newInstance(job_applicant_id, job_applicant_profid, job_applicant_sport, job_applicant_name, job_title, job_id, job_status, "3")).commit();
@@ -252,8 +246,7 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
 
                         case "4":
 
-                            switch (liteuserprofid)
-                            {
+                            switch (liteuserprofid) {
                                 case "1":
                                     fm.beginTransaction().replace(R.id.user_profile, new AthleteProfile().newInstance(Connectionid, liteuserid, liteuserprofid, lite_user_sport, "1")).commit();
 
@@ -272,7 +265,7 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
                                     break;
                                 case "6":
 
-                                 //   fm.beginTransaction().replace(R.id.user_profile, new ParentProfileFragment().newInstance(Connectionid, liteuserid, liteuserprofid)).commit();
+                                    //   fm.beginTransaction().replace(R.id.user_profile, new ParentProfileFragment().newInstance(Connectionid, liteuserid, liteuserprofid)).commit();
 
                                     break;
                                 case "13":
@@ -289,9 +282,7 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
                             break;
 
                     }
-                }
-                else
-                {
+                } else {
 
                     switch (prof_id) {
                         case "1":
@@ -470,6 +461,8 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
                     finish();
                     break;
                 case "2":
+                    super.onBackPressed();
+
 
                     break;
                 case "3":
@@ -678,7 +671,7 @@ public class UserProfile extends AppCompatActivity implements ApiDataOtherdata, 
     @Override
     public void onResume() {
         super.onResume();
-     //   MyApplication.getInstance().setConnectivityListener(this);
+        //   MyApplication.getInstance().setConnectivityListener(this);
     }
 
     @Override

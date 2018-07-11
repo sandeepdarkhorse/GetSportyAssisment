@@ -50,7 +50,8 @@ public class AthleteUserAdapter extends FragmentStatePagerAdapter implements Api
 
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
+        switch (position)
+        {
 
 
             case 0:

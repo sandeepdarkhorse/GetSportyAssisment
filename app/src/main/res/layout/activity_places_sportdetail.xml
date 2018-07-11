@@ -1,4 +1,5 @@
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fillViewport="true"
@@ -37,9 +38,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textColor="#000"
                 android:textSize="11dp"
                 android:textStyle="bold"
+                android:textColor="@color/white"
                 android:transitionName="sport_transition" />
         </LinearLayout>
 
@@ -83,7 +84,8 @@
                         android:fontFamily="sans-serif-medium"
                         android:text="Athlete"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/heading_text"
+                        android:textSize="@dimen/body_text"
+
                         android:textStyle="bold"
                         android:gravity="center"/>
 
@@ -135,7 +137,8 @@
                         android:fontFamily="sans-serif-medium"
                         android:text="Coach"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/heading_text"
+                        android:textSize="@dimen/body_text"
+
                         android:textStyle="bold"
                         android:gravity="center"/>
 
@@ -187,7 +190,8 @@
                         android:fontFamily="sans-serif-medium"
                         android:text="Academy"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/heading_text"
+                        android:textSize="@dimen/body_text"
+
                         android:textStyle="bold"
                         android:gravity="center"/>
 
@@ -239,7 +243,8 @@
                         android:fontFamily="sans-serif-medium"
                         android:text="Club"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/heading_text"
+                        android:textSize="@dimen/body_text"
+
                         android:textStyle="bold"
                         android:gravity="center"/>
 

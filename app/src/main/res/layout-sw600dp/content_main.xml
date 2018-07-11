@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:background="@color/event_tab_back"
     android:orientation="vertical"
-    android:layout_marginTop="60dp">
+    android:layout_marginTop="60dp"
+    >
 
     <TextView
         android:id="@+id/default_text"
@@ -12,36 +13,397 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="No Data"
-        android:textSize="@dimen/tab_body_text22sp"
         android:visibility="gone"/>
 
-
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_refresh_layout"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="#f6f6f6"
+        android:orientation="vertical">
 
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/tournament_list"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:animationCache="false"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="5px"
-            android:padding="2dp"
-            android:scrollbars="none"
-            android:scrollingCache="false"
-            android:smoothScrollbar="true"/>
+            android:fillViewport="true">
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center_horizontal" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c2f5f3f3"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#c2f5f3f3"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="#c2f5f3f3"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="6dp">
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/cricket_cardView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:cardCornerRadius="2dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true"
+                            card_view:cardBackgroundColor="#b9a6ff">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/cricket"
+                                    android:layout_width="65dp"
+                                    android:layout_height="65dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/cricket"
+                                    android:transitionName="image_transition"/>
+
+                                <TextView
+                                    android:id="@+id/cricket_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Cricket"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/heading_text"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:transitionName="sport_transition"/>
+
+                            </LinearLayout>
+
+                        </android.support.v7.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#c2f5f3f3"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingTop="4dp">
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/football_cardView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/primary_white"
+                            android:orientation="vertical"
+                            app:cardCornerRadius="2dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true"
+                            card_view:cardBackgroundColor="#45bce6">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:scaleType="fitXY"
+
+                                    android:src="@mipmap/football" />
+
+                                <TextView
+                                    android:id="@+id/logText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Football"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/heading_text"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="#c2f5f3f3"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="6dp">
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/tennis_cardView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:cardCornerRadius="2dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true"
+                            card_view:cardBackgroundColor="#ff9aa4">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+
+
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/tennis" />
+
+                                <TextView
+                                    android:id="@+id/traning_log"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Lawn tennis"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/heading_text"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="#c2f5f3f3"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp">
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/swimming_cardView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:cardCornerRadius="2dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true"
+                            card_view:cardBackgroundColor="#ffc58b">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/swimming" />
+
+                                <TextView
+                                    android:id="@+id/diet"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Swimming"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/heading_text"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="#c2f5f3f3"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="6dp">
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/baseball_cardView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:cardCornerRadius="2dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true"
+
+                            card_view:cardBackgroundColor="@color/myjobtab">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+
+
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/baseball" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Baseball"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/heading_text"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="#c2f5f3f3"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp">
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/badminton_cardView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:cardCornerRadius="2dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true"
+                            card_view:cardBackgroundColor="@color/tournament_color">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/badminton" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Badminton"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/heading_text"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_sport"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animationCache="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5px"
+        android:padding="2dp"
+        android:scrollbars="none"
+        android:scrollingCache="false"
+        android:smoothScrollbar="true"/>
+
 
     <RelativeLayout
         android:id="@+id/noInternetLayout"
@@ -58,7 +420,7 @@
             android:layout_height="150dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-             />
+            />
 
         <ProgressBar
             android:id="@+id/noInternetProgress"
@@ -76,6 +438,6 @@
             android:gravity="center"
             android:text="No Internet connection \nTap to refresh"
             android:textColor="@color/primary_white"
-            android:textSize="@dimen/tab_body_text22sp" />
+            android:textSize="18sp" />
     </RelativeLayout>
 </RelativeLayout>
