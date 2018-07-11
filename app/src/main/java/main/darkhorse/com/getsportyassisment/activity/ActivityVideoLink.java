@@ -156,15 +156,23 @@ public class ActivityVideoLink extends Activity implements Serializable {
 //                            e.printStackTrace();
 //                        }
 
-                        String pattern = "(?<=youtu.be/|watch\\?v=|/videos/|embed\\/)[^#\\&\\?]*";
-                        Pattern compiledPattern = Pattern.compile(pattern);
-                        Matcher matcher = compiledPattern.matcher(videolink.get(position).getVideolink());
-                        if(matcher.find()){
-                            Intent intent = new Intent(ActivityVideoLink.this, CustomPlayerControlActivity.class);
-                            intent.putExtra("videoCode", matcher.group());
-                            startActivity(intent);
+                        try{
+                            String pattern = "(?<=youtu.be/|watch\\?v=|/videos/|embed\\/)[^#\\&\\?]*";
+                            Pattern compiledPattern = Pattern.compile(pattern);
+                            Matcher matcher = compiledPattern.matcher(videolink.get(position).getVideolink());
+                            if(matcher.find())
+                            {
+                                Intent intent = new Intent(ActivityVideoLink.this, CustomPlayerControlActivity.class);
+                                intent.putExtra("videoCode", matcher.group());
+                                startActivity(intent);
+
+                            }
+                        }catch (Exception e)
+                        {
 
                         }
+
+
 
 
                     }

@@ -38,6 +38,7 @@ import java.io.File;
 import java.io.Serializable;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Date;
 
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.UtilsFile.ApiCall;
@@ -51,6 +52,7 @@ import main.darkhorse.com.getsportyassisment.activity.MainActivity;
 import main.darkhorse.com.getsportyassisment.activity.UserProfile;
 import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.ApiAtheliteCall;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress;
+import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentModle;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.PlacesSportsdetail;
@@ -97,6 +99,7 @@ public class FragmentPerAssistment extends Fragment {
     RecyclerView.LayoutManager myLayoutManager;
     ArrayList<AssistmentModle> assistment_datalist;
     CustomProgress customProgress;
+
     @SuppressLint("RestrictedApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -108,14 +111,11 @@ public class FragmentPerAssistment extends Fragment {
         myLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recycleview_eventListing.setLayoutManager(myLayoutManager);
         customProgress = CustomProgress.getInstance();
-       if(!mParam1.equals(""))
-       {
-           Retrofit_listdata();
-       }
+        if (!mParam1.equals("")) {
+            Retrofit_listdata();
+        } else {
 
-       else{
-
-       }
+        }
 
         return rootView;
 
@@ -130,8 +130,7 @@ public class FragmentPerAssistment extends Fragment {
 
 
         } else {
-            try
-            {
+            try {
                 String performanceUrl = "http://testingapp.getsporty.in/performance.php?";
                 SharedPreferences sharedPreferences_user = getActivity().getSharedPreferences("LoginCredentials", 0);
                 String user_id = sharedPreferences_user.getString("userid", "");
@@ -206,7 +205,7 @@ public class FragmentPerAssistment extends Fragment {
 
 
             private ImageView athleteimage;
-            private TextView age;
+            private TextView ageTextview;
 
 
             private Button assistment;
@@ -222,7 +221,7 @@ public class FragmentPerAssistment extends Fragment {
                 name = (TextView) itemView.findViewById(R.id.name);
                 gender = (TextView) itemView.findViewById(R.id.gender);
 
-                age = (TextView) itemView.findViewById(R.id.age);
+                ageTextview = (TextView) itemView.findViewById(R.id.age);
                 location = (TextView) itemView.findViewById(R.id.location);
 
 
@@ -238,12 +237,11 @@ public class FragmentPerAssistment extends Fragment {
                         Intent i = new Intent(new Intent(getActivity(), ActivityVideoLink.class));
                         i.putExtras(userinfo);
 
-                         ActivityOptions options = ActivityOptions
+                        ActivityOptions options = ActivityOptions
                                 .makeSceneTransitionAnimation(getActivity(),
                                         Pair.create(itemView.findViewById(R.id.athlete_image), "image_transition"),
                                         Pair.create(itemView.findViewById(R.id.name), "text_transition"));
                         startActivity(i, options.toBundle());
-
 
 
                     }
@@ -271,7 +269,13 @@ public class FragmentPerAssistment extends Fragment {
             public void setItem(AssistmentModle DataItem) {
                 String imageurl = DataItem.getUser_image();
                 name.setText(DataItem.getName());
-                age.setText(DataItem.getDob());
+                try {
+                    Date date = DateConversion.StringtoDate(DataItem.getDob());
+                    String age= String.valueOf(DateConversion.calculateAge(date));
+                    ageTextview.setText(age+" Year");
+                } catch (Exception e) {
+                }
+
                 gender.setText(DataItem.getGender());
                 location.setText(DataItem.getLocation());
                 if (imageurl.isEmpty()) {
