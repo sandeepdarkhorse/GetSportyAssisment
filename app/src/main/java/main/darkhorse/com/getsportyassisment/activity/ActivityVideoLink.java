@@ -2,18 +2,19 @@ package main.darkhorse.com.getsportyassisment.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.android.youtube.player.YouTubeStandalonePlayer;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.squareup.picasso.Picasso;
 
@@ -24,9 +25,6 @@ import java.util.regex.Pattern;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import main.darkhorse.com.getsportyassisment.R;
-import main.darkhorse.com.getsportyassisment.custom_classes.Config;
-import main.darkhorse.com.getsportyassisment.custom_classes.CustomPlayerControlActivity;
-import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentModle;
 import main.darkhorse.com.getsportyassisment.model_classes.Video_link;
 
@@ -162,9 +160,22 @@ public class ActivityVideoLink extends Activity implements Serializable {
                             Matcher matcher = compiledPattern.matcher(videolink.get(position).getVideolink());
                             if(matcher.find())
                             {
-                                Intent intent = new Intent(ActivityVideoLink.this, CustomPlayerControlActivity.class);
-                                intent.putExtra("videoCode", matcher.group());
-                                startActivity(intent);
+                                Bundle bundledata = new Bundle();
+                                bundledata.putString("videoCode",matcher.group());
+                                Intent i = new Intent(new Intent(ActivityVideoLink.this, CustomPlayerControlActivity.class));
+                                i.putExtras(bundledata);
+
+
+                                ActivityOptions options = ActivityOptions
+                                        .makeSceneTransitionAnimation(ActivityVideoLink.this,
+                                                Pair.create(itemView.findViewById(R.id.link), "image_transition"));
+
+                                startActivity(i, options.toBundle());
+
+//
+//                                Intent intent = new Intent(ActivityVideoLink.this, CustomPlayerControlActivity.class);
+//                                intent.putExtra("videoCode", matcher.group());
+//                                startActivity(intent);
 
                             }
                         }catch (Exception e)

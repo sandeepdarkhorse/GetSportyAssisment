@@ -131,7 +131,7 @@
         </activity>
 
         <activity
-            android:name=".custom_classes.CustomPlayerControlActivity"
+            android:name=".activity.CustomPlayerControlActivity"
             android:theme="@style/AppTheme.Transparent">
 
         </activity>

@@ -1,8 +1,11 @@
-package main.darkhorse.com.getsportyassisment.custom_classes;
+package main.darkhorse.com.getsportyassisment.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +16,7 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
 import main.darkhorse.com.getsportyassisment.R;
+import main.darkhorse.com.getsportyassisment.custom_classes.Config;
 
 import static com.google.android.youtube.player.YouTubePlayer.ErrorReason;
 import static com.google.android.youtube.player.YouTubePlayer.OnInitializedListener;
@@ -36,12 +40,14 @@ public class CustomPlayerControlActivity extends YouTubeBaseActivity implements 
 
     private Handler mHandler = null;
     private SeekBar mSeekBar;
-
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // attaching layout xml
         setContentView(R.layout.activity_custom_player);
+
+
         Bundle userinfo = getIntent().getExtras();
         VIDEO_ID=userinfo.getString("videoCode");
         // Initializing YouTube player view
@@ -58,6 +64,9 @@ public class CustomPlayerControlActivity extends YouTubeBaseActivity implements 
         mSeekBar.setOnSeekBarChangeListener(mVideoSeekBarChangeListener);
 
         mHandler = new Handler();
+
+
+
     }
 
     @Override
