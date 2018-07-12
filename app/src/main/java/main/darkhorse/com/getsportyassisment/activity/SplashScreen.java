@@ -69,28 +69,28 @@ public class SplashScreen extends Activity {
 
 
 
-
-    private void check_login() {
-        GraphRequest request = GraphRequest.newMeRequest(
-                AccessToken.getCurrentAccessToken(),
-                new GraphRequest.GraphJSONObjectCallback() {
-                    @Override
-                    public void onCompleted(JSONObject jsonObject, GraphResponse response) {
-                        //Log.d(LOG_TAG,"onCompleted jsonObject: "+jsonObject);
-                        //Log.d(LOG_TAG,"onCompleted response: "+response);
-                        // Application code
-                        if (AccessToken.getCurrentAccessToken() != null) {
-                            Log.d("token", AccessToken.getCurrentAccessToken().toString());
-                            logged_in = true;
-                        } else {
-                            logged_in = false;
-                        }
-                    }
-                });
-        Bundle parameters = new Bundle();
-        parameters.putString("fields", "id,name,link,cover,email");
-        request.setParameters(parameters);
-        request.executeAsync();
-    }
+//
+//    private void check_login() {
+//        GraphRequest request = GraphRequest.newMeRequest(
+//                AccessToken.getCurrentAccessToken(),
+//                new GraphRequest.GraphJSONObjectCallback() {
+//                    @Override
+//                    public void onCompleted(JSONObject jsonObject, GraphResponse response) {
+//                        //Log.d(LOG_TAG,"onCompleted jsonObject: "+jsonObject);
+//                        //Log.d(LOG_TAG,"onCompleted response: "+response);
+//                        // Application code
+//                        if (AccessToken.getCurrentAccessToken() != null) {
+//                            Log.d("token", AccessToken.getCurrentAccessToken().toString());
+//                            logged_in = true;
+//                        } else {
+//                            logged_in = false;
+//                        }
+//                    }
+//                });
+//        Bundle parameters = new Bundle();
+//        parameters.putString("fields", "id,name,link,cover,email");
+//        request.setParameters(parameters);
+//        request.executeAsync();
+//    }
 
 }

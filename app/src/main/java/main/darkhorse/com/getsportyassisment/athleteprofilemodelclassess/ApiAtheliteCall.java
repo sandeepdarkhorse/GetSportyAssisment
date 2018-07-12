@@ -15,6 +15,7 @@ import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.UserProfi
 import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.UserProfileCoachEditResponse;
 import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.UserProfileCoachResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.ApplicantJobOfferResponse;
+import main.darkhorse.com.getsportyassisment.model_classes.AssistmentResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.DietLogResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.GooglePlaceApiResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.SendOfferData;
@@ -448,6 +449,11 @@ public interface ApiAtheliteCall {
 
     @POST("adminUserController.php")
     Call<JsonElement> getsportysignin(@Query("act") String act, @Body Signbody body);
+
+
+
+    @GET
+    Call<AssistmentResponse> getassismentlist(@Url String url);
 
 
 

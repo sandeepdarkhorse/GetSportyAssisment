@@ -30,6 +30,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -497,4 +499,19 @@ public class DateConversion {
     public static boolean isDateInBetweenIncludingEndPoints(final Date min, final Date max, final Date date){
         return !(date.before(min) || date.after(max))|| (date.equals(min) || date.equals(max));
     }
+
+    public static String extractYTId(String ytUrl)
+    {
+        String vId = null;
+        Pattern pattern = Pattern.compile(
+                "^https?://.*(?:youtu.be/|v/|u/\\w/|embed/|watch?v=)([^#&?]*).*$",
+                Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(ytUrl);
+        if (matcher.matches())
+        {
+            vId = matcher.group(1);
+        }
+        return vId;
+    }
+
 }
