@@ -1,22 +1,21 @@
 package main.darkhorse.com.getsportyassisment.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
-
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.custom_classes.Config;
+import main.darkhorse.com.getsportyassisment.performance.PerformanceActivity;
 
 import static com.google.android.youtube.player.YouTubePlayer.ErrorReason;
 import static com.google.android.youtube.player.YouTubePlayer.OnInitializedListener;
@@ -47,7 +46,6 @@ public class CustomPlayerControlActivity extends YouTubeBaseActivity implements 
         // attaching layout xml
         setContentView(R.layout.activity_custom_player);
 
-
         Bundle userinfo = getIntent().getExtras();
         VIDEO_ID=userinfo.getString("videoCode");
         // Initializing YouTube player view
@@ -65,7 +63,18 @@ public class CustomPlayerControlActivity extends YouTubeBaseActivity implements 
 
         mHandler = new Handler();
 
-
+        Button perf=(Button) findViewById(R.id.performace);
+        perf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(CustomPlayerControlActivity.this, PerformanceActivity.class);
+                i.putExtra("gender", "Male");
+                i.putExtra("dob", "2004-05-13");//doB
+                i.putExtra("studentid","640" );
+                i.putExtra("sport", "Football");
+                startActivity(i);
+            }
+        });
 
     }
 

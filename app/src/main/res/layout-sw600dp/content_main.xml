@@ -75,12 +75,12 @@
 
                                 <ImageView
                                     android:id="@+id/cricket"
-                                    android:layout_width="65dp"
-                                    android:layout_height="65dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+
                                     android:scaleType="fitXY"
                                     android:src="@mipmap/cricket"
-                                    android:transitionName="image_transition"/>
+                                  />
 
                                 <TextView
                                     android:id="@+id/cricket_text"
@@ -90,10 +90,10 @@
                                     android:fontFamily="sans-serif-medium"
                                     android:text="Cricket"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/heading_text"
+                                    android:textSize="@dimen/body_text"
                                     android:textStyle="bold"
                                     android:gravity="center"
-                                    android:transitionName="sport_transition"/>
+                                   />
 
                             </LinearLayout>
 
@@ -130,22 +130,23 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="60dp"
-                                    android:layout_height="60dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:id="@+id/footbal"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
                                     android:scaleType="fitXY"
 
                                     android:src="@mipmap/football" />
 
                                 <TextView
-                                    android:id="@+id/logText"
+                                    android:id="@+id/footbal_text"
+
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
 
                                     android:fontFamily="sans-serif-medium"
                                     android:text="Football"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/heading_text"
+                                    android:textSize="@dimen/body_text"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
@@ -193,21 +194,22 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="60dp"
-                                    android:layout_height="60dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:id="@+id/tennis"
+
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
                                     android:scaleType="fitXY"
                                     android:src="@mipmap/tennis" />
 
                                 <TextView
-                                    android:id="@+id/traning_log"
+                                    android:id="@+id/tennis_text"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
 
                                     android:fontFamily="sans-serif-medium"
-                                    android:text="Lawn tennis"
+                                    android:text="Lawn-Tennis"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/heading_text"
+                                    android:textSize="@dimen/body_text"
                                     android:textStyle="bold" />
 
                             </LinearLayout>
@@ -243,21 +245,22 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="60dp"
-                                    android:layout_height="60dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:id="@+id/swimming"
+
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
                                     android:scaleType="fitXY"
                                     android:src="@mipmap/swimming" />
 
                                 <TextView
-                                    android:id="@+id/diet"
+                                    android:id="@+id/swimming_text"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
 
                                     android:fontFamily="sans-serif-medium"
                                     android:text="Swimming"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/heading_text"
+                                    android:textSize="@dimen/body_text"
                                     android:textStyle="bold" />
 
                             </LinearLayout>
@@ -308,21 +311,23 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="60dp"
-                                    android:layout_height="60dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:id="@+id/baseball"
+
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
                                     android:scaleType="fitXY"
                                     android:src="@mipmap/baseball" />
 
                                 <TextView
+                                    android:id="@+id/baseball_text"
 
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
 
                                     android:fontFamily="sans-serif-medium"
-                                    android:text="Baseball"
+                                    android:text="Basket-ball"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/heading_text"
+                                    android:textSize="@dimen/body_text"
                                     android:textStyle="bold" />
 
                             </LinearLayout>
@@ -358,13 +363,15 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="60dp"
-                                    android:layout_height="60dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:id="@+id/badminton"
+
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
                                     android:scaleType="fitXY"
                                     android:src="@mipmap/badminton" />
 
                                 <TextView
+                                    android:id="@+id/badminton_text"
 
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -372,7 +379,8 @@
                                     android:fontFamily="sans-serif-medium"
                                     android:text="Badminton"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/heading_text"
+                                    android:textSize="@dimen/body_text"
+
                                     android:textStyle="bold" />
 
                             </LinearLayout>
@@ -391,18 +399,18 @@
 
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview_sport"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:animationCache="false"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="5px"
-        android:padding="2dp"
-        android:scrollbars="none"
-        android:scrollingCache="false"
-        android:smoothScrollbar="true"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_sport"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animationCache="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="5px"
+            android:padding="2dp"
+            android:scrollbars="none"
+            android:scrollingCache="false"
+            android:smoothScrollbar="true"/>
 
 
     <RelativeLayout
@@ -420,7 +428,7 @@
             android:layout_height="150dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            />
+             />
 
         <ProgressBar
             android:id="@+id/noInternetProgress"

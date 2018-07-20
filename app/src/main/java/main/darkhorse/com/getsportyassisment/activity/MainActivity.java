@@ -28,7 +28,6 @@ import main.darkhorse.com.getsportyassisment.UtilsFile.CheckAndroidPermission;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress;
 import main.darkhorse.com.getsportyassisment.model_classes.PlacesSportsdetail;
 import main.darkhorse.com.getsportyassisment.model_classes.sportspojo;
-
 import static main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress.customProgress;
 
 public class MainActivity extends AppCompatActivity
@@ -163,30 +162,127 @@ public class MainActivity extends AppCompatActivity
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
-    public void onClick(View view) {
+    public void onClick(View view)
+    {
         int id = view.getId();
-        switch (id) {
+        switch (id)
+        {
             case R.id.cricket_cardView:
-                show_activity(R.id.cricket,R.id.cricket_text,sportfacilitylist.get(0).getName(), sportfacilitylist.get(0).getDrawable_id());
+//                show_activity(R.id.cricket,R.id.cricket_text,sportfacilitylist.get(0).getName(), sportfacilitylist.get(0).getDrawable_id());
+
+                PlacesSportsdetail places = new PlacesSportsdetail(sportfacilitylist.get(0).getName(),
+                        sportfacilitylist.get(0).getDrawable_id(), "",
+                        "", "", "", "");
+
+                Bundle userinfo = new Bundle();
+                userinfo.putSerializable("sportdetail", (Serializable) places);
+                Intent i = new Intent(new Intent(MainActivity.this, ActivityDashboardDetail.class));
+                i.putExtras(userinfo);
+
+                ActivityOptions options = ActivityOptions
+                        .makeSceneTransitionAnimation(MainActivity.this,
+                                Pair.create(findViewById(R.id.cricket), "image_transition"),
+                                Pair.create(findViewById(R.id.cricket_text), "sport_transition"));
+                startActivity(i, options.toBundle());
+
+
                 break;
             case R.id.football_cardView:
-                show_activity(R.id.footbal,R.id.footbal_text,sportfacilitylist.get(1).getName(), sportfacilitylist.get(1).getDrawable_id());
+
+                PlacesSportsdetail places2 = new PlacesSportsdetail(sportfacilitylist.get(1).getName(),
+                        sportfacilitylist.get(1).getDrawable_id(), "",
+                        "", "", "", "");
+
+                Bundle userinfo2 = new Bundle();
+                userinfo2.putSerializable("sportdetail", (Serializable) places2);
+                Intent i2 = new Intent(new Intent(MainActivity.this, ActivityDashboardDetail.class));
+                i2.putExtras(userinfo2);
+
+                ActivityOptions options2 = ActivityOptions
+                        .makeSceneTransitionAnimation(MainActivity.this,
+                                Pair.create(findViewById(R.id.footbal), "image_transition"),
+                                Pair.create(findViewById(R.id.footbal_text), "sport_transition"));
+                startActivity(i2, options2.toBundle());
+
+
 
                 break;
             case R.id.tennis_cardView:
-                show_activity(R.id.tennis,R.id.tennis_text,sportfacilitylist.get(2).getName(), sportfacilitylist.get(2).getDrawable_id());
+
+
+                PlacesSportsdetail places3 = new PlacesSportsdetail(sportfacilitylist.get(2).getName(),
+                        sportfacilitylist.get(2).getDrawable_id(), "",
+                        "", "", "", "");
+
+                Bundle userinfo3 = new Bundle();
+                userinfo3.putSerializable("sportdetail", (Serializable) places3);
+                Intent i3 = new Intent(new Intent(MainActivity.this, ActivityDashboardDetail.class));
+                i3.putExtras(userinfo3);
+
+                ActivityOptions options3 = ActivityOptions
+                        .makeSceneTransitionAnimation(MainActivity.this,
+                                Pair.create(findViewById(R.id.tennis), "image_transition"),
+                                Pair.create(findViewById(R.id.tennis_text), "sport_transition"));
+                startActivity(i3, options3.toBundle());
+
+
 
                 break;
             case R.id.swimming_cardView:
-                show_activity(R.id.swimming,R.id.swimming_text,sportfacilitylist.get(3).getName(), sportfacilitylist.get(3).getDrawable_id());
+
+                PlacesSportsdetail places4 = new PlacesSportsdetail(sportfacilitylist.get(3).getName(),
+                        sportfacilitylist.get(3).getDrawable_id(), "",
+                        "", "", "", "");
+
+                Bundle userinfo4 = new Bundle();
+                userinfo4.putSerializable("sportdetail", (Serializable) places4);
+                Intent i4 = new Intent(new Intent(MainActivity.this, ActivityDashboardDetail.class));
+                i4.putExtras(userinfo4);
+
+                ActivityOptions options4 = ActivityOptions
+                        .makeSceneTransitionAnimation(MainActivity.this,
+                                Pair.create(findViewById(R.id.swimming), "image_transition"),
+                                Pair.create(findViewById(R.id.swimming_text), "sport_transition"));
+                startActivity(i4, options4.toBundle());
+
+
 
                 break;
             case R.id.baseball_cardView:
-                show_activity(R.id.baseball,R.id.baseball_text,sportfacilitylist.get(4).getName(), sportfacilitylist.get(4).getDrawable_id());
+                PlacesSportsdetail places5 = new PlacesSportsdetail(sportfacilitylist.get(4).getName(),
+                        sportfacilitylist.get(4).getDrawable_id(), "",
+                        "", "", "", "");
+
+                Bundle userinfo5 = new Bundle();
+                userinfo5.putSerializable("sportdetail", (Serializable) places5);
+                Intent i5 = new Intent(new Intent(MainActivity.this, ActivityDashboardDetail.class));
+                i5.putExtras(userinfo5);
+
+                ActivityOptions options5 = ActivityOptions
+                        .makeSceneTransitionAnimation(MainActivity.this,
+                                Pair.create(findViewById(R.id.baseball), "image_transition"),
+                                Pair.create(findViewById(R.id.baseball_text), "sport_transition"));
+                startActivity(i5, options5.toBundle());
 
                 break;
             case R.id.badminton_cardView:
-                show_activity(R.id.badminton,R.id.badminton_text,sportfacilitylist.get(5).getName(), sportfacilitylist.get(5).getDrawable_id());
+
+
+                PlacesSportsdetail places6 = new PlacesSportsdetail(sportfacilitylist.get(5).getName(),
+                        sportfacilitylist.get(5).getDrawable_id(), "",
+                        "", "", "", "");
+
+                Bundle userinfo6 = new Bundle();
+                userinfo6.putSerializable("sportdetail", (Serializable) places6);
+                Intent i6 = new Intent(new Intent(MainActivity.this, ActivityDashboardDetail.class));
+                i6.putExtras(userinfo6);
+
+                ActivityOptions options6 = ActivityOptions
+                        .makeSceneTransitionAnimation(MainActivity.this,
+                                Pair.create(findViewById(R.id.badminton), "image_transition"),
+                                Pair.create(findViewById(R.id.badminton_text), "sport_transition"));
+                startActivity(i6, options6.toBundle());
+
 
                 break;
 
@@ -236,24 +332,24 @@ public class MainActivity extends AppCompatActivity
 
 
     }
-    @SuppressLint("NewApi")
- public  void show_activity(int imageview,int textview,String name,int drawable_id)
- {
-     PlacesSportsdetail places = new PlacesSportsdetail(name,
-             drawable_id, "",
-             "", "", "", "");
-
-     Bundle userinfo = new Bundle();
-     userinfo.putSerializable("sportdetail", (Serializable) places);
-     Intent i = new Intent(new Intent(MainActivity.this, ActivityDashboardDetail.class));
-     i.putExtras(userinfo);
-
-      ActivityOptions options = ActivityOptions
-             .makeSceneTransitionAnimation(MainActivity.this,
-                     Pair.create(findViewById(imageview), "image_transition"),
-                     Pair.create(findViewById(textview), "sport_transition"));
-     startActivity(i, options.toBundle());
-
-     }
+//    @SuppressLint("NewApi")
+// public  void show_activity(int imageview,int textview,String name,int drawable_id)
+// {
+//     PlacesSportsdetail places = new PlacesSportsdetail(name,
+//             drawable_id, "",
+//             "", "", "", "");
+//
+//     Bundle userinfo = new Bundle();
+//     userinfo.putSerializable("sportdetail", (Serializable) places);
+//     Intent i = new Intent(new Intent(MainActivity.this, ActivityDashboardDetail.class));
+//     i.putExtras(userinfo);
+//
+//      ActivityOptions options = ActivityOptions
+//             .makeSceneTransitionAnimation(MainActivity.this,
+//                     Pair.create(findViewById(imageview), "image_transition"),
+//                     Pair.create(findViewById(textview), "sport_transition"));
+//     startActivity(i, options.toBundle());
+//
+//     }
 }
 

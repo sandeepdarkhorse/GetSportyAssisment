@@ -28,7 +28,7 @@
                 android:minHeight="@dimen/abc_action_bar_default_height_material"
                 android:theme="@style/MyHomeButtonTheme"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:titleTextAppearance="@style/Toolbar.TitleText2">
+                app:titleTextAppearance="@style/Toolbar.TitleText">
 
 
 
@@ -49,7 +49,7 @@
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="@string/about_text"
-                android:textSize="@dimen/tab_heading26"
+                android:textSize="25dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -68,8 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".1"
-                    android:text="GetSporty is a must-have app for aspiring sports people including athletes, Coaches, trainers, officials and others in India. The app enables you to:"
-                    android:textSize="@dimen/tab_body_text18"/>
+                    android:text="GetSporty is a must-have app for aspiring sports people including athletes, Coaches, trainers, officials and others in India. The app enables you to:" />
             </LinearLayout>
 
             <LinearLayout
@@ -81,15 +80,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="1)"
-                    android:textSize="@dimen/tab_body_text18"/>
+                    android:text="1)" />
 
                 <TextView
                     android:id="@+id/text_contact_us_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:textSize="@dimen/tab_body_text18"
                     android:text="Find out about local sports competitions and events organised by federtions and official bodies. These include all the levels from national to the district level" />
             </LinearLayout>
 
@@ -102,15 +99,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="2)"
-                    android:textSize="@dimen/tab_body_text18"/>
+                    android:text="2)" />
 
                 <TextView
                     android:id="@+id/text_contact_us_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:textSize="@dimen/tab_body_text18"
                     android:text="See variety of articles about variety of things like best academies, best school, websites or social media pages, athletes coaches and others" />
             </LinearLayout>
 
@@ -125,8 +120,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="a)"
-                    android:textSize="@dimen/tab_body_text18"/>
+                    android:text="a)" />
 
                 <TextView
                     android:id="@+id/text_contact_us_4"
@@ -134,8 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="Bookmark your articles"
-                    android:textSize="@dimen/tab_body_text18"/>
+                    android:text="Bookmark your articles" />
             </LinearLayout>
 
             <LinearLayout
@@ -149,8 +142,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="b)"
-                    android:textSize="@dimen/tab_body_text18"/>
+                    android:text="b)" />
 
                 <TextView
                     android:id="@+id/text_contact_us_5"
@@ -158,8 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="Set Alerts for kind of article you want us to remind you about"
-                    android:textSize="@dimen/tab_body_text18"/>
+                    android:text="Set Alerts for kind of article you want us to remind you about" />
             </LinearLayout>
 
             <LinearLayout
@@ -171,15 +162,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="3)"
-                    android:textSize="@dimen/tab_body_text18"/>
+                    android:text="3)" />
 
                 <TextView
                     android:id="@+id/text_contact_us_6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:textSize="@dimen/tab_body_text18"
                     android:text="Subscibe for alerts about events, competitions and other stuff" />
             </LinearLayout>
 
@@ -192,15 +181,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="4)"
-                    android:textSize="@dimen/tab_body_text18"/>
+                    android:text="4)" />
 
                 <TextView
                     android:id="@+id/text_contact_us_7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:textSize="@dimen/tab_body_text18"
                     android:text="Look for individuals like Coaches, trainers, refrees or Physios" />
             </LinearLayout>
 
@@ -214,15 +201,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="5)"
-                    android:textSize="@dimen/tab_body_text18"/>
+                    android:text="5)" />
 
                 <TextView
                     android:id="@+id/text_contact_us_8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:textSize="@dimen/tab_body_text18"
                     android:text="Find out about sports jobs in India. Be the job about a coach, a trainer, a groundsman, an umpire or it may be a part-time assignment or a full-time job, you will find it here" />
             </LinearLayout>
         </LinearLayout>

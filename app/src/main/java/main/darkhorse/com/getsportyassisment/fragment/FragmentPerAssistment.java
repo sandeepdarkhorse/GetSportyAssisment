@@ -2,21 +2,11 @@ package main.darkhorse.com.getsportyassisment.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -24,40 +14,25 @@ import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.gson.JsonElement;
 import com.squareup.picasso.Picasso;
-
-import java.io.File;
 import java.io.Serializable;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
-
 import main.darkhorse.com.getsportyassisment.R;
-import main.darkhorse.com.getsportyassisment.UtilsFile.ApiCall;
 import main.darkhorse.com.getsportyassisment.UtilsFile.ApiClient;
 import main.darkhorse.com.getsportyassisment.UtilsFile.CommonUtils;
-import main.darkhorse.com.getsportyassisment.UtilsFile.MainUrls;
-import main.darkhorse.com.getsportyassisment.activity.ActivityDashboardDetail;
-import main.darkhorse.com.getsportyassisment.activity.ActivityLoginAdmin;
 import main.darkhorse.com.getsportyassisment.activity.ActivityVideoLink;
-import main.darkhorse.com.getsportyassisment.activity.MainActivity;
 import main.darkhorse.com.getsportyassisment.activity.UserProfile;
 import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.ApiAtheliteCall;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress;
 import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentModle;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentResponse;
-import main.darkhorse.com.getsportyassisment.model_classes.PlacesSportsdetail;
-import main.darkhorse.com.getsportyassisment.model_classes.Signbody;
-import main.darkhorse.com.getsportyassisment.model_classes.sportspojo;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -106,12 +81,12 @@ public class FragmentPerAssistment extends Fragment {
                              Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.fragment_per_assist, container, false);
-
         recycleview_eventListing = (RecyclerView) rootView.findViewById(R.id.recyclerview_assist);
         myLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recycleview_eventListing.setLayoutManager(myLayoutManager);
         customProgress = CustomProgress.getInstance();
-        if (!mParam1.equals("")) {
+        if (!mParam1.equals(""))
+        {
             Retrofit_listdata();
         } else {
 
@@ -146,7 +121,8 @@ public class FragmentPerAssistment extends Fragment {
 
                 checklogin.enqueue(new Callback<AssistmentResponse>() {
                     @Override
-                    public void onResponse(Call<AssistmentResponse> call, Response<AssistmentResponse> response) {
+                    public void onResponse(Call<AssistmentResponse> call, Response<AssistmentResponse> response)
+                    {
                         customProgress.hideProgress();
                         assistment_datalist = response.body().getData();
                         EventListingAdapter adapter = new EventListingAdapter(assistment_datalist);
@@ -266,7 +242,8 @@ public class FragmentPerAssistment extends Fragment {
 
             }
 
-            public void setItem(AssistmentModle DataItem) {
+            public void setItem(AssistmentModle DataItem)
+            {
                 String imageurl = DataItem.getUser_image();
                 name.setText(DataItem.getName());
                 try {
@@ -293,6 +270,10 @@ public class FragmentPerAssistment extends Fragment {
 
         }
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
 
+    }
 
 }

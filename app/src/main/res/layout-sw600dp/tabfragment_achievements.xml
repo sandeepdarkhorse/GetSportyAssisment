@@ -42,7 +42,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/best_result_text"
                     android:textColor="#666666"
-                    android:textSize="@dimen/tab_body_text18" />
+                    android:textSize="@dimen/notification_body_size" />
                 <!--<LinearLayout-->
                 <!--android:id="@+id/linear_classjoin"-->
                 <!--android:layout_width="match_parent"-->
@@ -109,7 +109,7 @@
                         android:paddingLeft="5dp"
                         android:text="@string/result_text"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/tab_body_text18" />
+                        android:textSize="@dimen/body_text1" />
 
 
                 </RelativeLayout>
@@ -121,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="5dp"
                     android:text="@string/round_hit_text_profile"
-                    android:textSize="@dimen/tab_body_text16" />
+                    android:textSize="@dimen/body_text_small" />
 
                 <TextView
                     android:id="@+id/stream"
@@ -130,7 +130,7 @@
                     android:layout_marginTop="5dp"
                     android:paddingLeft="5dp"
                     android:text="@string/competition_name_text"
-                    android:textSize="@dimen/tab_body_text16" />
+                    android:textSize="@dimen/body_text_small" />
 
                 <TextView
                     android:id="@+id/degree_duraction"
@@ -140,7 +140,7 @@
                     android:layout_marginTop="5dp"
                     android:paddingLeft="5dp"
                     android:text="@string/competition_date_text"
-                    android:textSize="@dimen/tab_body_text16" />
+                    android:textSize="@dimen/body_text_small" />
 
             </LinearLayout>
         </LinearLayout>
@@ -163,7 +163,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:text="@string/award"
-                    android:textSize="@dimen/tab_body_text18" />
+                    android:textSize="@dimen/notification_body_size" />
 
                 <TextView
                     android:id="@+id/formal_edit"
@@ -202,7 +202,7 @@
                     android:paddingLeft="5dp"
                     android:text="@string/award_name_text"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/tab_body_text18" />
+                    android:textSize="@dimen/body_text1" />
 
 
                 <TextView
@@ -212,7 +212,7 @@
                     android:layout_marginTop="5dp"
                     android:paddingLeft="5dp"
                     android:text="@string/description_text"
-                    android:textSize="@dimen/tab_body_text16" />
+                    android:textSize="@dimen/body_text_small" />
 
                 <TextView
 
@@ -222,7 +222,7 @@
                     android:layout_marginTop="5dp"
                     android:paddingLeft="5dp"
                     android:text="@string/award_date_text"
-                    android:textSize="@dimen/tab_body_text16" />
+                    android:textSize="@dimen/body_text_small" />
 
             </LinearLayout>
 

@@ -23,6 +23,7 @@
 
     <color name="text_heading_color">#333333</color>
     <color name="text_latestresult">#7F7F7F</color>
+
     <color name="text_color">#9e000000</color>
     <color name="job_listing_connect">#64dc18</color>
     <color name="textcolor_darkblack">#000000</color>
@@ -110,4 +111,6 @@
 
     <color name="colorPrimarytab">#2196f3</color>
 
+    <color name="tab_athlete">#2196f3</color>
+    <color name="tab_athlete_text_color">#545454</color>
 </resources>

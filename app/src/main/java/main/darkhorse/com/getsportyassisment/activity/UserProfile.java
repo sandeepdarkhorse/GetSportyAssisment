@@ -1,14 +1,12 @@
 package main.darkhorse.com.getsportyassisment.activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,12 +17,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-
 import java.util.ArrayList;
-
-
 import main.darkhorse.com.getsportyassisment.R;
-import main.darkhorse.com.getsportyassisment.UtilsFile.CheckAndroidPermission;
 import main.darkhorse.com.getsportyassisment.UtilsFile.NetworkStatus;
 import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.ApiAtheliteData;
 import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.AthleteProfile;
@@ -39,7 +33,6 @@ import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.TabFrag
 import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.TabFragmentBio;
 import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.TabFragmentLatestResults;
 import main.darkhorse.com.getsportyassisment.brodcastreceiver.ConnectivityReceiver;
-import main.darkhorse.com.getsportyassisment.brodcastreceiver.NetworkBrodcastLisner;
 import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.ApiData;
 import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.CoachProfile;
 import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.FormalEducationData;
@@ -52,7 +45,6 @@ import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.TabFragme
 import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.UserAdapter;
 import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.WorkExperienceData;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomDialogNoInternet;
-import main.darkhorse.com.getsportyassisment.custom_classes.MyApplication;
 import main.darkhorse.com.getsportyassisment.otheruserprofileview.OtherProfile;
 import main.darkhorse.com.getsportyassisment.otheruserprofileview.OtherProfileAdapter;
 import main.darkhorse.com.getsportyassisment.otheruserprofileview.TabEducationOthersProfile;

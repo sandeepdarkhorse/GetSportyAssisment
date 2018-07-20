@@ -1,17 +1,13 @@
 package main.darkhorse.com.getsportyassisment.activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-
 import main.darkhorse.com.getsportyassisment.R;
-import main.darkhorse.com.getsportyassisment.UtilsFile.CheckAndroidPermission;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomDialogNoInternet;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 

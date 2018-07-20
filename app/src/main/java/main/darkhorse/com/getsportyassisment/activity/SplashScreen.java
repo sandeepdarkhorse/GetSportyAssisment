@@ -1,21 +1,12 @@
 package main.darkhorse.com.getsportyassisment.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
-
-import com.facebook.AccessToken;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-
-import org.json.JSONObject;
 
 import main.darkhorse.com.getsportyassisment.R;
 
