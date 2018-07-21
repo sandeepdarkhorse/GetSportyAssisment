@@ -429,8 +429,6 @@ public class PerformanceAssessmentFragment extends Fragment implements View.OnCl
 
             //viewHolder.pieChart.setData(getPieData(displayPerformance.getData()));
 
-
-
         }
 
         @Override
