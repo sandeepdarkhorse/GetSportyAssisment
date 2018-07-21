@@ -69,9 +69,9 @@ public class CustomPlayerControlActivity extends YouTubeBaseActivity implements 
             public void onClick(View view) {
                 Intent i = new Intent(CustomPlayerControlActivity.this, PerformanceActivity.class);
                 i.putExtra("gender", "Male");
-                i.putExtra("dob", "2004-05-13");//doB
+                i.putExtra("dob", "2007-05-13");//doB
                 i.putExtra("studentid","640" );
-                i.putExtra("sport", "Football");
+                i.putExtra("sport", "Tennis");
                 startActivity(i);
             }
         });
