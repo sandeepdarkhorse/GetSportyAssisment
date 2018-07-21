@@ -17,7 +17,7 @@
     <me.relex.circleindicator.CircleIndicator
         android:id="@+id/indicator"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:background="@android:color/transparent"
@@ -40,107 +40,86 @@
         android:layout_alignParentRight="true"
         android:visibility="gone"/>
 
+
+
+
+
     <LinearLayout
-        android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:id="@+id/bottom"
         android:background="@drawable/grey_box">
-
-
         <RelativeLayout
             android:id="@+id/facebook_login"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edittext_size"
             android:background="@drawable/blue_box_circular"
-            android:elevation="2dp">
+            android:elevation="2dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            >
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_centerVertical="true"
-
-                android:layout_marginLeft="10dp"
-
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:padding="3dp"
-                android:src="@drawable/facebook" />
-
-            <View
-                android:id="@+id/view_image"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_toRightOf="@+id/imageView"
-                android:background="@color/underline" />
+                android:src="@drawable/facebook"
+                android:layout_centerVertical="true"
+                android:id="@+id/imageView" />
 
             <TextView
                 android:id="@+id/login_button_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/view_image"
                 android:text="Facebook"
                 android:textAllCaps="false"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/tab_body_text24sp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/google_signin"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/grey_box_circular"
-            >
-
-            <ImageView
-                android:id="@+id/glogo"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:padding="3dp"
-                android:src="@drawable/google_signin" />
-
-            <View
-                android:id="@+id/view_glogo"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_toRightOf="@+id/glogo"
-                android:background="@color/underline" />
-
-
-            <TextView
-                android:id="@+id/signInGoogleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/view_glogo"
-                android:text="Google"
-                android:textAllCaps="false"
-                android:textColor="#333333"
-                android:textSize="@dimen/tab_body_text24sp"
+                android:layout_toRightOf="@+id/imageView"
+                android:textSize="17.5sp"
+                android:textColor="#ffffff"
 
                 />
 
         </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/google_signin"
+            android:layout_width="match_parent"
+            android:background="@drawable/grey_box_circular"
+            android:layout_height="@dimen/edittext_size"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            >
 
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:padding="3dp"
+                android:src="@drawable/google_signin"
+                android:id="@+id/glogo"/>
+            <TextView
+                android:id="@+id/signInGoogleText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Google"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="false"
+                android:paddingLeft="10dp"
+                android:textSize="17.5sp"
+                android:textColor="#545353"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/glogo"/>
+
+        </RelativeLayout>
 
     </LinearLayout>
+
 
 </RelativeLayout>

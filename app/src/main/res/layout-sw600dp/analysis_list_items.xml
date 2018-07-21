@@ -18,12 +18,12 @@
                 android:layout_height="wrap_content"
                 android:text="Submodule"
                 android:textColor="@color/colorPrimary_red"
-                android:textSize="@dimen/tab_body_text"
+                android:textSize="20dp"
                 />
             <ImageView
                 android:id="@+id/arrow"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:src="@android:drawable/arrow_down_float"

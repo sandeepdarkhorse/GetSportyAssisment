@@ -9,18 +9,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import java.io.Serializable;
-
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.model_classes.PlacesSportsdetail;
 
 @SuppressLint("NewApi")
 public class ActivityDashboardDetail extends Activity implements Serializable {
     public static PlacesSportsdetail sportdataitem;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

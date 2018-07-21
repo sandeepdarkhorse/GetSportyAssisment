@@ -164,6 +164,7 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="5dp"
                     android:scaleType="center"
+                    android:visibility="gone"
                     android:src="@drawable/share_copy_3" />
             </RelativeLayout>
 
@@ -196,14 +197,16 @@
                 android:layout_height="40dp"
                 android:background="#FDFDFD"
                 app:tabGravity="fill"
-                app:tabIndicatorColor="@color/colorPrimary"
+                app:tabIndicatorColor="@color/tab_athlete"
                 app:tabIndicatorHeight="5dp"
                 app:tabMode="scrollable"
-                app:tabSelectedTextColor="@color/colorPrimary"
-                app:tabTextColor="@color/text_color"
-                app:tabTextAppearance="@style/CustomTextStyle"
+                app:tabSelectedTextColor="@color/tab_athlete"
+                app:tabTextColor="@color/tab_athlete_text_color"
 
                 />
+
+
+
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/myViewCoach"

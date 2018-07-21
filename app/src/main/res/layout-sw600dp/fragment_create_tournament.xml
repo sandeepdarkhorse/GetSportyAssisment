@@ -57,7 +57,7 @@
                     android:lineSpacingExtra="5.3sp"
                     android:text="Tournament Name"
                     android:textColor="#313131"
-                    android:textSize="@dimen/tab_body_text"
+                    android:textSize="16.3sp"
                     android:textStyle="normal" />
 
                 <ImageView
@@ -75,8 +75,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_margin="15dp"
                     android:src="@drawable/date" />
 
@@ -90,7 +90,7 @@
                     android:text="DATE"
                     android:textAllCaps="true"
                     android:textColor="#313131"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="11sp"
                     android:textStyle="normal" />
 
             </LinearLayout>
@@ -112,16 +112,13 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Start date"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" - "
-                    android:textSize="@dimen/tab_body_text16"
-
-                    />
+                    android:text=" - " />
 
                 <TextView
                     android:id="@+id/end_date"
@@ -134,7 +131,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="End date"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -144,8 +141,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_margin="15dp"
                     android:src="@drawable/date" />
 
@@ -159,7 +156,7 @@
                     android:text="ENTRY DATE"
                     android:textAllCaps="true"
                     android:textColor="#313131"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="11sp"
                     android:textStyle="normal" />
 
             </LinearLayout>
@@ -182,15 +179,13 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Entry start date"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" - "
-                    android:textSize="@dimen/tab_body_text16"
-                    />
+                    android:text=" - " />
 
                 <TextView
                     android:id="@+id/entry_end_date"
@@ -203,9 +198,8 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Entry End date"
                     android:textColor="#707070"
-                    android:textStyle="normal"
-                    android:textSize="@dimen/tab_body_text16"
-                    />
+                    android:textSize="12.5sp"
+                    android:textStyle="normal" />
             </LinearLayout>
 
 
@@ -218,8 +212,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_margin="15dp"
                     android:src="@drawable/date" />
 
@@ -233,7 +227,7 @@
                     android:text="AGE REFERENCE DATE"
                     android:textAllCaps="true"
                     android:textColor="#313131"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="11sp"
                     android:textStyle="normal" />
 
             </LinearLayout>
@@ -256,7 +250,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:hint="Reference Date"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
 
 
@@ -267,8 +261,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_margin="15dp"
                     android:src="@drawable/ic_soccer_black_18dp"
                     android:tint="@color/tournament_color" />
@@ -283,7 +277,7 @@
                     android:text="SPORT"
                     android:textAllCaps="true"
                     android:textColor="#313131"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="11sp"
                     android:textStyle="normal" />
 
             </LinearLayout>
@@ -300,7 +294,7 @@
                 android:lineSpacingExtra="7.7sp"
                 android:text="Add Sport"
                 android:textColor="#707070"
-                android:textSize="@dimen/tab_body_text16"
+                android:textSize="12.5sp"
                 android:textStyle="normal" />
 
             <LinearLayout
@@ -309,8 +303,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_margin="15dp"
                     android:src="@drawable/description" />
 
@@ -324,7 +318,7 @@
                     android:text="LEVEL"
                     android:textAllCaps="true"
                     android:textColor="#313131"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="11sp"
                     android:textStyle="normal" />
 
             </LinearLayout>
@@ -341,7 +335,7 @@
                 android:lineSpacingExtra="7.7sp"
                 android:text="International"
                 android:textColor="#707070"
-                android:textSize="@dimen/tab_body_text16"
+                android:textSize="12.5sp"
                 android:textStyle="normal" />
 
 
@@ -392,8 +386,8 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
                             android:layout_margin="15dp"
                             android:src="@drawable/location" />
 
@@ -407,7 +401,7 @@
                             android:text="LOCATION"
                             android:textAllCaps="true"
                             android:textColor="#313131"
-                            android:textSize="@dimen/tab_body_text16"
+                            android:textSize="11sp"
                             android:textStyle="normal" />
                     </LinearLayout>
 
@@ -432,7 +426,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Address"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
 
                 <TextView
@@ -448,7 +442,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Location"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
 
 
@@ -465,7 +459,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Pin"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
 
             </LinearLayout>
@@ -483,8 +477,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_margin="15dp"
                         android:src="@drawable/description" />
 
@@ -498,7 +492,7 @@
                         android:text="DESCRIPTION"
                         android:textAllCaps="true"
                         android:textColor="#313131"
-                        android:textSize="@dimen/tab_body_text16"
+                        android:textSize="11sp"
                         android:textStyle="normal" />
                 </LinearLayout>
 
@@ -515,7 +509,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Tournament Description"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -532,8 +526,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_margin="15dp"
                         android:src="@drawable/weblink" />
 
@@ -546,7 +540,7 @@
                         android:lineSpacingExtra="10.6sp"
                         android:text="TOURNAMENT LINK"
                         android:textColor="#313131"
-                        android:textSize="@dimen/tab_body_text16"
+                        android:textSize="11sp"
                         android:textStyle="normal" />
                 </LinearLayout>
 
@@ -564,7 +558,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="www.getsporty.in"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -581,8 +575,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_margin="15dp"
                         android:src="@drawable/ic_currency_inr_black_18dp"
                         android:tint="@color/tournament_color" />
@@ -597,7 +591,7 @@
                         android:text="TOURNAMENT FEES"
                         android:textAllCaps="true"
                         android:textColor="#313131"
-                        android:textSize="@dimen/tab_body_text16"
+                        android:textSize="11sp"
                         android:textStyle="normal" />
                 </LinearLayout>
 
@@ -614,7 +608,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Tournament Fees in INR"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -631,8 +625,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_margin="15dp"
                         android:src="@drawable/ic_currency_inr_black_18dp"
                         android:tint="@color/tournament_color" />
@@ -647,7 +641,7 @@
                         android:text="PER EVENT FEES"
                         android:textAllCaps="true"
                         android:textColor="#313131"
-                        android:textSize="@dimen/tab_body_text16"
+                        android:textSize="11sp"
                         android:textStyle="normal" />
                 </LinearLayout>
 
@@ -664,7 +658,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Per Event Fees in INR"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -681,8 +675,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_margin="15dp"
                         android:src="@drawable/description" />
 
@@ -696,7 +690,7 @@
                         android:text="MAX PARTICIPATION PER EVENT"
                         android:textAllCaps="true"
                         android:textColor="#313131"
-                        android:textSize="@dimen/tab_body_text16"
+                        android:textSize="11sp"
                         android:textStyle="normal" />
                 </LinearLayout>
 
@@ -713,7 +707,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Max Participations Per Event"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -740,8 +734,8 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
                             android:layout_margin="15dp"
                             android:src="@drawable/date" />
 
@@ -755,7 +749,7 @@
                             android:text="CATEGORY"
                             android:textAllCaps="true"
                             android:textColor="#313131"
-                            android:textSize="@dimen/tab_body_text16"
+                            android:textSize="11sp"
                             android:textStyle="normal" />
 
                     </LinearLayout>
@@ -781,7 +775,7 @@
                     android:letterSpacing="0.02"
                     android:lineSpacingExtra="7.7sp"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -792,8 +786,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_margin="15dp"
                     android:src="@drawable/date"
                     android:visibility="gone" />
@@ -808,7 +802,7 @@
                     android:text="Reference Date"
                     android:textAllCaps="true"
                     android:textColor="#313131"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="11sp"
                     android:textStyle="normal"
                     android:visibility="gone" />
 
@@ -889,8 +883,8 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
                             android:layout_margin="15dp"
                             android:src="@drawable/organizer_name" />
 
@@ -904,7 +898,7 @@
                             android:text="ORGANIZER NAME"
                             android:textAllCaps="true"
                             android:textColor="#313131"
-                            android:textSize="@dimen/tab_body_text16"
+                            android:textSize="11sp"
                             android:textStyle="normal" />
                     </LinearLayout>
 
@@ -931,7 +925,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Organizer Name"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -949,8 +943,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_margin="15dp"
                         android:src="@drawable/address" />
 
@@ -964,7 +958,7 @@
                         android:text="ADDRESS"
                         android:textAllCaps="true"
                         android:textColor="#313131"
-                        android:textSize="@dimen/tab_body_text16"
+                        android:textSize="11sp"
                         android:textStyle="normal" />
                 </LinearLayout>
 
@@ -981,7 +975,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Address"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
 
                 <TextView
@@ -997,7 +991,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Location"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
 
                 <TextView
@@ -1013,7 +1007,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="Pin"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -1030,8 +1024,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_margin="15dp"
                         android:src="@drawable/email_id" />
 
@@ -1045,7 +1039,7 @@
                         android:text="Email Id"
                         android:textAllCaps="true"
                         android:textColor="#313131"
-                        android:textSize="@dimen/tab_body_text16"
+                        android:textSize="11sp"
                         android:textStyle="normal" />
                 </LinearLayout>
 
@@ -1062,7 +1056,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="test@gmail.com"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -1080,8 +1074,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_margin="15dp"
                         android:src="@drawable/weblink" />
 
@@ -1094,7 +1088,7 @@
                         android:lineSpacingExtra="10.6sp"
                         android:text="CONTACT NUMBER"
                         android:textColor="#313131"
-                        android:textSize="@dimen/tab_body_text16"
+                        android:textSize="11sp"
                         android:textStyle="normal" />
                 </LinearLayout>
 
@@ -1111,7 +1105,7 @@
                     android:lineSpacingExtra="7.7sp"
                     android:text="1234567890"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -1139,8 +1133,8 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
                             android:layout_margin="15dp"
                             android:src="@drawable/terms_and_conditions" />
 
@@ -1154,7 +1148,7 @@
                             android:text="TERMS AND CONDITIONS"
                             android:textAllCaps="true"
                             android:textColor="#313131"
-                            android:textSize="@dimen/tab_body_text16"
+                            android:textSize="11sp"
                             android:textStyle="normal" />
                     </LinearLayout>
 
@@ -1180,7 +1174,7 @@
                     android:letterSpacing="0.02"
                     android:lineSpacingExtra="7.7sp"
                     android:textColor="#707070"
-                    android:textSize="@dimen/tab_body_text16"
+                    android:textSize="12.5sp"
                     android:textStyle="normal" />
 
             </LinearLayout>
@@ -1228,7 +1222,7 @@
                             android:text="Please read and understand the following terms and conditions."
                             android:textAllCaps="true"
                             android:textColor="#313131"
-                            android:textSize="@dimen/tab_body_text16"
+                            android:textSize="11sp"
                             android:textStyle="normal" />
                     </LinearLayout>
 
@@ -1251,7 +1245,7 @@
                     android:lineSpacingExtra="2sp"
                     android:text="@string/termscondition"
                     android:textColor="#707070"
-                    android:textSize="14sp"
+                    android:textSize="10sp"
                     android:textStyle="normal"
                     />
 

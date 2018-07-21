@@ -40,7 +40,7 @@
                 android:lineSpacingExtra="9sp"
                 android:text="AWARD "
                 android:textColor="#ffffff"
-                android:textSize="@dimen/tab_body_text16"
+                android:textSize="15.8sp"
                 android:textStyle="bold" />
 
         </RelativeLayout>
@@ -55,7 +55,7 @@
             android:paddingLeft="5dp"
             android:text="Champion Award "
             android:textColor="@color/white"
-            android:textSize="@dimen/tab_body_text16" />
+            android:textSize="@dimen/profile_font_size" />
 
         <TextView
             android:id="@+id/description"
@@ -71,7 +71,7 @@
 is a filler text or greeking commonly used
 to demonstrate the textual commonly."
             android:textColor="@color/white"
-            android:textSize="@dimen/tab_body_text16" />
+            android:textSize="@dimen/profile_font_size" />
 
         <TextView
             android:id="@+id/date"
@@ -83,7 +83,7 @@ to demonstrate the textual commonly."
             android:layout_marginTop="10dp"
             android:paddingLeft="5dp"
             android:textColor="@color/white"
-            android:textSize="@dimen/tab_body_text16" />
+            android:textSize="@dimen/profile_font_size" />
 
     </LinearLayout>
 </LinearLayout>

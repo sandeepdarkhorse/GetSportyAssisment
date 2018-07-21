@@ -14,15 +14,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.squareup.picasso.Picasso;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentModle;
@@ -42,12 +39,15 @@ public class ActivityVideoLink extends Activity implements Serializable {
         setContentView(R.layout.activity_videolink);
         CircleImageView UserimageView = (CircleImageView) findViewById(R.id.profile_pic);
         TextView name = (TextView) findViewById(R.id.name);
+        TextView profession = (TextView) findViewById(R.id.profession);
+        TextView level = (TextView) findViewById(R.id.level);
 
         Bundle userinfo = getIntent().getExtras();
         if (userinfo != null) {
 
             DataItem = (AssistmentModle) userinfo.getSerializable("sportdetail");
-            if (DataItem != null && DataItem != null) {
+            if (DataItem != null && DataItem != null)
+            {
                 String imageurl = DataItem.getUser_image();
 
 
@@ -61,8 +61,10 @@ public class ActivityVideoLink extends Activity implements Serializable {
                             .into(UserimageView);
                 }
 
-
+                profession.setText(DataItem.getGender());
                 name.setText(DataItem.getName());
+                level.setText(DataItem.getLocation());
+
 
             } else {
 
@@ -124,16 +126,11 @@ public class ActivityVideoLink extends Activity implements Serializable {
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
-
-
             private TextView videolink_tv;
-
             private YouTubeThumbnailView videoView;
             public ViewHolder(final View itemView) {
                 super(itemView);
-
                 videolink_tv = (TextView) itemView.findViewById(R.id.link);
-
                 itemView.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
@@ -164,16 +161,11 @@ public class ActivityVideoLink extends Activity implements Serializable {
                                 bundledata.putString("videoCode",matcher.group());
                                 Intent i = new Intent(new Intent(ActivityVideoLink.this, CustomPlayerControlActivity.class));
                                 i.putExtras(bundledata);
-
-
                                 ActivityOptions options = ActivityOptions
                                         .makeSceneTransitionAnimation(ActivityVideoLink.this,
                                                 Pair.create(itemView.findViewById(R.id.link), "image_transition"));
-
                                 startActivity(i, options.toBundle());
-
-//
-//                                Intent intent = new Intent(ActivityVideoLink.this, CustomPlayerControlActivity.class);
+                                //Intent intent = new Intent(ActivityVideoLink.this, CustomPlayerControlActivity.class);
 //                                intent.putExtra("videoCode", matcher.group());
 //                                startActivity(intent);
 
@@ -182,27 +174,13 @@ public class ActivityVideoLink extends Activity implements Serializable {
                         {
 
                         }
-
-
-
-
-                    }
+                        }
                 });
 
             }
-
             public void setItem(Video_link DataItem) {
-
                 videolink_tv.setText(DataItem.getVideolink());
-
-
-            }
-
-        }
-
-
-
-    }
-
-
+                }
+                }
+                }
 }

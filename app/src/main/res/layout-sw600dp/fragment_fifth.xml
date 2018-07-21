@@ -8,8 +8,8 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/group_5"
             android:layout_marginBottom="119dp"
@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/tab_heading28"
+            android:textSize="21sp"
             android:fontFamily="sans-serif-medium"
             android:textStyle="normal"
             android:textColor="#2196f3"
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/summary"
-            android:textSize="@dimen/tab_body_text24sp"
+            android:textSize="14.5sp"
             android:fontFamily="sans-serif"
             android:textStyle="normal"
             android:textColor="#2f2f2f"

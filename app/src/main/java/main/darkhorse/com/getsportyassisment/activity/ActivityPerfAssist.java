@@ -4,7 +4,6 @@ package main.darkhorse.com.getsportyassisment.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -17,11 +16,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import java.io.Serializable;
-
 import main.darkhorse.com.getsportyassisment.R;
-import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.TabFragmentLatestResults;
 import main.darkhorse.com.getsportyassisment.fragment.FragmentPerAssistment;
 
 public class ActivityPerfAssist

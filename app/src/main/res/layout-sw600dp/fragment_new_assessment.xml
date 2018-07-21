@@ -22,8 +22,7 @@
             android:layout_height="match_parent"
             android:layout_above="@+id/publish"
             android:layout_margin="10dp"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -51,8 +50,8 @@
                             >
                             <ImageView
                                 android:id="@+id/physical_image"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
                                 android:src="@drawable/ic_physical"
@@ -67,7 +66,6 @@
                                 android:text="Physical"
                                 android:textColor="@color/primary_white"
                                 android:textStyle="bold"
-                                android:textSize="@dimen/tab_body_text"
                                 />
                             <TextView
                                 android:id="@+id/physical_avg"
@@ -108,8 +106,8 @@
                             android:gravity="center_vertical">
                             <ImageView
                                 android:id="@+id/psycho_image"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
                                 android:src="@drawable/ic_psycho"
@@ -124,7 +122,6 @@
                                 android:text="Psychological"
                                 android:textColor="@color/primary_white"
                                 android:textStyle="bold"
-                                android:textSize="@dimen/tab_body_text"
                                 />
                             <TextView
                                 android:id="@+id/psycho_avg"
@@ -167,8 +164,8 @@
                         >
                         <ImageView
                             android:id="@+id/technical_image"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:src="@drawable/ic_technical"
                             />
@@ -181,7 +178,6 @@
                             android:text="Technical"
                             android:textColor="@color/primary_white"
                             android:textStyle="bold"
-                            android:textSize="@dimen/tab_body_text"
                             />
                         <TextView
                             android:id="@+id/technical_avg"
@@ -220,8 +216,8 @@
                         >
                         <ImageView
                             android:id="@+id/tactical_image"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:src="@drawable/ic_tactical"
                             />
@@ -234,7 +230,6 @@
                             android:text="Tactical"
                             android:textColor="@color/primary_white"
                             android:textStyle="bold"
-                            android:textSize="20dp"
                             />
                         <TextView
                             android:id="@+id/tactical_avg"
@@ -361,15 +356,12 @@
         <Button
             android:id="@+id/publish"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@color/statusbar_home"
             android:text="Publish"
-            android:textStyle="bold"
             android:textAllCaps="false"
-            android:textColor="@color/primary_white"
-            android:textSize="@dimen/tab_body_text22sp"
-            />
+            android:textColor="@color/primary_white"/>
     </RelativeLayout>
 
 </FrameLayout>

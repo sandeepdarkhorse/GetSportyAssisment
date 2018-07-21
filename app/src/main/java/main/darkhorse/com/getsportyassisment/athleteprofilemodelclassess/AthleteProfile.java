@@ -289,7 +289,7 @@ public class AthleteProfile extends Fragment implements View.OnClickListener, Ap
                     apiCall();
                     break;
                 case "2":
-                    item.setVisibility(View.VISIBLE);
+                    item.setVisibility(View.GONE);
                     layout_profile_job.setVisibility(View.GONE);
 //                    imageView_profile_pic.setClickable(false);
 
@@ -298,7 +298,7 @@ public class AthleteProfile extends Fragment implements View.OnClickListener, Ap
                     break;
 
                 case "3":
-                    item.setVisibility(View.VISIBLE);
+                    item.setVisibility(View.GONE);
                     layout_profile_job.setVisibility(View.GONE);
 //                    imageView_profile_pic.setClickable(false);
 
@@ -472,7 +472,8 @@ public class AthleteProfile extends Fragment implements View.OnClickListener, Ap
         button_send_offer.setOnClickListener(this);
     }
 
-    private void initView() {
+    private void initView()
+    {
         //processbar = (ProgressBar) rootView.findViewById(R.id.pb);
         // tv_persentage = (TextView) rootView.findViewById(R.id.percentage);
         item = (RelativeLayout) rootView.findViewById(R.id.view2);
@@ -506,81 +507,60 @@ public class AthleteProfile extends Fragment implements View.OnClickListener, Ap
 
         final ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.myViewCoach);
         final TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout_coach);
+
+
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_latestresult));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tad_achivement));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_bio));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         mAdapter = new AthleteUserAdapter(getChildFragmentManager(), tabLayout.getTabCount());
+
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(mAdapter);
-
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
-
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             if (tab != null) {
-
                 TextView tabTextView = new TextView(getContext());
                 tab.setCustomView(tabTextView);
-                tabTextView.setTextSize(18f);
-
                 tabTextView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
                 tabTextView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
-
                 tabTextView.setText(tab.getText());
-
-
-                // First tab is the selected tab, so if i==0 then set BOLD typeface
                 if (i == 0) {
-                    tabTextView.setTypeface(null, Typeface.BOLD);
-                    tabTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.toolbar_color_home));
-
+                    //  tabTextView.setTypeface(custom_font, Typeface.BOLD);
+                    tabTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.tab_athlete));
                 }
-
             }
-
         }
-
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.toolbar_color_home));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-
-
-                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.toolbar_color_home));
-
+                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.tab_athlete));
+                tabLayout.setTabTextColors(getResources().getColor(R.color.tab_athlete_text_color), getResources().getColor(R.color.tab_athlete));
                 viewPager.setCurrentItem(tab.getPosition());
-
-
+                viewPager.setCurrentItem(tab.getPosition());
                 TextView text = (TextView) tab.getCustomView();
                 assert text != null;
-                text.setTypeface(null, Typeface.BOLD);
-                text.setTextColor(ContextCompat.getColor(getContext(), R.color.toolbar_color_home));
-                text.setTextSize(18f);
-
+                // text.setTypeface(custom_font, Typeface.BOLD);
+                text.setTextColor(ContextCompat.getColor(getContext(), R.color.tab_athlete));
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
                 tabLayout.setTabTextColors(Color.parseColor("#2196f3"), Color.parseColor("#000000"));
                 TextView text = (TextView) tab.getCustomView();
-
                 assert text != null;
-                text.setTypeface(null, Typeface.NORMAL);
-                text.setTextColor(ContextCompat.getColor(getContext(), R.color.text_color));
-                text.setTextSize(18f);
-
+                //  text.setTypeface(custom_font, Typeface.NORMAL);
+                text.setTextColor(ContextCompat.getColor(getContext(), R.color.tab_athlete_text_color));
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
+
+
 
 
     }

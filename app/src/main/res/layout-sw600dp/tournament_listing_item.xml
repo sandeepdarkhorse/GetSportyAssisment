@@ -23,7 +23,7 @@
             <ImageView
                 android:id="@+id/event_image"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="150dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/edit_profile_back"
                 android:transitionName="@string/simple_fragment_transition" />
@@ -39,7 +39,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="0.8dp"
+            android:layout_height="0.7dp"
             android:background="#bdbdbd" />
 
         <RelativeLayout
@@ -47,7 +47,6 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/layout_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
@@ -69,7 +68,7 @@
                         android:background="@android:color/transparent"
                         android:text="30th FINA World Championship "
                         android:textColor="@color/text_heading_color"
-                        android:textSize="@dimen/tab_body_text"
+                        android:textSize="@dimen/body_text_small"
                         android:textStyle="bold" />
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -78,13 +77,11 @@
                         android:gravity="top|left"
                         android:layout_marginTop="5dp">
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
                             android:layout_marginLeft="5dp"
-                            android:src="@drawable/date_blue"
-                            android:scaleType="fitCenter"
-                            android:tint="@color/statusbar_profile"
-                            android:layout_marginTop="2dp"/>
+                            android:src="@mipmap/date"
+                            />
                         <TextView
                             android:id="@+id/event_date"
                             android:layout_marginLeft="5dp"
@@ -93,9 +90,8 @@
                             android:layout_below="@+id/relative_back"
                             android:background="@android:color/transparent"
                             android:text="27th Nov - 30th Nov 2015"
-                            android:textSize="@dimen/tab_body_text18"
-                            android:textColor="@color/statusbar_profile"
-                            android:gravity="center"/>
+                            android:textSize="@dimen/body_text_small"
+                            android:textColor="@color/statusbar_profile"/>
 
                     </LinearLayout>
 
@@ -107,13 +103,12 @@
                         android:gravity="top|left"
                         android:layout_marginTop="5dp">
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
                             android:layout_marginLeft="5dp"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/location_blue"
-                            android:tint="@color/statusbar_profile"
-                            android:layout_marginTop="2dp"/>
+                            android:src="@mipmap/location"
+
+                            />
                         <TextView
                             android:id="@+id/event_location"
                             android:layout_marginLeft="5dp"
@@ -121,8 +116,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/relative_back"
                             android:background="@android:color/transparent"
-                            android:textSize="@dimen/tab_body_text18"
-                            android:gravity="center"
+                            android:textSize="@dimen/body_text_small"
                             android:textColor="@color/statusbar_profile"/>
                     </LinearLayout>
 
@@ -133,22 +127,18 @@
                         android:gravity="top|left"
                         android:layout_marginTop="5dp">
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
                             android:layout_marginLeft="5dp"
                             android:src="@drawable/ic_soccer_black_18dp"
-                            android:tint="@color/statusbar_profile"
-                            android:scaleType="fitCenter"
-                            android:layout_marginTop="2dp"
-                            />
+                            android:tint="@color/statusbar_profile"  />
                         <TextView
                             android:id="@+id/sport_name"
                             android:layout_marginLeft="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/event_id"
-                            android:textSize="@dimen/tab_body_text18"
-                            android:gravity="center"
+                            android:textSize="@dimen/body_text_small"
                             android:textColor="@color/statusbar_profile"
                             />
                         <TextView
@@ -157,7 +147,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/event_registration"
-                            android:textSize="@dimen/tab_body_text18"
+                            android:textSize="@dimen/body_text_small"
                             android:textColor="@color/statusbar_profile"/>
 
                     </LinearLayout>
@@ -184,9 +174,7 @@
                 android:orientation="horizontal"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:gravity="bottom"
-                android:layout_marginTop="5dp"
-                android:layout_below="@+id/layout_detail">
+                android:gravity="bottom">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -194,9 +182,9 @@
 
                 <ImageView
                     android:id="@+id/share_event"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginRight="30dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="15dp"
                     android:src="@mipmap/job_share"
                     android:layout_marginBottom="10dp"/>
 
@@ -211,7 +199,7 @@
                     android:elevation="7dp"
                     android:gravity="center"
                     android:padding="3dp"
-                    android:textSize="12sp"
+                    android:textSize="9sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="5dp"
                     android:visibility="gone"/>
@@ -234,8 +222,8 @@
 
                 <TextView
                     android:id="@+id/event_applicant"
-                    android:layout_width="120dp"
-                    android:layout_height="40dp"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/rounded_corner_blue"
                     android:text="@string/participant"
@@ -243,7 +231,7 @@
                     android:elevation="7dp"
                     android:gravity="center"
                     android:padding="3dp"
-                    android:textSize="@dimen/tab_body_text18"
+                    android:textSize="9sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="5dp"
                     android:layout_alignParentRight="true"/>
