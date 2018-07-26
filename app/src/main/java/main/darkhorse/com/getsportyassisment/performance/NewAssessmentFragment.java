@@ -180,23 +180,14 @@ public class NewAssessmentFragment extends Fragment implements View.OnClickListe
     private void fetchDataFromServer(final int studentId){
         NetworkStatus network_status = new NetworkStatus(getActivity());
         if (network_status.isConnectingToInternet()){
-
             customProgress.showProgress(getActivity(),  false);
-
             SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SharedPrefs.PERFORMANCE,MODE_PRIVATE);
-
-
             Retrofit retrofit = ApiClient.getClient();
             PerformanceApiCall apiCall = retrofit.create(PerformanceApiCall.class);
-
             Call<GetPerformanceModulesResponse> getPerformanceModulesResponseCall = apiCall.getPerformanceModuleRequest("get_modules",
                     new GetPerformanceModuleRequest(sharedPreferences.getString(SharedPrefs.GENDER,""),
                             sharedPreferences.getString(SharedPrefs.SPORT,"Tennis"),sharedPreferences.getString(SharedPrefs.DOB,""),
                             sharedPreferences.getString(SharedPrefs.USERID,""),mParam1));
-
-
-
-
             Log.e("publish url", getPerformanceModulesResponseCall.request().url().toString());
             getPerformanceModulesResponseCall.enqueue(new Callback<GetPerformanceModulesResponse>() {
                 @Override

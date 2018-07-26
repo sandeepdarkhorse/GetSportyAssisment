@@ -73,7 +73,9 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:theme="@style/TextLabel">
+                        android:theme="@style/TextLabel"
+                        app:passwordToggleEnabled="true"
+                       app:passwordToggleDrawable="@drawable/password_toggle_drawable">
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/ed_password"

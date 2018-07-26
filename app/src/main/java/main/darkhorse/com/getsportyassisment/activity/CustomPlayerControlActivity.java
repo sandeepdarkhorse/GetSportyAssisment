@@ -16,7 +16,6 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.custom_classes.Config;
 import main.darkhorse.com.getsportyassisment.performance.PerformanceActivity;
-
 import static com.google.android.youtube.player.YouTubePlayer.ErrorReason;
 import static com.google.android.youtube.player.YouTubePlayer.OnInitializedListener;
 import static com.google.android.youtube.player.YouTubePlayer.PlaybackEventListener;
@@ -26,17 +25,12 @@ import static com.google.android.youtube.player.YouTubePlayer.Provider;
 
 public class CustomPlayerControlActivity extends YouTubeBaseActivity implements OnInitializedListener, View.OnClickListener {
     private static final String TAG = CustomPlayerControlActivity.class.getSimpleName();
-
-
     public static final String API_KEY = Config.KEY;
     //https://www.youtube.com/watch?v=<VIDEO_ID>
     public  String VIDEO_ID ;
-
     private YouTubePlayer mPlayer;
-
     private View mPlayButtonLayout;
     private TextView mPlayTimeTextView;
-
     private Handler mHandler = null;
     private SeekBar mSeekBar;
     @SuppressLint("NewApi")
@@ -45,24 +39,19 @@ public class CustomPlayerControlActivity extends YouTubeBaseActivity implements 
         super.onCreate(savedInstanceState);
         // attaching layout xml
         setContentView(R.layout.activity_custom_player);
-
         Bundle userinfo = getIntent().getExtras();
         VIDEO_ID=userinfo.getString("videoCode");
         // Initializing YouTube player view
         YouTubePlayerView youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_player_view);
         youTubePlayerView.initialize(API_KEY, this);
-
         //Add play button to explicitly play video in YouTubePlayerView
         mPlayButtonLayout = findViewById(R.id.video_control);
         findViewById(R.id.play_video).setOnClickListener(this);
         findViewById(R.id.pause_video).setOnClickListener(this);
-
         mPlayTimeTextView = (TextView) findViewById(R.id.play_time);
         mSeekBar = (SeekBar) findViewById(R.id.video_seekbar);
         mSeekBar.setOnSeekBarChangeListener(mVideoSeekBarChangeListener);
-
         mHandler = new Handler();
-
         Button perf=(Button) findViewById(R.id.performace);
         perf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,17 +76,14 @@ public class CustomPlayerControlActivity extends YouTubeBaseActivity implements 
     public void onInitializationSuccess(Provider provider, YouTubePlayer player, boolean wasRestored) {
         if (null == player) return;
         mPlayer = player;
-
         displayCurrentTime();
-
         // Start buffering
-        if (!wasRestored) {
+        if (!wasRestored)
+        {
             player.cueVideo(VIDEO_ID);
         }
-
         player.setPlayerStyle(PlayerStyle.CHROMELESS);
         mPlayButtonLayout.setVisibility(View.VISIBLE);
-
         // Add listeners to YouTubePlayer instance
         player.setPlayerStateChangeListener(mPlayerStateChangeListener);
         player.setPlaybackEventListener(mPlaybackEventListener);
@@ -105,32 +91,38 @@ public class CustomPlayerControlActivity extends YouTubeBaseActivity implements 
 
     PlaybackEventListener mPlaybackEventListener = new PlaybackEventListener() {
         @Override
-        public void onBuffering(boolean arg0) {
+        public void onBuffering(boolean arg0)
+        {
         }
 
         @Override
-        public void onPaused() {
+        public void onPaused()
+        {
             mHandler.removeCallbacks(runnable);
         }
 
         @Override
-        public void onPlaying() {
+        public void onPlaying()
+        {
             mHandler.postDelayed(runnable, 100);
             displayCurrentTime();
         }
 
         @Override
-        public void onSeekTo(int arg0) {
+        public void onSeekTo(int arg0)
+        {
             mHandler.postDelayed(runnable, 100);
         }
 
         @Override
-        public void onStopped() {
+        public void onStopped()
+        {
             mHandler.removeCallbacks(runnable);
         }
     };
 
-    PlayerStateChangeListener mPlayerStateChangeListener = new PlayerStateChangeListener() {
+    PlayerStateChangeListener mPlayerStateChangeListener = new PlayerStateChangeListener()
+    {
         @Override
         public void onAdStarted() {
         }
@@ -157,26 +149,29 @@ public class CustomPlayerControlActivity extends YouTubeBaseActivity implements 
         }
     };
 
-    SeekBar.OnSeekBarChangeListener mVideoSeekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
+    SeekBar.OnSeekBarChangeListener mVideoSeekBarChangeListener = new SeekBar.OnSeekBarChangeListener()
+    {
         @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
+        {
             long lengthPlayed = (mPlayer.getDurationMillis() * progress) / 100;
             mPlayer.seekToMillis((int) lengthPlayed);
         }
-
         @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
+        public void onStartTrackingTouch(SeekBar seekBar)
+        {
 
         }
-
         @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
+        public void onStopTrackingTouch(SeekBar seekBar)
+        {
 
         }
     };
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v)
+    {
         switch (v.getId()) {
             case R.id.play_video:
                 if (null != mPlayer && !mPlayer.isPlaying())
@@ -189,22 +184,24 @@ public class CustomPlayerControlActivity extends YouTubeBaseActivity implements 
         }
     }
 
-    private void displayCurrentTime() {
+    private void displayCurrentTime()
+    {
         if (null == mPlayer) return;
         String formattedTime = formatTime(mPlayer.getDurationMillis() - mPlayer.getCurrentTimeMillis());
         mPlayTimeTextView.setText(formattedTime);
     }
 
-    private String formatTime(int millis) {
+    private String formatTime(int millis)
+    {
         int seconds = millis / 1000;
         int minutes = seconds / 60;
         int hours = minutes / 60;
-
         return (hours == 0 ? "--:" : hours + ":") + String.format("%02d:%02d", minutes % 60, seconds % 60);
     }
 
 
-    private Runnable runnable = new Runnable() {
+    private Runnable runnable = new Runnable()
+    {
         @Override
         public void run() {
             displayCurrentTime();
