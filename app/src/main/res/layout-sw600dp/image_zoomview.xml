@@ -1,7 +1,0 @@
-<de.hdodenhof.circleimageview.CircleImageView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/imagezoom"
-    android:layout_width="250dp"
-    android:layout_height="250dp"
-    android:background="@drawable/rounded_imageview"
-    android:elevation="8dp"
-    android:src="@drawable/ic_no_user" />

@@ -1,28 +1,365 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/parent_relativeLayout"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_marginTop="50dp"
+    android:layout_height="match_parent">
 
-    <com.google.android.youtube.player.YouTubeThumbnailView
-        android:id="@+id/youtube_thumbnail"
-        android:layout_width="fill_parent"
-        android:layout_height="250dp"
-        android:scaleType="centerCrop"
-        android:visibility="gone"/>
-
-    <RelativeLayout android:id="@+id/relativeLayout_over_youtube_thumbnail"
-        android:layout_width="fill_parent"
-        android:layout_height="250dp"
-        android:background="@android:color/transparent"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
        >
-
-        <ImageView android:id="@+id/btnYoutube_player"
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cl"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="center"
-            android:src="@drawable/youtube_icon"/>
+            android:background="@drawable/bg_pattern"
+            android:padding="10dp"
+            >
 
-    </RelativeLayout>
 
-</RelativeLayout>
+
+
+
+        </FrameLayout>
+
+
+        <main.darkhorse.com.getsportyassisment.shapesview.BubbleView
+            android:id="@+id/heart"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:elevation="6dp"
+            app:bubble_arrowHeight="10dp"
+            app:bubble_arrowWidth="10dp"
+            app:bubble_arrowPosition="bottom"
+            app:bubble_borderRadius="20dp"
+            app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@+id/arc"
+            tools:ignore="RtlCompat">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/otter" />
+
+            <TextView
+                android:text="Bubble"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:shadowColor="@android:color/black"
+                android:shadowDx="2"
+                android:shadowRadius="10"
+                android:textSize="11sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"  />
+
+        </main.darkhorse.com.getsportyassisment.shapesview.BubbleView>
+
+        <main.darkhorse.com.getsportyassisment.shapesview.ShapeOfView
+
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:elevation="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:clip_drawable="@drawable/ic_android_black_24dp"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@+id/arc"
+            tools:ignore="RtlCompat">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/shape_of_view" />
+
+            <TextView
+                android:text="Droid\nCustom SVG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:shadowColor="@android:color/black"
+                android:shadowDx="2"
+                android:shadowRadius="10"
+                android:textSize="11sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+        </main.darkhorse.com.getsportyassisment.shapesview.ShapeOfView>
+
+        <main.darkhorse.com.getsportyassisment.shapesview.CircleView
+            android:id="@+id/circle"
+
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:elevation="4dp"
+            app:circle_borderColor="@android:color/black"
+            app:circle_borderWidth="2dp"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@+id/roundRect">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/shape_of_view" />
+
+            <TextView
+                android:text="Circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:shadowColor="@android:color/black"
+                android:shadowDx="2"
+                android:shadowRadius="10"
+                android:textSize="11sp"
+                android:paddingTop="25dp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"  />
+
+        </main.darkhorse.com.getsportyassisment.shapesview.CircleView>
+
+        <main.darkhorse.com.getsportyassisment.shapesview.DiagonalView
+            android:id="@+id/diagonal"
+
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:elevation="4dp"
+            app:diagonal_angle="10"
+            app:diagonal_direction="right"
+            app:diagonal_position="bottom"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@+id/circle">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/shape_of_view" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Diagonal"
+                android:paddingTop="25dp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />>
+
+        </main.darkhorse.com.getsportyassisment.shapesview.DiagonalView>
+
+        <main.darkhorse.com.getsportyassisment.shapesview.ArcView
+            android:id="@+id/arc"
+
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:elevation="4dp"
+            app:arc_cropDirection="outside"
+            app:arc_height="20dp"
+            app:arc_position="bottom"
+            app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@+id/triangle">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/shape_of_view" />
+
+            <TextView
+                android:text="Arc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:shadowColor="@android:color/black"
+                android:shadowDx="2"
+                android:paddingTop="25dp"
+                android:shadowRadius="10"
+                android:textSize="11sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"  />
+
+        </main.darkhorse.com.getsportyassisment.shapesview.ArcView>
+
+        <main.darkhorse.com.getsportyassisment.shapesview.TriangleView
+            android:id="@+id/triangle"
+
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:elevation="4dp"
+            app:triangle_percentBottom="0.5"
+            app:triangle_percentLeft="0"
+            app:triangle_percentRight="0"
+            app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@+id/clipCorner"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/shape_of_view" />
+
+            <TextView
+                android:text="Triangle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:shadowColor="@android:color/black"
+                android:shadowDx="2"
+                android:shadowRadius="10"
+                android:textSize="11sp"
+                android:paddingTop="25dp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+        </main.darkhorse.com.getsportyassisment.shapesview.TriangleView>
+
+        <main.darkhorse.com.getsportyassisment.shapesview.RoundRectView
+            android:id="@+id/roundRect"
+
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:elevation="4dp"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineRight"
+            app:layout_constraintTop_toTopOf="@+id/guidelineTop"
+            app:roundRect_bottomLeftDiameter="10dp"
+            app:roundRect_bottomRightDiameter="10dp"
+            app:roundRect_topLeftDiameter="10dp"
+            app:roundRect_topRightDiameter="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/shape_of_view" />
+
+            <TextView
+                android:text="RoundRect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:shadowColor="@android:color/black"
+                android:shadowDx="2"
+                android:shadowRadius="10"
+                android:textSize="11sp"
+                android:paddingTop="25dp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"  />
+
+        </main.darkhorse.com.getsportyassisment.shapesview.RoundRectView>
+
+        <main.darkhorse.com.getsportyassisment.shapesview.RoundRectView
+            android:id="@+id/clipCorner"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:elevation="4dp"
+            app:cutCorner_bottomLeftSize="20dp"
+            app:cutCorner_bottomRightSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/guidelineLeft"
+            app:layout_constraintTop_toTopOf="@+id/guidelineTop">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@color/colorPrimary" />
+
+            <TextView
+                android:text="Cut Corner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="20dp"
+                android:gravity="center"
+                android:shadowColor="@android:color/black"
+                android:shadowDx="2"
+                android:shadowRadius="10"
+                android:textSize="11sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"  />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:checked="true"
+                android:textColor="@android:color/white"
+                android:text="Work with all views"/>
+
+        </main.darkhorse.com.getsportyassisment.shapesview.RoundRectView>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelineLeft"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelineTop"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelineBottom"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="20dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelineRight"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+</android.support.v4.widget.NestedScrollView>

@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity
     ArrayList<sportspojo> sportfacilitylist;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         CheckAndroidPermission.checkAndRequestPermissions(getApplicationContext(), this);
 
@@ -332,24 +333,6 @@ public class MainActivity extends AppCompatActivity
 
 
     }
-//    @SuppressLint("NewApi")
-// public  void show_activity(int imageview,int textview,String name,int drawable_id)
-// {
-//     PlacesSportsdetail places = new PlacesSportsdetail(name,
-//             drawable_id, "",
-//             "", "", "", "");
-//
-//     Bundle userinfo = new Bundle();
-//     userinfo.putSerializable("sportdetail", (Serializable) places);
-//     Intent i = new Intent(new Intent(MainActivity.this, ActivityDashboardDetail.class));
-//     i.putExtras(userinfo);
-//
-//      ActivityOptions options = ActivityOptions
-//             .makeSceneTransitionAnimation(MainActivity.this,
-//                     Pair.create(findViewById(imageview), "image_transition"),
-//                     Pair.create(findViewById(textview), "sport_transition"));
-//     startActivity(i, options.toBundle());
-//
-//     }
+
 }
 

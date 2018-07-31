@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:background="@color/event_tab_back"
+    android:orientation="vertical">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/gradient_1"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/assessment_program" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="5dp"
+                            android:text="Getsporty Assessment"
+                            android:textColor="@color/white"
+                            android:textSize="23sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+
+                        <main.darkhorse.com.getsportyassisment.shapesview.DiagonalView
+                            android:id="@+id/institution_cardView"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="1"
+                            android:elevation="4dp"
+                            app:diagonal_angle="10"
+                            app:diagonal_direction="left"
+                            app:diagonal_position="bottom"
+                            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+                            app:layout_constraintTop_toBottomOf="@+id/circle">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#b9a6ff"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/cricket"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:padding="5dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/institution" />
+
+                                <TextView
+                                    android:id="@+id/cricket_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:gravity="center"
+                                    android:text="Institutions"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/body_text"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </main.darkhorse.com.getsportyassisment.shapesview.DiagonalView>
+
+
+                        <main.darkhorse.com.getsportyassisment.shapesview.DiagonalView
+                            android:id="@+id/selfassessment_cardView"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="1"
+
+                            android:elevation="4dp"
+                            app:diagonal_angle="10"
+                            app:diagonal_direction="left"
+                            app:diagonal_position="bottom"
+                            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+                            app:layout_constraintTop_toBottomOf="@+id/circle">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#ffc58b"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/selfassessment"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:padding="5dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/ic_assessment_icon" />
+
+                                <TextView
+                                    android:id="@+id/selfassessment_text"
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Self Assessment"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/body_text"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                        </main.darkhorse.com.getsportyassisment.shapesview.DiagonalView>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:orientation="horizontal"
+
+                        >
+
+
+                        <main.darkhorse.com.getsportyassisment.shapesview.DiagonalView
+                            android:id="@+id/eventrtriel_cardView"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="1"
+
+                            android:elevation="4dp"
+                            app:diagonal_angle="10"
+                            app:diagonal_direction="left"
+                            app:diagonal_position="bottom"
+                            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+                            app:layout_constraintTop_toBottomOf="@+id/circle">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#ff9aa4"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/tennis"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:padding="5dp"
+                                    android:scaleType="fitXY"
+
+                                    android:src="@drawable/ic_event" />
+
+                                <TextView
+                                    android:id="@+id/tennis_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Event Triel"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/body_text"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </main.darkhorse.com.getsportyassisment.shapesview.DiagonalView>
+
+
+                        <main.darkhorse.com.getsportyassisment.shapesview.DiagonalView
+                            android:id="@+id/assessmentmaster_cardView"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_gravity="center_horizontal"
+
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="1"
+
+                            android:elevation="4dp"
+                            app:diagonal_angle="10"
+                            app:diagonal_direction="left"
+                            app:diagonal_position="bottom"
+                            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+                            app:layout_constraintTop_toBottomOf="@+id/circle">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#45bce6"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/swimming"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:padding="5dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/assessment" />
+
+                                <TextView
+                                    android:id="@+id/swimming_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Assessment Master"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/body_text"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </main.darkhorse.com.getsportyassisment.shapesview.DiagonalView>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <main.darkhorse.com.getsportyassisment.shapesview.DiagonalView
+                    android:id="@+id/diagonal"
+
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:elevation="4dp"
+                    android:visibility="gone"
+                    app:diagonal_angle="10"
+                    app:diagonal_direction="right"
+                    app:diagonal_position="bottom"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+                    app:layout_constraintTop_toBottomOf="@+id/circle">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/shape_of_view" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingTop="25dp"
+                        android:text="Diagonal"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />>
+
+                </main.darkhorse.com.getsportyassisment.shapesview.DiagonalView>
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

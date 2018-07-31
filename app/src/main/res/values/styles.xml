@@ -94,4 +94,21 @@
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:background">#c906412e</item>
     </style>
+
+
+
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@color/colorAccent</item>
+    </style>
+
+
+    <style name="CustomDialog" parent="AppTheme">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+
 </resources>

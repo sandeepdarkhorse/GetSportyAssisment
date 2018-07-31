@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/event_tab_back"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/default_text"
@@ -65,4 +65,21 @@
             android:textColor="@color/primary_white"
             android:textSize="18sp" />
     </RelativeLayout>
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_institute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="15dp"
+        android:src="@android:drawable/ic_input_add"
+        android:tint="@android:color/white"
+        app:fabSize="normal"
+        android:backgroundTint="@color/colorPrimaryTrans"
+
+        />
 </RelativeLayout>

@@ -385,6 +385,18 @@
 
 
 
+    <string name="institute_name">Name</string>
+
+
+    <string name="institute_email">Email</string>
+
+    <string name="institute_mobile_no">Mobile No:</string>
+
+    <string name="institute_regno">Registration No:</string>
+
+    <string name="institute_address">Address</string>
+
+    <string name="institute_location">Location</string>
     </resources>
 
 

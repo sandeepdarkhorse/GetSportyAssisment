@@ -275,7 +275,7 @@ public class ActivityLoginAdmin extends AppCompatActivity {
 
                             sleep(2 * 500);
 
-                            Intent i = new Intent(ActivityLoginAdmin.this, MainActivity.class);
+                            Intent i = new Intent(ActivityLoginAdmin.this, Activity_dashboard.class);
                             startActivity(i);
                             finish();
 
