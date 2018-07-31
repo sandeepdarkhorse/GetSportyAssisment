@@ -397,6 +397,9 @@
     <string name="institute_address">Address</string>
 
     <string name="institute_location">Location</string>
+
+
+    <string name="add_assessment">Add Assessment</string>
     </resources>
 
 

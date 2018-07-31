@@ -1,9 +1,11 @@
 package main.darkhorse.com.getsportyassisment.model_classes;
 
+import java.io.Serializable;
+
 /**
  * Created by shekhar on 30/7/18.
  */
-public class InstituteDataPojo {
+public class InstituteDataPojo implements Serializable {
     String inst_type;
     String inst_name;
 

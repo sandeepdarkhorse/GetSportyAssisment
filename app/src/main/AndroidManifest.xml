@@ -66,6 +66,17 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustPan" />
 
+
+
+        <activity
+            android:name=".activity.ActivityInstituteDetail"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+
+        </activity>
+
+
+
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name"
@@ -158,6 +169,8 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
+
+
 
 
     </application>

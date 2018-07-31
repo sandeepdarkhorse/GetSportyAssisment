@@ -2,23 +2,28 @@ package main.darkhorse.com.getsportyassisment.custom_classes;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.DateFormat;
@@ -37,6 +42,7 @@ import java.util.regex.Pattern;
 import de.hdodenhof.circleimageview.CircleImageView;
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.UtilsFile.ApiClient;
+import main.darkhorse.com.getsportyassisment.model_classes.InstituteDataPojo;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -512,6 +518,22 @@ public class DateConversion {
             vId = matcher.group(1);
         }
         return vId;
+    }
+    public static void saveArrayList(ArrayList<InstituteDataPojo> list, String key, Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        editor.putString(key, json);
+        editor.apply();     // This line is IMPORTANT !!!
+    }
+
+    public static ArrayList<InstituteDataPojo> getArrayList(String key,Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        Gson gson = new Gson();
+        String json = prefs.getString(key, null);
+        Type type = new TypeToken<ArrayList<InstituteDataPojo>>() {}.getType();
+        return gson.fromJson(json, type);
     }
 
 }

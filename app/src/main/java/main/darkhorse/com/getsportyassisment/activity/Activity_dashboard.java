@@ -83,9 +83,6 @@ public class Activity_dashboard extends AppCompatActivity  implements Navigation
             case R.id.institution_cardView:
                 Intent activitylist = new Intent(Activity_dashboard.this, ActivityList.class);
                 startActivity(activitylist);
-
-
-
                 break;
             case R.id.selfassessment_cardView:
                 break;
