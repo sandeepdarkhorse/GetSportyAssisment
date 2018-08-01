@@ -72,6 +72,8 @@ import main.darkhorse.com.getsportyassisment.compressor.Compressor;
 import main.darkhorse.com.getsportyassisment.compressor.FileUtil;
 import main.darkhorse.com.getsportyassisment.cropper.CropImage;
 import main.darkhorse.com.getsportyassisment.cropper.CropImageView;
+import main.darkhorse.com.getsportyassisment.custom_classes.AutoFitGridLayoutManager;
+import main.darkhorse.com.getsportyassisment.custom_classes.AutoFitGridRecyclerView;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress;
 import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentModle;
@@ -137,7 +139,7 @@ public class FragmentInstList extends Fragment {
 
     private int[] validation = new int[8];
     View rootView;
-    RecyclerView recycleview_eventListing;
+    AutoFitGridRecyclerView recycleview_eventListing;
     RecyclerView.LayoutManager myLayoutManager;
 
     CustomProgress customProgress;
@@ -177,15 +179,21 @@ public class FragmentInstList extends Fragment {
                              Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.fragment_per_assist, container, false);
-        recycleview_eventListing = (RecyclerView) rootView.findViewById(R.id.recyclerview_assist);
+
+
+        recycleview_eventListing = (AutoFitGridRecyclerView) rootView.findViewById(R.id.recyclerview_assist);
 
 //        myLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
 //        recycleview_eventListing.setLayoutManager(myLayoutManager);
 
-        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
-        recycleview_eventListing.setLayoutManager(mLayoutManager);
-        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.recycleview_space);
-        recycleview_eventListing.addItemDecoration(itemDecoration);
+//        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
+//        recycleview_eventListing.setLayoutManager(mLayoutManager);
+//        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.recycleview_space);
+//        recycleview_eventListing.addItemDecoration(itemDecoration);
+
+
+
+
 
 
         customProgress = CustomProgress.getInstance();
@@ -582,6 +590,8 @@ public class FragmentInstList extends Fragment {
                         InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
                         recycleview_eventListing.setAdapter(adapter);
 
+
+
                     }
 
                     @Override
@@ -771,35 +781,5 @@ public class FragmentInstList extends Fragment {
 
 
 
-    public class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
-
-        private int mItemOffset;
-
-        public ItemOffsetDecoration(int itemOffset) {
-
-            mItemOffset = itemOffset;
-
-        }
-
-
-        public ItemOffsetDecoration(@NonNull Context context, @DimenRes int itemOffsetId) {
-
-            this(context.getResources().getDimensionPixelSize(itemOffsetId));
-
-        }
-
-        @Override
-
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
-
-                                   RecyclerView.State state) {
-
-            super.getItemOffsets(outRect, view, parent, state);
-
-            outRect.set(mItemOffset, mItemOffset, mItemOffset, mItemOffset);
-
-        }
-
-    }
 
 }

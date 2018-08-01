@@ -55,4 +55,6 @@
     <dimen name="minDayCellHeight">40dp</dimen>
     <dimen name="profile_font_size">14sp</dimen>
     <dimen name="notification_body_size">16sp</dimen>
+    <!--The AutoFitRecyclerView will use this value to determine how many columns to make-->
+    <dimen name="movie_grid_item_width">120dp</dimen>
 </resources>
