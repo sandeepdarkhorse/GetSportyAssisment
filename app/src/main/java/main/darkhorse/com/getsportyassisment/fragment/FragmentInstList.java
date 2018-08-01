@@ -3,20 +3,25 @@ package main.darkhorse.com.getsportyassisment.fragment;
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.DimenRes;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -173,11 +178,17 @@ public class FragmentInstList extends Fragment {
 
         rootView = inflater.inflate(R.layout.fragment_per_assist, container, false);
         recycleview_eventListing = (RecyclerView) rootView.findViewById(R.id.recyclerview_assist);
-        myLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        recycleview_eventListing.setLayoutManager(myLayoutManager);
+
+//        myLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+//        recycleview_eventListing.setLayoutManager(myLayoutManager);
+
+        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
+        recycleview_eventListing.setLayoutManager(mLayoutManager);
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.recycleview_space);
+        recycleview_eventListing.addItemDecoration(itemDecoration);
+
+
         customProgress = CustomProgress.getInstance();
-
-
         add_institute = (FloatingActionButton) rootView.findViewById(R.id.add_institute);
         add_institute.setVisibility(View.VISIBLE);
 
@@ -607,7 +618,7 @@ public class FragmentInstList extends Fragment {
             rootview = LayoutInflater.from(parent.getContext()).inflate(R.layout.institute_detail_item, parent, false);
 
 
-            return new InstituteListingAdapter.ViewHolder(rootview);
+            return new ViewHolder(rootview);
         }
 
         @Override
@@ -632,7 +643,7 @@ public class FragmentInstList extends Fragment {
             private Button assistment;
 
             private TextView name;
-            private TextView gender;
+            private TextView address;
             private TextView location;
 
             public ViewHolder(final View itemView) {
@@ -640,7 +651,7 @@ public class FragmentInstList extends Fragment {
                 athleteimage = (ImageView) itemView.findViewById(R.id.athlete_image);
 
                 name = (TextView) itemView.findViewById(R.id.name);
-                gender = (TextView) itemView.findViewById(R.id.gender);
+                address = (TextView) itemView.findViewById(R.id.address);
 
                 ageTextview = (TextView) itemView.findViewById(R.id.age);
                 location = (TextView) itemView.findViewById(R.id.location);
@@ -676,7 +687,7 @@ public class FragmentInstList extends Fragment {
 
             public void setItem(InstituteDataPojoApi DataItem) {
                 name.setText(DataItem.getCollege_name());
-                gender.setText(DataItem.getAddress());
+                address.setText(DataItem.getAddress());
                 location.setText(DataItem.getLocation());
 
                 //  String imageurl = DataItem.getUser_image();
@@ -755,6 +766,40 @@ public class FragmentInstList extends Fragment {
         CropImage.activity(null)
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .start(getContext(), this);
+    }
+
+
+
+
+    public class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
+
+        private int mItemOffset;
+
+        public ItemOffsetDecoration(int itemOffset) {
+
+            mItemOffset = itemOffset;
+
+        }
+
+
+        public ItemOffsetDecoration(@NonNull Context context, @DimenRes int itemOffsetId) {
+
+            this(context.getResources().getDimensionPixelSize(itemOffsetId));
+
+        }
+
+        @Override
+
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
+
+                                   RecyclerView.State state) {
+
+            super.getItemOffsets(outRect, view, parent, state);
+
+            outRect.set(mItemOffset, mItemOffset, mItemOffset, mItemOffset);
+
+        }
+
     }
 
 }
