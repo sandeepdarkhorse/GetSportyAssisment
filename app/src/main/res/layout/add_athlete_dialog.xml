@@ -44,7 +44,7 @@
                             android:id="@+id/toolbar_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Add Institute"
+                            android:text="Add Athlete"
                             android:textColor="@color/white"
                             android:layout_toRightOf="@+id/closeDialogImg"
                             android:layout_centerVertical="true"
@@ -65,105 +65,76 @@
                 android:gravity="center|top"
                 android:orientation="vertical">
 
-                <fr.ganfra.materialspinner.MaterialSpinner
-                    android:id="@+id/inst_type"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/offblack"
-                    app:ms_floatingLabelText="@string/result_text"
-                    app:ms_hint="Type"
-                    app:ms_multiline="false"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
 
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:src="@drawable/default_user"
+    android:layout_marginTop="5dp"/>
 
 
 
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tl_name"
+                    android:id="@+id/tl__name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:hint="@string/institute_name">
+                    android:hint="@string/name">
 
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapSentences"
-
                         android:maxLines="1"
                         android:singleLine="true" />
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tl_email"
+                    android:id="@+id/tl_dob"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:hint="@string/institute_email">
+                    android:hint="@string/dob">
 
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/institute_email"
+                        android:id="@+id/dob"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textCapSentences"
-
+                        android:inputType="none"
                         android:maxLines="1"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:drawableRight="@drawable/date_blue"
+                        android:paddingRight="10dp"/>
                 </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tl_mobile_no"
+
+                <fr.ganfra.materialspinner.MaterialSpinner
+                    android:id="@+id/inst_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/offblack"
+                    app:ms_floatingLabelText="@string/sport"
+                    app:ms_hint="Type"
+                    app:ms_multiline="false"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    android:hint="@string/institute_mobile_no">
+                    android:layout_marginRight="10dp"/>
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/institute_mobile_no"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:inputType="number"
-                        android:maxLines="1"
-                        android:singleLine="true" />
-                </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tl_institute_regno"
+                    android:id="@+id/tl_guardian"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:hint="@string/institute_regno">
+                    android:hint="@string/guardian_name">
 
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/institute_regno"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textCapSentences"
-
-                        android:maxLines="1"
-                        android:singleLine="true" />
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tl_institute_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:hint="@string/institute_address">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/institute_address"
+                        android:id="@+id/guardian_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapSentences"
@@ -173,16 +144,16 @@
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
 
-                    android:id="@+id/tl_institute_location"
+                    android:id="@+id/tl_std_regno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:hint="@string/institute_location">
+                    android:hint="@string/student_reg_no">
 
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/institute_location"
+                        android:id="@+id/student_reg_no"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapSentences"
@@ -190,81 +161,58 @@
                         android:maxLines="1"
                         android:singleLine="true" />
                 </android.support.design.widget.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/text_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Upload your institute image"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
-                    android:textColor="#1f1f1f"/>
-
-
-                <ImageView
-                    android:id="@+id/doc"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="30dp"
-                    android:src="@drawable/resource_back"
-                    android:layout_alignParentBottom="true"
-                    android:visibility="gone"/>
 
                 <RelativeLayout
+                    android:id="@+id/relative_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    >
+                    android:layout_marginTop="10dp">
+
                     <TextView
-                        android:id="@+id/addimage"
+                        android:id="@+id/gender_head"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#2196f3"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_gravity="left|center"
-                        android:layout_marginRight="6dp"
-                        android:text="UPLOAD"
-                        android:textColor="@android:color/white"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:gravity="center"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="20dp"
+                        android:text="Gender :"
 
-                        />
-                    <TextView
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/radio_group"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/file_name"
-                        android:layout_toRightOf="@+id/addimage"
-                        android:textColor="#1f1f1f"
-                        android:layout_marginTop="3dp"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_toRightOf="@+id/gender_head"
+                        android:orientation="horizontal">
 
-                        android:layout_marginTop="3dp"
-                        android:layout_marginRight="10dp"
-                        android:id="@+id/tick"/>
+                        <RadioButton
+                            android:id="@+id/radio_male"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/signup_dialog"
+                            android:checked="true"
+                            android:drawableRight="@drawable/male"
 
-                    <ProgressBar
-                        android:visibility="gone"
-                        android:id="@+id/progressBar2"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/file_name"
-                        android:layout_toRightOf="@+id/addimage"
-                        android:layout_alignBottom="@+id/addimage"
-                        android:layout_marginRight="10dp"
-                        android:progress="0"
-                        android:progressTint="#ffce59"
-                        />
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radio_female"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/signup_dialog"
+                            android:drawableRight="@drawable/female" />
+                    </RadioGroup>
+
+
                 </RelativeLayout>
+
+
+
+
+
 
 
                 <!--</FrameLayout>-->

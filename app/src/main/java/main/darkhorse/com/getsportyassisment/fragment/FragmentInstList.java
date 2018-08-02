@@ -56,8 +56,11 @@ import main.darkhorse.com.getsportyassisment.UtilsFile.ApiClient;
 import main.darkhorse.com.getsportyassisment.UtilsFile.CheckAndroidPermission;
 import main.darkhorse.com.getsportyassisment.UtilsFile.CommonUtils;
 import main.darkhorse.com.getsportyassisment.UtilsFile.NetworkStatus;
+import main.darkhorse.com.getsportyassisment.activity.ActivityDashboardDetail;
+import main.darkhorse.com.getsportyassisment.activity.ActivityInstituteDetail;
 import main.darkhorse.com.getsportyassisment.activity.ActivityLoginAdmin;
 import main.darkhorse.com.getsportyassisment.activity.ActivityVideoLink;
+import main.darkhorse.com.getsportyassisment.activity.MainActivity;
 import main.darkhorse.com.getsportyassisment.activity.UserProfile;
 import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.ApiAtheliteCall;
 import main.darkhorse.com.getsportyassisment.compressor.Compressor;
@@ -69,6 +72,9 @@ import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentModle;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.InstituteDataPojo;
+import main.darkhorse.com.getsportyassisment.model_classes.InstituteDataPojoApi;
+import main.darkhorse.com.getsportyassisment.model_classes.InstituteResponse;
+import main.darkhorse.com.getsportyassisment.model_classes.PlacesSportsdetail;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -128,7 +134,7 @@ public class FragmentInstList extends Fragment {
     View rootView;
     RecyclerView recycleview_eventListing;
     RecyclerView.LayoutManager myLayoutManager;
-    ArrayList<AssistmentModle> assistment_datalist;
+
     CustomProgress customProgress;
     FloatingActionButton add_institute;
     private NetworkStatus network_status;
@@ -136,7 +142,7 @@ public class FragmentInstList extends Fragment {
     Uri imagefromgalary;
     private File actualImage;
     private File compressedImage;
-    String encoded="sdlksjlksjl";
+    String encoded = "sdlksjlksjl";
 
     private String[] typeArray = {"School", "Institution", "Club", "Academy"};
 
@@ -156,7 +162,10 @@ public class FragmentInstList extends Fragment {
     TextInputEditText editText_institute_address;
     TextInputEditText editText_institute_regno, editText_institute_mobileno;
     TextInputEditText editText_institute_email;
-    TextView  textimage;
+    TextView textimage;
+
+    ArrayList<InstituteDataPojoApi> arrylistinstitute;
+
     @SuppressLint("RestrictedApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -167,12 +176,8 @@ public class FragmentInstList extends Fragment {
         myLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recycleview_eventListing.setLayoutManager(myLayoutManager);
         customProgress = CustomProgress.getInstance();
-//        if (!mParam1.equals(""))
-//        {
-//            Retrofit_listdata();
-//        } else {
-//
-//        }
+
+
         add_institute = (FloatingActionButton) rootView.findViewById(R.id.add_institute);
         add_institute.setVisibility(View.VISIBLE);
 
@@ -183,6 +188,8 @@ public class FragmentInstList extends Fragment {
             }
         });
         network_status = new NetworkStatus(getActivity());
+
+        Retrofit_listdata();
         return rootView;
 
     }
@@ -195,14 +202,12 @@ public class FragmentInstList extends Fragment {
 //        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 //        dialog.setContentView(dialogView);
 
-
         final Dialog dialog = new Dialog(getActivity(), R.style.CustomDialog);
         dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
         dialog.setContentView(dialogView);
         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-
 
 
         Toolbar toolbar_dissmiss = (Toolbar) dialog.findViewById(R.id.toolbar);
@@ -267,13 +272,12 @@ public class FragmentInstList extends Fragment {
         editText_institute_location = (TextInputEditText) dialog.findViewById(R.id.institute_location);
 
 
-          textimage = (TextView) dialog.findViewById(R.id.text_image);
-
+        textimage = (TextView) dialog.findViewById(R.id.text_image);
 
 
         button_submit = (Button) dialog.findViewById(R.id.submit_details);
 
-        TextView  addimage = (TextView) dialog.findViewById(R.id.addimage);
+        TextView addimage = (TextView) dialog.findViewById(R.id.addimage);
         addimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -286,8 +290,6 @@ public class FragmentInstList extends Fragment {
 
             }
         });
-
-
 
 
         button_submit.setOnClickListener(new View.OnClickListener() {
@@ -377,21 +379,19 @@ public class FragmentInstList extends Fragment {
                     scrollview.fullScroll(ScrollView.FOCUS_UP);
 
 
-                }else if(insttype.equals("")) {
+                } else if (insttype.equals("")) {
                     validation[6] = 1;
                     inst_type.setError("You need to enter institute type");
                     scrollview.fullScroll(ScrollView.FOCUS_UP);
 
 
-                }
-                else {
+                } else {
                     validation[6] = 0;
 
                     inst_type.setError(null);
                 }
 
-                if (encoded.equals(""))
-                {
+                if (encoded.equals("")) {
                     validation[7] = 1;
                     textimage.setError("");
                     textimage.setTextColor(getResources().getColor(R.color.red));
@@ -404,7 +404,7 @@ public class FragmentInstList extends Fragment {
                 }
 
 
-                int sum = validation[0] + validation[1] + validation[2] + validation[3] + validation[4] + validation[5] + validation[6]+validation[7];
+                int sum = validation[0] + validation[1] + validation[2] + validation[3] + validation[4] + validation[5] + validation[6] + validation[7];
                 if (sum == 0) {
                     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
                     if (instituteemail.trim().matches(emailPattern)) {
@@ -412,32 +412,40 @@ public class FragmentInstList extends Fragment {
 
                         try {
 
-                            if (network_status.isConnectingToInternet())
-                            {
+                            if (network_status.isConnectingToInternet()) {
 
                                 try {
                                     Retrofit retrofit = ApiClient.getClient();
                                     ApiAtheliteCall apiCall = retrofit.create(ApiAtheliteCall.class);
 
                                     InstituteDataPojo datapojo = new InstituteDataPojo(insttype, name, instituteemail
-                                            , institutemobileno, instituteregno, instituteaddress,institutelocation,encoded);
+                                            , institutemobileno, instituteregno, instituteaddress, institutelocation, encoded);
 
-                                    Call<JsonElement> checklogin = apiCall.Addinstitute("gs_addinstitute", datapojo);
+//                                    arrylistinstitute.add(datapojo);
+
+//                                    InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
+//                                    recycleview_eventListing.setAdapter(adapter);
+//                                    adapter.notifyDataSetChanged();
+////                                    DateConversion.saveArrayList(arrylistinstitute, "institutelist", getActivity());
+
+                                    Call<JsonElement> checklogin = apiCall.Addinstitute("add_institute", datapojo);
                                     Log.e("institute listing url:", checklogin.request().url().toString());
 
                                     customProgress.showProgress(getActivity(), false);
                                     checklogin.enqueue(new Callback<JsonElement>() {
                                         @Override
-                                        public void onResponse(Call<JsonElement> call, Response<JsonElement> response)
-                                        {
+                                        public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                                             customProgress.hideProgress();
                                             JsonElement jsonElement = response.body();
-                                            Log.e("JSON RESPONSE Gs_signup", jsonElement.toString());
+                                            Log.e("JSON RESPONSE", jsonElement.toString());
                                             try {
                                                 JSONObject jsonobj = new JSONObject(jsonElement.toString());
                                                 String status = jsonobj.getString("status");
-                                                if (status.equals("1")) {
-                                                    dialog.dismiss();
+                                                if (status.equals("1"))
+                                                {
+
+                                                    revealShow(dialogView, false, dialog);
+                                                    Retrofit_listdata();
 
                                                 } else {
 
@@ -461,8 +469,7 @@ public class FragmentInstList extends Fragment {
                                         }
                                     });
 
-                                } catch (Exception e)
-                                {
+                                } catch (Exception e) {
                                     e.printStackTrace();
                                     customProgress.hideProgress();
                                 }
@@ -539,42 +546,35 @@ public class FragmentInstList extends Fragment {
     }
 
     public void Retrofit_listdata() {
-        assistment_datalist = new ArrayList<AssistmentModle>();
+        arrylistinstitute = new ArrayList<>();
+        arrylistinstitute.clear();
+
         final int network = CommonUtils.getConnectivityStatus(getActivity());
 
-        if (network == 0) {
-            Toast.makeText(getContext(), R.string.no_internet_connection_error, Toast.LENGTH_LONG).show();
-
-
-        } else {
+        if (network_status.isConnectingToInternet()) {
             try {
-                String performanceUrl = "http://testingapp.getsporty.in/performance.php?";
+                String performanceUrl = "http://testingapp.getsporty.in/add_property_controller.php?";
                 SharedPreferences sharedPreferences_user = getActivity().getSharedPreferences("LoginCredentials", 0);
                 String user_id = sharedPreferences_user.getString("userid", "");
-                String data = URLEncoder.encode("act", "UTF-8") + "=" + URLEncoder.encode("get_assessement_list", "UTF-8")
-                        + "&" + URLEncoder.encode("sport", "UTF-8") + "=" + URLEncoder.encode(mParam1, "UTF-8")
-                        + "&" + URLEncoder.encode("usertype", "UTF-8") + "=" + URLEncoder.encode(mParam2, "UTF-8");
-
+                String data = URLEncoder.encode("act", "UTF-8") + "=" + URLEncoder.encode("institute_list", "UTF-8");
                 Retrofit retrofit = ApiClient.getClient();
                 ApiAtheliteCall apiCall = retrofit.create(ApiAtheliteCall.class);
-                Call<AssistmentResponse> checklogin = apiCall.getassismentlist(performanceUrl + data);
+                Call<InstituteResponse> checklogin = apiCall.getinstitutelist(performanceUrl + data);
                 Log.d("Resourse listing url:::", checklogin.request().url().toString());
                 customProgress.showProgress(getActivity(), false);
 
-                checklogin.enqueue(new Callback<AssistmentResponse>() {
+                checklogin.enqueue(new Callback<InstituteResponse>() {
                     @Override
-                    public void onResponse(Call<AssistmentResponse> call, Response<AssistmentResponse> response) {
+                    public void onResponse(Call<InstituteResponse> call, Response<InstituteResponse> response) {
                         customProgress.hideProgress();
-                        assistment_datalist = response.body().getData();
-                        EventListingAdapter adapter = new EventListingAdapter(assistment_datalist);
+                        arrylistinstitute = response.body().getData();
+                        InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
                         recycleview_eventListing.setAdapter(adapter);
-//                        JsonElement jsonElement = response.body();
-//                        Log.e("JSON RESPONSE", jsonElement.toString());
-                        //afterresponse(jsonElement.toString());
+
                     }
 
                     @Override
-                    public void onFailure(Call<AssistmentResponse> call, Throwable t) {
+                    public void onFailure(Call<InstituteResponse> call, Throwable t) {
                         customProgress.hideProgress();
                     }
                 });
@@ -582,6 +582,8 @@ public class FragmentInstList extends Fragment {
                 e.printStackTrace();
             }
 
+        } else {
+            Toast.makeText(getContext(), R.string.no_internet_connection_error, Toast.LENGTH_LONG).show();
 
         }
 
@@ -589,25 +591,27 @@ public class FragmentInstList extends Fragment {
     }
 
     @SuppressLint("NewApi")
-    public class EventListingAdapter extends RecyclerView.Adapter<EventListingAdapter.ViewHolder> {
+    public class InstituteListingAdapter extends RecyclerView.Adapter<InstituteListingAdapter.ViewHolder> {
 
 
-        private ArrayList<AssistmentModle> DataItems = new ArrayList<AssistmentModle>();
+        private ArrayList<InstituteDataPojoApi> DataItems = new ArrayList<InstituteDataPojoApi>();
         private View rootview;
 
-        EventListingAdapter(ArrayList<AssistmentModle> DietDataItems) {
+        InstituteListingAdapter(ArrayList<InstituteDataPojoApi> DietDataItems) {
             this.DataItems = DietDataItems;
 
         }
 
         @Override
-        public EventListingAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            rootview = LayoutInflater.from(parent.getContext()).inflate(R.layout.assisement_item, parent, false);
-            return new EventListingAdapter.ViewHolder(rootview);
+        public InstituteListingAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            rootview = LayoutInflater.from(parent.getContext()).inflate(R.layout.institute_detail_item, parent, false);
+
+
+            return new InstituteListingAdapter.ViewHolder(rootview);
         }
 
         @Override
-        public void onBindViewHolder(EventListingAdapter.ViewHolder holder, int position) {
+        public void onBindViewHolder(InstituteListingAdapter.ViewHolder holder, int position) {
 
             holder.setItem(DataItems.get(position));
 //            holder.setItem(DietDataItems.get(position).getMy_diet_plan());
@@ -644,66 +648,56 @@ public class FragmentInstList extends Fragment {
 
                 assistment = (Button) itemView.findViewById(R.id.assist);
 
-                assistment.setOnClickListener(new View.OnClickListener() {
+
+                itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         int position = getAdapterPosition();
-                        AssistmentModle assistdataitem = DataItems.get(position);
+
+                        InstituteDataPojoApi institutedata = DataItems.get(position);
                         Bundle userinfo = new Bundle();
-                        userinfo.putSerializable("sportdetail", (Serializable) assistdataitem);
-                        Intent i = new Intent(new Intent(getActivity(), ActivityVideoLink.class));
+                        userinfo.putSerializable("institutedetail", (Serializable) institutedata);
+                        Intent i = new Intent(new Intent(getActivity(), ActivityInstituteDetail.class));
                         i.putExtras(userinfo);
 
                         ActivityOptions options = ActivityOptions
                                 .makeSceneTransitionAnimation(getActivity(),
                                         Pair.create(itemView.findViewById(R.id.athlete_image), "image_transition"),
-                                        Pair.create(itemView.findViewById(R.id.name), "text_transition"));
+                                        Pair.create(itemView.findViewById(R.id.name), "name_transition"),
+                                        Pair.create(itemView.findViewById(R.id.location), "location_transition"));
+
                         startActivity(i, options.toBundle());
 
 
                     }
                 });
 
-
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        int position = getAdapterPosition();
-                        Bundle userinfo = new Bundle();
-                        String userid = DataItems.get(position).getUserid();
-                        userinfo.putString("indiacterforprofile", "2");
-                        userinfo.putString("student_sport", mParam1);
-                        userinfo.putString("student_id", userid);
-                        Intent i = new Intent(new Intent(getActivity(), UserProfile.class));
-                        i.putExtras(userinfo);
-                        startActivity(i);
-
-                    }
-                });
-
             }
 
-            public void setItem(AssistmentModle DataItem) {
-                String imageurl = DataItem.getUser_image();
-                name.setText(DataItem.getName());
-                try {
-                    Date date = DateConversion.StringtoDate(DataItem.getDob());
-                    String age = String.valueOf(DateConversion.calculateAge(date));
-                    ageTextview.setText(age + " Year");
-                } catch (Exception e) {
-                }
-
-                gender.setText(DataItem.getGender());
+            public void setItem(InstituteDataPojoApi DataItem) {
+                name.setText(DataItem.getCollege_name());
+                gender.setText(DataItem.getAddress());
                 location.setText(DataItem.getLocation());
-                if (imageurl.isEmpty()) {
-                    athleteimage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.resource_back));
 
-                } else {
-                    Picasso.with(getActivity())
-                            .load(DataItem.getUser_image())
-                            .error(R.drawable.resource_back)
-                            .into(athleteimage);
-                }
+                //  String imageurl = DataItem.getUser_image();
+
+//                try {
+//                    Date date = DateConversion.StringtoDate(DataItem.getDob());
+//                    String age = String.valueOf(DateConversion.calculateAge(date));
+//                    ageTextview.setText(age + " Year");
+//                } catch (Exception e) {
+//                }
+
+
+//                if (imageurl.isEmpty()) {
+//                    athleteimage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.resource_back));
+//
+//                } else {
+//                    Picasso.with(getActivity())
+//                            .load(DataItem.getUser_image())
+//                            .error(R.drawable.resource_back)
+//                            .into(athleteimage);
+//                }
 
 
             }
@@ -712,11 +706,8 @@ public class FragmentInstList extends Fragment {
     }
 
 
-
-
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {

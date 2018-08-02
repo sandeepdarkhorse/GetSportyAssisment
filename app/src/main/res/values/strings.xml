@@ -392,11 +392,14 @@
     <string name="institute_regno">Registration No:</string>
 
     <string name="institute_address">Address</string>
-
     <string name="institute_location">Location</string>
+    <string name="add_assessment">Add Assessment</string>
     <string name="title_activity_am__dashboard">AM_Dashboard</string>
     <string name="title_activity_am_dashboard">AmDashboardActivity</string>
     <string name="title_activity_assessment_event_list">AssessmentEventList</string>
+    <string name="guardian_name">Guardian Name</string>
+    <string name="student_reg_no">Student Registration No.</string>
+
 </resources>
 
 

@@ -246,6 +246,7 @@ public class ActivityLoginAdmin extends AppCompatActivity {
                 String dob = jsonObject2.getString("dob");
                 String image = jsonObject2.getString("user_image");
                 String location = jsonObject2.getString("location");
+                final String userType= jsonObject2.getString("userType");
                 SharedPreferences sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
                 SharedPreferences.Editor editor_login = sharedPreferences.edit();
                 editor_login.putBoolean("login", true);
@@ -261,6 +262,8 @@ public class ActivityLoginAdmin extends AppCompatActivity {
                 editor.putString("email", email);
                 editor.putString("gender", gender);
                 editor.putString("dob", dob);
+                editor.putString("userType",userType);
+
 
                 editor.commit();
                 SharedPreferences sharedPreferences1 = getSharedPreferences(SharedPrefs.PERFORMANCE, MODE_PRIVATE);
@@ -275,9 +278,16 @@ public class ActivityLoginAdmin extends AppCompatActivity {
 
                             sleep(2 * 500);
 
-                            Intent i = new Intent(ActivityLoginAdmin.this, Activity_dashboard.class);
-                            startActivity(i);
-                            finish();
+//                            if(userType.equals("102")) {
+                                Intent i = new Intent(ActivityLoginAdmin.this, Activity_dashboard.class);
+                                startActivity(i);
+                                finish();
+
+//                            }else if(userType.equals("103")){
+//                                Intent i = new Intent(ActivityLoginAdmin.this, AmDashboardActivity.class);
+//                                startActivity(i);
+//                                finish();
+//                            }
 
                         } catch (Exception e) {
                         }

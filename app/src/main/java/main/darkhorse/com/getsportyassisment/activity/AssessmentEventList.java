@@ -20,6 +20,7 @@ import main.darkhorse.com.getsportyassisment.fragment.FragmentInstList;
 
 public class AssessmentEventList extends AppCompatActivity {
 Toolbar toolbar;
+public  static  FloatingActionButton floatingAdd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +52,7 @@ Toolbar toolbar;
         FrameLayout container = (FrameLayout) findViewById(R.id.container);
         FragmentManager fm = getSupportFragmentManager();
 
-//        fm.beginTransaction().replace(R.id.container, new FragmentInstList().newInstance("","")).commit();
-        fm.beginTransaction().replace(R.id.container,new FragmentAssessmentEventList().newInstance("","")).commit();
+        fm.beginTransaction().add(R.id.container,new FragmentAssessmentEventList().newInstance("","")).commit();
 //
 
     }

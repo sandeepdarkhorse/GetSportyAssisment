@@ -79,7 +79,11 @@
         android:src="@android:drawable/ic_input_add"
         android:tint="@android:color/white"
         app:fabSize="normal"
-        android:backgroundTint="@color/colorPrimaryTrans"
+        app:backgroundTint="@color/colorPrimaryTrans"
 
         />
+
+
+
+
 </RelativeLayout>

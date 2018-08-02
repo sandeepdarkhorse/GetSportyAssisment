@@ -151,7 +151,7 @@
                                     android:id="@+id/selfassessment"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp"
-                                    android:padding="5dp"
+                                    android:padding="7dp"
                                     android:scaleType="fitXY"
                                     android:src="@drawable/ic_assessment_icon" />
 
@@ -221,7 +221,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-medium"
-                                    android:text="Event Triel"
+                                    android:text="Event Trial"
                                     android:textColor="@color/white"
                                     android:textSize="@dimen/body_text"
                                     android:textStyle="bold" />

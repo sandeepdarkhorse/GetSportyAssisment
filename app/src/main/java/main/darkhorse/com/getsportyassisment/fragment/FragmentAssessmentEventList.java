@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,20 +31,14 @@ import java.util.Date;
 
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.activity.ActivityVideoLink;
+import main.darkhorse.com.getsportyassisment.activity.AssessmentEventList;
 import main.darkhorse.com.getsportyassisment.activity.UserProfile;
 import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentModle;
 import main.darkhorse.com.getsportyassisment.model_classes.DataModel;
 import main.darkhorse.com.getsportyassisment.model_classes.MyData;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link FragmentAssessmentEventList.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link FragmentAssessmentEventList#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class FragmentAssessmentEventList extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -103,7 +99,6 @@ public class FragmentAssessmentEventList extends Fragment {
 
         myLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(myLayoutManager);
-
 
         recyclerView.setHasFixedSize(true);
 
@@ -264,6 +259,13 @@ public class FragmentAssessmentEventList extends Fragment {
             bttn_addParticipant.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    FragmentManager fm = getFragmentManager();
+                    fm.beginTransaction().replace(R.id.container, new FragmentParticipantList().newInstance("","")).addToBackStack(null).commit();
+
+
+
+
 
                 }
             });
