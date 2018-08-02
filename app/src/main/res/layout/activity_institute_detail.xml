@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f6f6f6"
-    android:fitsSystemWindows="true"
     android:id="@+id/main_layout"
     app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -37,24 +36,38 @@
                     android:transitionName="image_transition"
                     android:src="@drawable/assessment_program" />
 
-                <ImageView
-                    android:id="@+id/back_press"
-                    android:layout_width="23dp"
-                    android:layout_height="23dp"
-                    android:layout_marginLeft="6dp"
-                    android:scaleType="fitXY"
-                    android:layout_marginTop="25dp"
-                    android:src="@mipmap/ic_arrow_back_white"
-                 />
 
+                <LinearLayout
+                    android:id="@+id/ll_back_press"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:gravity="top|left"
+                    android:layout_marginTop="25dp"
+                    android:background="@android:color/transparent"
+                   >
+                    <ImageView
+                        android:id="@+id/back_press"
+
+                        android:layout_marginLeft="6dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/backbutton"
+                        />
+
+
+
+
+                </LinearLayout>
                 <ImageView
                     android:id="@+id/notification"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
+                    android:layout_marginTop="25dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
                     android:scaleType="fitXY"
-                    android:layout_marginTop="25dp"
+
                     android:src="@android:drawable/ic_menu_search" />
 
 
@@ -127,6 +140,7 @@
                         android:textSize="@dimen/body_text_large" />
 
                     <android.support.v7.widget.RecyclerView
+                        android:id="@+id/assessmentlist"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="10dp">
@@ -160,7 +174,7 @@
             android:layout_marginBottom="10dp"/>
 
         <Button
-            android:id="@+id/submit_details"
+            android:id="@+id/add_assisment"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="5dp"

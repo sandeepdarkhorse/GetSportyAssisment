@@ -37,10 +37,11 @@
                         >
                         <ImageView
                             android:id="@+id/closeDialogImg"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:scaleType="fitXY"
                             android:layout_alignParentLeft="true"
-                            android:src="@mipmap/ic_arrow_back_white" />
+                            android:src="@mipmap/backbutton" />
                         <TextView
                             android:id="@+id/toolbar_title"
                             android:layout_width="wrap_content"
@@ -171,24 +172,23 @@
                         android:maxLines="1"
                         android:singleLine="true" />
                 </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
 
-                    android:id="@+id/tl_institute_location"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+
+                <AutoCompleteTextView
+                    android:id="@+id/institute_location"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:hint="@string/institute_location">
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/location"
+                    android:inputType="textCapSentences"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textAllCaps="false"
+                    />
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/institute_location"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textCapSentences"
-                        android:maxLines="1"
-                        android:singleLine="true" />
-                </android.support.design.widget.TextInputLayout>
 
                 <TextView
                     android:id="@+id/text_image"

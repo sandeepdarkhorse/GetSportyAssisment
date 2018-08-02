@@ -2,9 +2,6 @@ package main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess;
 
 
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-
-import org.json.JSONObject;
 
 
 import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.ConnectToUserResponse;
@@ -14,7 +11,9 @@ import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.ImageUplo
 import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.UserProfileCoachEditRequest;
 import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.UserProfileCoachEditResponse;
 import main.darkhorse.com.getsportyassisment.coachprofilemodelclassess.UserProfileCoachResponse;
+import main.darkhorse.com.getsportyassisment.model_classes.AssessmentDataPojo;
 import main.darkhorse.com.getsportyassisment.model_classes.ApplicantJobOfferResponse;
+import main.darkhorse.com.getsportyassisment.model_classes.AssessmentListResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.DietLogResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.GooglePlaceApiResponse;
@@ -27,8 +26,6 @@ import main.darkhorse.com.getsportyassisment.profileotherid.OtherProfileEditRequ
 import main.darkhorse.com.getsportyassisment.profileotherid.OtherProfileResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
@@ -239,6 +236,9 @@ public interface ApiAtheliteCall {
 //
     @GET
     public Call<GooglePlaceApiResponse> GoogleApiCall(@Url String url);
+
+
+
 //
 //    @Headers({"Content-type: application/json"})
 //    @POST("connect_user.php")
@@ -467,7 +467,11 @@ public interface ApiAtheliteCall {
     @GET
     Call<InstituteResponse> getinstitutelist(@Url String url);
 
+    @POST("assessment_admin_controller.php")
+    Call<JsonElement> addassessment(@Query("act") String act, @Body AssessmentDataPojo body);
 
+    @GET
+    Call<AssessmentListResponse> getAssessmentlist(@Url String url);
 
 
 }
