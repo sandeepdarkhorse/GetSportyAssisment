@@ -186,7 +186,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapSentences"
-
                         android:maxLines="1"
                         android:singleLine="true" />
                 </android.support.design.widget.TextInputLayout>
@@ -233,23 +232,25 @@
                         android:paddingLeft="20dp"
                         android:paddingRight="20dp"
                         android:gravity="center"
-
                         />
                     <TextView
+                        android:id="@+id/file_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/file_name"
                         android:layout_toRightOf="@+id/addimage"
                         android:textColor="#1f1f1f"
+
                         android:layout_marginTop="3dp"/>
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/tick"
+                       android:visibility="gone"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_alignParentRight="true"
-
                         android:layout_marginTop="3dp"
                         android:layout_marginRight="10dp"
-                        android:id="@+id/tick"/>
+                        android:src="@android:drawable/checkbox_on_background"
+                       />
 
                     <ProgressBar
                         android:visibility="gone"

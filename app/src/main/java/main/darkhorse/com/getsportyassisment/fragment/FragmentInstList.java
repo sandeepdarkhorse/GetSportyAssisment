@@ -173,6 +173,10 @@ public class FragmentInstList extends Fragment {
 
     ArrayList<InstituteDataPojoApi> arrylistinstitute;
 
+    TextView filename;
+    ImageView tick;
+
+
     @SuppressLint("RestrictedApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -190,10 +194,6 @@ public class FragmentInstList extends Fragment {
 //        recycleview_eventListing.setLayoutManager(mLayoutManager);
 //        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.recycleview_space);
 //        recycleview_eventListing.addItemDecoration(itemDecoration);
-
-
-
-
 
 
         customProgress = CustomProgress.getInstance();
@@ -289,12 +289,12 @@ public class FragmentInstList extends Fragment {
 
         layout_tl_institute_location = (TextInputLayout) dialog.findViewById(R.id.tl_institute_location);
         editText_institute_location = (TextInputEditText) dialog.findViewById(R.id.institute_location);
-
-
         textimage = (TextView) dialog.findViewById(R.id.text_image);
-
-
         button_submit = (Button) dialog.findViewById(R.id.submit_details);
+
+
+        filename = (TextView) dialog.findViewById(R.id.file_name);
+        tick = (ImageView) dialog.findViewById(R.id.tick);
 
         TextView addimage = (TextView) dialog.findViewById(R.id.addimage);
         addimage.setOnClickListener(new View.OnClickListener() {
@@ -460,15 +460,14 @@ public class FragmentInstList extends Fragment {
                                             try {
                                                 JSONObject jsonobj = new JSONObject(jsonElement.toString());
                                                 String status = jsonobj.getString("status");
-                                                if (status.equals("1"))
-                                                {
+                                                if (status.equals("1")) {
 
                                                     revealShow(dialogView, false, dialog);
                                                     Retrofit_listdata();
 
                                                 } else {
 
-                                                    Toast.makeText(getActivity(), (getString(R.string.credential_notupdate)), Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(getActivity(), (getString(R.string.server_error_text)), Toast.LENGTH_LONG).show();
 
                                                 }
 
@@ -589,7 +588,6 @@ public class FragmentInstList extends Fragment {
                         arrylistinstitute = response.body().getData();
                         InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
                         recycleview_eventListing.setAdapter(adapter);
-
 
 
                     }
@@ -731,10 +729,17 @@ public class FragmentInstList extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK)
+            {
                 imageuploadgalary = true;
-
                 imagefromgalary = result.getUri();
+
+
+                filename.setText(imagefromgalary.toString());
+                tick.setVisibility(View.VISIBLE);
+
+
+                Log.e("Image path", imagefromgalary.toString());
                 try {
                     actualImage = FileUtil.from(getContext(), imagefromgalary);
                 } catch (IOException e) {
@@ -777,9 +782,6 @@ public class FragmentInstList extends Fragment {
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .start(getContext(), this);
     }
-
-
-
 
 
 }
