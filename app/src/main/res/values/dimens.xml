@@ -39,7 +39,6 @@
     <dimen name="tab_body_text24sp">24sp</dimen>
 
 
-
     <!-- dateTitleLayout -->
     <!--<dimen name="dateTitlePaddingBottom">5dp</dimen>-->
     <!-- weekLayout -->
@@ -58,4 +57,6 @@
     <dimen name="recycleview_space">4dp</dimen>
     <!--The AutoFitRecyclerView will use this value to determine how many columns to make-->
     <dimen name="movie_grid_item_width">120dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
 </resources>

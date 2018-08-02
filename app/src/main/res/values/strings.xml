@@ -405,6 +405,11 @@
 
     <string name="assessment_vanue">Vanue</string>
     <string name="assessment_date">Date</string>
+    <string name="title_activity_am__dashboard">AM_Dashboard</string>
+    <string name="title_activity_am_dashboard">AmDashboardActivity</string>
+    <string name="title_activity_assessment_event_list">AssessmentEventList</string>
+    <string name="guardian_name">Guardian Name</string>
+    <string name="student_reg_no">Student Registration No.</string>
 
     </resources>
 

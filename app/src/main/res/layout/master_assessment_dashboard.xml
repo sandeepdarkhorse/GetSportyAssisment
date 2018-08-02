@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="50dp"
@@ -7,10 +10,7 @@
     android:orientation="vertical">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -51,7 +51,7 @@
                             android:layout_alignParentBottom="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="5dp"
-                            android:text="Getsporty Assessment"
+                            android:text="Assessment Master"
                             android:textColor="@color/white"
                             android:textSize="23sp"
                             android:textStyle="bold" />
@@ -71,21 +71,20 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
 
                         <main.darkhorse.com.getsportyassisment.shapesview.DiagonalView
                             android:id="@+id/institution_cardView"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginEnd="8dp"
                             android:layout_marginTop="8dp"
                             android:layout_weight="1"
                             android:elevation="4dp"
-                            app:diagonal_angle="10"
+                            app:diagonal_angle="3"
                             app:diagonal_direction="left"
                             app:diagonal_position="bottom"
                             app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
@@ -122,10 +121,9 @@
 
                         </main.darkhorse.com.getsportyassisment.shapesview.DiagonalView>
 
-
                         <main.darkhorse.com.getsportyassisment.shapesview.DiagonalView
                             android:id="@+id/selfassessment_cardView"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center_horizontal"
 
@@ -133,7 +131,7 @@
                             android:layout_weight="1"
 
                             android:elevation="4dp"
-                            app:diagonal_angle="10"
+                            app:diagonal_angle="3"
                             app:diagonal_direction="left"
                             app:diagonal_position="bottom"
                             app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
@@ -151,7 +149,7 @@
                                     android:id="@+id/selfassessment"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp"
-                                    android:padding="7dp"
+                                    android:padding="5dp"
                                     android:scaleType="fitXY"
                                     android:src="@drawable/ic_assessment_icon" />
 
@@ -169,31 +167,16 @@
                             </LinearLayout>
 
                         </main.darkhorse.com.getsportyassisment.shapesview.DiagonalView>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:background="@android:color/transparent"
-                        android:orientation="horizontal"
-
-                        >
-
-
                         <main.darkhorse.com.getsportyassisment.shapesview.DiagonalView
                             android:id="@+id/eventrtriel_cardView"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginEnd="8dp"
                             android:layout_marginTop="8dp"
                             android:layout_weight="1"
 
                             android:elevation="4dp"
-                            app:diagonal_angle="10"
+                            app:diagonal_angle="3"
                             app:diagonal_direction="left"
                             app:diagonal_position="bottom"
                             app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
@@ -231,56 +214,11 @@
                         </main.darkhorse.com.getsportyassisment.shapesview.DiagonalView>
 
 
-                        <main.darkhorse.com.getsportyassisment.shapesview.DiagonalView
-                            android:id="@+id/assessmentmaster_cardView"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-
-                            android:layout_gravity="center_horizontal"
-
-                            android:layout_marginTop="8dp"
-                            android:layout_weight="1"
-
-                            android:elevation="4dp"
-                            app:diagonal_angle="10"
-                            app:diagonal_direction="left"
-                            app:diagonal_position="bottom"
-                            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-                            app:layout_constraintTop_toBottomOf="@+id/circle">
-
-                            <LinearLayout
-
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="#45bce6"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:id="@+id/swimming"
-                                    android:layout_width="80dp"
-                                    android:layout_height="80dp"
-                                    android:padding="5dp"
-                                    android:scaleType="fitXY"
-                                    android:src="@drawable/assessment" />
-
-                                <TextView
-                                    android:id="@+id/swimming_text"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-
-                                    android:fontFamily="sans-serif-medium"
-                                    android:text="Assessment Master"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/body_text"
-                                    android:textStyle="bold" />
-
-                            </LinearLayout>
-
-                        </main.darkhorse.com.getsportyassisment.shapesview.DiagonalView>
-
 
                     </LinearLayout>
+
+
+
                 </LinearLayout>
 
 
