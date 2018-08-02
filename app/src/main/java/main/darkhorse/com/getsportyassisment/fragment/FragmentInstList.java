@@ -3,20 +3,25 @@ package main.darkhorse.com.getsportyassisment.fragment;
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.DimenRes;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -67,6 +72,8 @@ import main.darkhorse.com.getsportyassisment.compressor.Compressor;
 import main.darkhorse.com.getsportyassisment.compressor.FileUtil;
 import main.darkhorse.com.getsportyassisment.cropper.CropImage;
 import main.darkhorse.com.getsportyassisment.cropper.CropImageView;
+import main.darkhorse.com.getsportyassisment.custom_classes.AutoFitGridLayoutManager;
+import main.darkhorse.com.getsportyassisment.custom_classes.AutoFitGridRecyclerView;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress;
 import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentModle;
@@ -132,7 +139,7 @@ public class FragmentInstList extends Fragment {
 
     private int[] validation = new int[8];
     View rootView;
-    RecyclerView recycleview_eventListing;
+    AutoFitGridRecyclerView recycleview_eventListing;
     RecyclerView.LayoutManager myLayoutManager;
 
     CustomProgress customProgress;
@@ -166,18 +173,30 @@ public class FragmentInstList extends Fragment {
 
     ArrayList<InstituteDataPojoApi> arrylistinstitute;
 
+    TextView filename;
+    ImageView tick;
+
+
     @SuppressLint("RestrictedApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.fragment_per_assist, container, false);
-        recycleview_eventListing = (RecyclerView) rootView.findViewById(R.id.recyclerview_assist);
-        myLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        recycleview_eventListing.setLayoutManager(myLayoutManager);
+
+
+        recycleview_eventListing = (AutoFitGridRecyclerView) rootView.findViewById(R.id.recyclerview_assist);
+
+//        myLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+//        recycleview_eventListing.setLayoutManager(myLayoutManager);
+
+//        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
+//        recycleview_eventListing.setLayoutManager(mLayoutManager);
+//        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.recycleview_space);
+//        recycleview_eventListing.addItemDecoration(itemDecoration);
+
+
         customProgress = CustomProgress.getInstance();
-
-
         add_institute = (FloatingActionButton) rootView.findViewById(R.id.add_institute);
         add_institute.setVisibility(View.VISIBLE);
 
@@ -270,12 +289,12 @@ public class FragmentInstList extends Fragment {
 
         layout_tl_institute_location = (TextInputLayout) dialog.findViewById(R.id.tl_institute_location);
         editText_institute_location = (TextInputEditText) dialog.findViewById(R.id.institute_location);
-
-
         textimage = (TextView) dialog.findViewById(R.id.text_image);
-
-
         button_submit = (Button) dialog.findViewById(R.id.submit_details);
+
+
+        filename = (TextView) dialog.findViewById(R.id.file_name);
+        tick = (ImageView) dialog.findViewById(R.id.tick);
 
         TextView addimage = (TextView) dialog.findViewById(R.id.addimage);
         addimage.setOnClickListener(new View.OnClickListener() {
@@ -441,15 +460,14 @@ public class FragmentInstList extends Fragment {
                                             try {
                                                 JSONObject jsonobj = new JSONObject(jsonElement.toString());
                                                 String status = jsonobj.getString("status");
-                                                if (status.equals("1"))
-                                                {
+                                                if (status.equals("1")) {
 
                                                     revealShow(dialogView, false, dialog);
                                                     Retrofit_listdata();
 
                                                 } else {
 
-                                                    Toast.makeText(getActivity(), (getString(R.string.credential_notupdate)), Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(getActivity(), (getString(R.string.server_error_text)), Toast.LENGTH_LONG).show();
 
                                                 }
 
@@ -571,6 +589,7 @@ public class FragmentInstList extends Fragment {
                         InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
                         recycleview_eventListing.setAdapter(adapter);
 
+
                     }
 
                     @Override
@@ -607,7 +626,7 @@ public class FragmentInstList extends Fragment {
             rootview = LayoutInflater.from(parent.getContext()).inflate(R.layout.institute_detail_item, parent, false);
 
 
-            return new InstituteListingAdapter.ViewHolder(rootview);
+            return new ViewHolder(rootview);
         }
 
         @Override
@@ -632,7 +651,7 @@ public class FragmentInstList extends Fragment {
             private Button assistment;
 
             private TextView name;
-            private TextView gender;
+            private TextView address;
             private TextView location;
 
             public ViewHolder(final View itemView) {
@@ -640,7 +659,7 @@ public class FragmentInstList extends Fragment {
                 athleteimage = (ImageView) itemView.findViewById(R.id.athlete_image);
 
                 name = (TextView) itemView.findViewById(R.id.name);
-                gender = (TextView) itemView.findViewById(R.id.gender);
+                address = (TextView) itemView.findViewById(R.id.address);
 
                 ageTextview = (TextView) itemView.findViewById(R.id.age);
                 location = (TextView) itemView.findViewById(R.id.location);
@@ -676,7 +695,7 @@ public class FragmentInstList extends Fragment {
 
             public void setItem(InstituteDataPojoApi DataItem) {
                 name.setText(DataItem.getCollege_name());
-                gender.setText(DataItem.getAddress());
+                address.setText(DataItem.getAddress());
                 location.setText(DataItem.getLocation());
 
                 //  String imageurl = DataItem.getUser_image();
@@ -710,10 +729,17 @@ public class FragmentInstList extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK)
+            {
                 imageuploadgalary = true;
-
                 imagefromgalary = result.getUri();
+
+
+                filename.setText(imagefromgalary.toString());
+                tick.setVisibility(View.VISIBLE);
+
+
+                Log.e("Image path", imagefromgalary.toString());
                 try {
                     actualImage = FileUtil.from(getContext(), imagefromgalary);
                 } catch (IOException e) {
@@ -756,5 +782,6 @@ public class FragmentInstList extends Fragment {
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .start(getContext(), this);
     }
+
 
 }

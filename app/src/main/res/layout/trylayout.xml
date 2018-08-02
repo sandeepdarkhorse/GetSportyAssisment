@@ -2,12 +2,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EAEAEA"
+    android:background="#f6f6f6"
+    android:fitsSystemWindows="true"
     app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="220dp"
         android:background="@android:color/transparent"
         android:theme="@style/AppTheme.AppBarOverlay">
 
@@ -30,14 +32,16 @@
                     android:id="@+id/institute_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:transitionName="image_transition"
                     android:src="@drawable/assessment_program" />
 
                 <ImageView
-                    android:id="@+id/navigation_icon"
+                    android:id="@+id/back_press"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="6dp"
                     android:scaleType="fitXY"
+                    android:layout_marginTop="20dp"
                     android:src="@drawable/back_button"
                     android:tint="@color/navigationHeader" />
 
@@ -48,6 +52,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
                     android:scaleType="fitXY"
+                    android:layout_marginTop="20dp"
                     android:src="@android:drawable/ic_menu_search" />
 
 
@@ -58,18 +63,20 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-
-
-
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#f6f6f6"
         android:fillViewport="true"
-        android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <ScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_collapseMode="parallax">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,15 +91,21 @@
                     android:padding="5dp">
 
                     <TextView
+                        android:id="@+id/inst_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Name" />
+                        android:text="Name"
+                        android:transitionName="name_transition"
+                        android:fontFamily="sans-serif-medium"/>
 
                     <TextView
+                        android:id="@+id/inst_location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Location" />
+                        android:text="Location"
+                        android:transitionName="location_transition"
+                        android:fontFamily="sans-serif-medium"/>
                 </LinearLayout>
 
 
@@ -107,6 +120,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Assessment List"
+                        android:fontFamily="sans-serif-medium"
                         android:textSize="@dimen/body_text_large" />
 
                     <android.support.v7.widget.RecyclerView
@@ -119,12 +133,42 @@
 
 
             </LinearLayout>
-        </ScrollView>
 
 
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="3dp"
+        android:background="#F1F1F1">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="10dp"/>
+
+        <Button
+            android:id="@+id/submit_details"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/selected_item"
+            android:text="@string/add_assessment"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/body_text" />
 
     </LinearLayout>
-
-
 
 </android.support.design.widget.CoordinatorLayout>

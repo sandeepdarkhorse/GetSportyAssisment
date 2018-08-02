@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/event_tab_back"
+    android:background="@color/primary_white"
     android:orientation="vertical">
 
     <TextView
@@ -12,22 +12,28 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="No Data"
-        android:visibility="gone"/>
-
-
+        android:visibility="gone" />
 
 
     <android.support.v7.widget.RecyclerView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:scrollbars="vertical"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+        />
+
+
+    <main.darkhorse.com.getsportyassisment.custom_classes.AutoFitGridRecyclerView
         android:id="@+id/recyclerview_assist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:animationCache="false"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="5px"
-        android:padding="2dp"
-        android:scrollbars="none"
-        android:scrollingCache="false"
-        android:smoothScrollbar="true"/>
+        android:layout_marginLeft="15dp"
+        android:padding="5dp"
+        android:columnWidth="@dimen/movie_grid_item_width" />
 
 
     <RelativeLayout
@@ -44,8 +50,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            />
+            android:layout_centerVertical="true" />
 
         <ProgressBar
             android:id="@+id/noInternetProgress"
@@ -67,23 +72,20 @@
     </RelativeLayout>
 
 
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/add_institute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
         android:layout_marginBottom="15dp"
+        android:layout_marginRight="10dp"
         android:src="@android:drawable/ic_input_add"
         android:tint="@android:color/white"
-        app:fabSize="normal"
         app:backgroundTint="@color/colorPrimaryTrans"
+        app:fabSize="normal"
 
         />
-
-
 
 
 </RelativeLayout>

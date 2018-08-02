@@ -1,11 +1,12 @@
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EAEAEA"
+    android:background="#f6f6f6"
+    android:fitsSystemWindows="true"
     android:id="@+id/main_layout"
     app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -32,18 +33,19 @@
                     android:id="@+id/institute_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
                     android:transitionName="image_transition"
                     android:src="@drawable/assessment_program" />
 
                 <ImageView
                     android:id="@+id/back_press"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
                     android:layout_marginLeft="6dp"
                     android:scaleType="fitXY"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/back_button"
-                    android:tint="@color/navigationHeader" />
+                    android:layout_marginTop="25dp"
+                    android:src="@mipmap/ic_arrow_back_white"
+                 />
 
                 <ImageView
                     android:id="@+id/notification"
@@ -52,7 +54,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
                     android:scaleType="fitXY"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="25dp"
                     android:src="@android:drawable/ic_menu_search" />
 
 
@@ -63,18 +65,21 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-
-
-
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:background="#f6f6f6"
         android:fillViewport="true"
-        android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <ScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_collapseMode="parallax">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -131,12 +136,12 @@
 
 
             </LinearLayout>
-        </ScrollView>
 
 
+        </LinearLayout>
 
-    </LinearLayout>
 
+    </android.support.v4.widget.NestedScrollView>
 
 
     <LinearLayout
@@ -168,7 +173,5 @@
             android:textSize="@dimen/body_text" />
 
     </LinearLayout>
-
-
 
 </android.support.design.widget.CoordinatorLayout>
