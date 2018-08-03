@@ -308,8 +308,11 @@ public class FragmentInstList extends Fragment {
         TextView addimage = (TextView) dialog.findViewById(R.id.addimage);
 
         adress_location = (AutoCompleteTextView) dialog.findViewById(R.id.institute_location);
+
         adress_location.setThreshold(0);
+
         names = new ArrayList<String>();
+
         adress_location.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
@@ -814,7 +817,8 @@ public class FragmentInstList extends Fragment {
     }
 
 
-    public void updateList(String place) {
+    public void updateList(String place)
+    {
         String input = "";
         try {
             input = "input=" + URLEncoder.encode(place, "utf-8");
@@ -837,7 +841,8 @@ public class FragmentInstList extends Fragment {
                 predictions = response.body().getPredictions();
 
                 try {
-                    for (int i = 0; i < predictions.size(); i++) {
+                    for (int i = 0; i < predictions.size(); i++)
+                    {
                         String description = predictions.get(i).getDescription();
                         Log.d("description", description);
                         names.add(description);

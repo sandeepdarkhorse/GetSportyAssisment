@@ -4,12 +4,10 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -19,8 +17,9 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
-import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +27,9 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -49,18 +50,14 @@ import java.util.Calendar;
 import fr.ganfra.materialspinner.MaterialSpinner;
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.UtilsFile.ApiClient;
-import main.darkhorse.com.getsportyassisment.UtilsFile.CommonUtils;
 import main.darkhorse.com.getsportyassisment.UtilsFile.NetworkStatus;
 import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.ApiAtheliteCall;
-import main.darkhorse.com.getsportyassisment.custom_classes.AutoFitGridRecyclerView;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress;
 import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
-import main.darkhorse.com.getsportyassisment.fragment.FragmentInstList;
 import main.darkhorse.com.getsportyassisment.model_classes.AssessmentDataPojo;
 import main.darkhorse.com.getsportyassisment.model_classes.AssessmentListDataPojo;
 import main.darkhorse.com.getsportyassisment.model_classes.AssessmentListResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.InstituteDataPojoApi;
-import main.darkhorse.com.getsportyassisment.model_classes.InstituteResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -88,6 +85,7 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
     String Admin_id;
     RecyclerView recycleView_Listing;
     RecyclerView.LayoutManager myLayoutManager;
+    AutoCompleteTextView Auto_search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,6 +160,112 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
 
         Retrofit_listdata();
 
+        Auto_search = (AutoCompleteTextView) findViewById(R.id.search_assessment);
+        ImageView im_search = (ImageView) findViewById(R.id.im_search);
+        im_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Auto_search.getVisibility() == View.VISIBLE) {
+
+                    Auto_search.setVisibility(View.GONE);
+                    Auto_search.startAnimation(AnimationUtils.loadAnimation(ActivityInstituteDetail.this, R.anim.slide_out_right));
+
+
+                } else {
+
+                    Auto_search.setVisibility(View.VISIBLE);
+                    Auto_search.startAnimation(AnimationUtils.loadAnimation(ActivityInstituteDetail.this, R.anim.slide_in_left));
+
+
+                }
+
+
+            }
+        });
+
+
+        Auto_search.setThreshold(0);
+
+
+        Auto_search.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {
+
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+
+            }
+
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
+//                if (s.toString().length() <= 3)
+//                {
+//
+//
+//
+//                }
+                if (s.length() > 0) {
+                    updateList(s.charAt(0));
+                } else {
+                    InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
+                    adapter.notifyDataSetChanged();
+                    recycleView_Listing.setAdapter(adapter);
+                }
+
+            }
+        });
+
+
+    }
+
+    public boolean hexChecker(char c, String assesstmentname) {
+
+        char[] charArray = assesstmentname.toCharArray();
+
+        for (char ch : charArray) {
+            if (c == ch) {
+                System.out.println("It worked!");
+                return true;
+            } else {
+                System.out.println("It did not work!");
+                return false;
+            }
+        }
+
+        return false;
+    }
+
+
+    public void updateList(char assesstmentname) {
+
+        ArrayList<AssessmentListDataPojo> arrylist = new ArrayList<>();
+        arrylist.clear();
+
+        for (AssessmentListDataPojo string : arrylistinstitute) {
+
+            if (hexChecker(assesstmentname, string.getAssessment_name())) {
+                arrylist.add(string);
+
+            }
+        }
+
+        if (arrylist.size() > 0)
+        {
+
+            InstituteListingAdapter adapter = new InstituteListingAdapter(arrylist);
+            adapter.notifyDataSetChanged();
+            recycleView_Listing.setAdapter(adapter);
+
+        }
+        else
+            {
+                InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
+                adapter.notifyDataSetChanged();
+                recycleView_Listing.setAdapter(adapter);
+            }
+
 
     }
 
@@ -213,6 +317,7 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
 
 
     }
+
     @SuppressLint("NewApi")
     public class InstituteListingAdapter extends RecyclerView.Adapter<InstituteListingAdapter.ViewHolder> {
 
@@ -248,10 +353,9 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
         public class ViewHolder extends RecyclerView.ViewHolder {
 
 
-
             private TextView name;
 
-            private TextView date,assignmaster;
+            private TextView date, assignmaster;
 
             public ViewHolder(final View itemView) {
                 super(itemView);
@@ -265,7 +369,7 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
                 assignmaster.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(ActivityInstituteDetail.this,"Waiting for Api implementation",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ActivityInstituteDetail.this, "Waiting for Api implementation", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -303,7 +407,6 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
 
         }
     }
-
 
 
     @Override
@@ -616,7 +719,6 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
     private void revealShow(View dialogView, boolean b, final Dialog dialog) {
 
         final View view = dialogView.findViewById(R.id.dialog);
-
         int w = view.getWidth();
         int h = view.getHeight();
 
