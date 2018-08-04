@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -22,6 +23,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
@@ -33,6 +35,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,7 +68,7 @@ import retrofit2.Retrofit;
 
 
 @SuppressLint("NewApi")
-public class ActivityInstituteDetail extends Activity implements Serializable {
+public class ActivityInstituteDetail extends AppCompatActivity implements Serializable {
     public static InstituteDataPojoApi institutedataitem;
     private String[] typeArray = {"Basic", "Intermediate", "Advance"};
     private NetworkStatus network_status;
@@ -123,25 +126,22 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
         }
 
 
-        LinearLayout mainlaout = (LinearLayout) findViewById(R.id.ll_back_press);
-        mainlaout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finishAfterTransition();
-                onBackPressed();
-            }
-        });
+//        LinearLayout mainlaout = (LinearLayout) findViewById(R.id.ll_back_press);
+//        mainlaout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finishAfterTransition();
+//                onBackPressed();
+//            }
+//        });
 
 
-        ImageView backpress = (ImageView) findViewById(R.id.back_press);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        backpress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finishAfterTransition();
-                onBackPressed();
-            }
-        });
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
         add_assisment = (Button) findViewById(R.id.add_assisment);
         add_assisment.setOnClickListener(new View.OnClickListener() {
@@ -220,6 +220,21 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                finishAfterTransition();
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
     public boolean hexChecker(char c, String assesstmentname) {
 
         char[] charArray = assesstmentname.toCharArray();
@@ -251,20 +266,17 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
             }
         }
 
-        if (arrylist.size() > 0)
-        {
+        if (arrylist.size() > 0) {
 
             InstituteListingAdapter adapter = new InstituteListingAdapter(arrylist);
             adapter.notifyDataSetChanged();
             recycleView_Listing.setAdapter(adapter);
 
+        } else {
+            InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
+            adapter.notifyDataSetChanged();
+            recycleView_Listing.setAdapter(adapter);
         }
-        else
-            {
-                InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
-                adapter.notifyDataSetChanged();
-                recycleView_Listing.setAdapter(adapter);
-            }
 
 
     }
@@ -342,6 +354,16 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
         public void onBindViewHolder(InstituteListingAdapter.ViewHolder holder, int position) {
 
             holder.setItem(DataItems.get(position));
+            if (position % 2 == 0)
+            {
+                holder.background.setBackground(getDrawable(R.color.db_institute_color));
+            }
+            else
+                {
+                    holder.background.setBackground(getDrawable(R.color.db_selfEvent_color));
+
+
+            }
 //            holder.setItem(DietDataItems.get(position).getMy_diet_plan());
         }
 
@@ -356,6 +378,7 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
             private TextView name;
 
             private TextView date, assignmaster;
+            RelativeLayout background;
 
             public ViewHolder(final View itemView) {
                 super(itemView);
@@ -365,6 +388,10 @@ public class ActivityInstituteDetail extends Activity implements Serializable {
                 date = (TextView) itemView.findViewById(R.id.date);
 
                 assignmaster = (TextView) itemView.findViewById(R.id.assign_master);
+
+
+                background = (RelativeLayout) itemView.findViewById(R.id.relativeLayout);
+
 
                 assignmaster.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -95,7 +95,7 @@
 
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="#b9a6ff"
+                                android:background="@color/db_institute_color"
                                 android:gravity="center"
                                 android:orientation="vertical">
 
@@ -143,7 +143,7 @@
 
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="#ffc58b"
+                                android:background="@color/db_selfAssistment_color"
                                 android:gravity="center"
                                 android:orientation="vertical">
 
@@ -203,7 +203,7 @@
 
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="#ff9aa4"
+                                android:background="@color/db_selfEvent_color"
                                 android:gravity="center"
                                 android:orientation="vertical">
 

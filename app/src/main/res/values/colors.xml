@@ -113,4 +113,13 @@
 
     <color name="tab_athlete">#2196f3</color>
     <color name="tab_athlete_text_color">#545454</color>
+
+
+
+    <color name="db_institute_color">#b9a6ff</color>
+
+    <color name="db_selfAssistment_color">#ffc58b</color>
+
+    <color name="db_selfEvent_color">#ff9aa4</color>
+
 </resources>
