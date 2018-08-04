@@ -96,6 +96,7 @@ public class FragmentAssessmentEventList extends Fragment {
        View rootView =inflater.inflate(R.layout.fragment_assessment_event_list, container, false);
 
         recyclerView=(RecyclerView)rootView.findViewById(R.id.recyler_view);
+        getActivity().setTitle("Assessment Event List");
 
         myLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(myLayoutManager);

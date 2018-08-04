@@ -21,7 +21,7 @@
         android:id="@+id/add_participant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/remove_layout"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="15dp"
@@ -31,6 +31,35 @@
         app:backgroundTint="@color/colorPrimaryTrans"
         android:visibility="gone"
         />
+    <LinearLayout
+        android:id="@+id/remove_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/record_video"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="Record Video"
+            android:background="@color/colorPrimary"/>
+        <Button
+            android:id="@+id/assessment"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="Do Assessment"
+            android:background="@color/colorPrimaryTrans"/>
+        <Button
+            android:id="@+id/report"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="Report"
+            android:background="@color/colorAccent"/>
+
+    </LinearLayout>
 
 
 </RelativeLayout>

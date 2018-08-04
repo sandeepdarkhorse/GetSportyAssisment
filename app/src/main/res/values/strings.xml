@@ -400,6 +400,14 @@
     <string name="guardian_name">Guardian Name</string>
     <string name="student_reg_no">Student Registration No.</string>
 
+    <string name="record_video">Record Video</string>
+    <string name="do_assessment">Do Assessment</string>
+    <string name="report">Report</string>
+    <string name="sprint_speed">Sprint Speed</string>
+    <string name="jump">Sprint Speed</string>
+    <string name="balance">Balance</string>
+
+
 </resources>
 
 

@@ -87,7 +87,9 @@
                     android:textAllCaps="false"
                     android:background="@drawable/rounded_corners"
                     android:text="Add Participant"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:padding="5dp"
+                    />
             </LinearLayout>
 
 
