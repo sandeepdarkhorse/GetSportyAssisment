@@ -155,7 +155,7 @@ public class FragmentInstList extends Fragment {
     Uri imagefromgalary;
     private File actualImage;
     private File compressedImage;
-    String encoded = "sdlksjlksjl";
+    String encoded = "";
 
     private String[] typeArray = {"School", "Institution", "Club", "Academy"};
 
@@ -172,7 +172,7 @@ public class FragmentInstList extends Fragment {
     TextInputLayout layout_tl_institute_address;
 
 
-    TextInputEditText  editText_name;
+    TextInputEditText editText_name;
     TextInputEditText editText_institute_address;
     TextInputEditText editText_institute_regno, editText_institute_mobileno;
     TextInputEditText editText_institute_email;
@@ -180,7 +180,7 @@ public class FragmentInstList extends Fragment {
 
     ArrayList<InstituteDataPojoApi> arrylistinstitute;
 
-    TextView filename;
+    TextView filename,no_data;
     ImageView tick;
     ArrayAdapter<String> adapter;
     String browserKey = "AIzaSyDfdIdeA96qORreYWTCGto85nz0_ZSx_dc";
@@ -209,6 +209,8 @@ public class FragmentInstList extends Fragment {
 
         customProgress = CustomProgress.getInstance();
         add_institute = (FloatingActionButton) rootView.findViewById(R.id.add_institute);
+
+        no_data = (TextView) rootView.findViewById(R.id.no_data);
         add_institute.setVisibility(View.VISIBLE);
 
         add_institute.setOnClickListener(new View.OnClickListener() {
@@ -333,7 +335,6 @@ public class FragmentInstList extends Fragment {
 
             }
         });
-
 
 
         addimage.setOnClickListener(new View.OnClickListener() {
@@ -616,12 +617,21 @@ public class FragmentInstList extends Fragment {
 
                 checklogin.enqueue(new Callback<InstituteResponse>() {
                     @Override
-                    public void onResponse(Call<InstituteResponse> call, Response<InstituteResponse> response) {
+                    public void onResponse(Call<InstituteResponse> call, Response<InstituteResponse> response)
+                    {
                         customProgress.hideProgress();
-                        arrylistinstitute = response.body().getData();
-                        InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
-                        recycleview_eventListing.setAdapter(adapter);
+                        if(response.body().getStatus().equals("1"))
+                        {
+                            no_data.setVisibility(View.GONE);
+                            arrylistinstitute = response.body().getData();
+                            InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
+                            recycleview_eventListing.setAdapter(adapter);
 
+                            }
+                            else
+                        {
+                            no_data.setVisibility(View.VISIBLE);
+                        }
 
                     }
 
@@ -730,26 +740,16 @@ public class FragmentInstList extends Fragment {
                 name.setText(DataItem.getCollege_name());
                 address.setText(DataItem.getAddress());
                 location.setText(DataItem.getLocation());
+                String imageurl = DataItem.getImage();
+                if (imageurl.isEmpty()) {
+                    athleteimage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.default_user));
 
-                //  String imageurl = DataItem.getUser_image();
-
-//                try {
-//                    Date date = DateConversion.StringtoDate(DataItem.getDob());
-//                    String age = String.valueOf(DateConversion.calculateAge(date));
-//                    ageTextview.setText(age + " Year");
-//                } catch (Exception e) {
-//                }
-
-
-//                if (imageurl.isEmpty()) {
-//                    athleteimage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.resource_back));
-//
-//                } else {
-//                    Picasso.with(getActivity())
-//                            .load(DataItem.getUser_image())
-//                            .error(R.drawable.resource_back)
-//                            .into(athleteimage);
-//                }
+                } else {
+                    Picasso.with(getActivity())
+                            .load(DataItem.getImage())
+                            .error(R.drawable.default_user)
+                            .into(athleteimage);
+                }
 
 
             }
@@ -762,8 +762,7 @@ public class FragmentInstList extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (resultCode == RESULT_OK)
-            {
+            if (resultCode == RESULT_OK) {
                 imageuploadgalary = true;
                 imagefromgalary = result.getUri();
 
@@ -817,8 +816,7 @@ public class FragmentInstList extends Fragment {
     }
 
 
-    public void updateList(String place)
-    {
+    public void updateList(String place) {
         String input = "";
         try {
             input = "input=" + URLEncoder.encode(place, "utf-8");
@@ -841,8 +839,7 @@ public class FragmentInstList extends Fragment {
                 predictions = response.body().getPredictions();
 
                 try {
-                    for (int i = 0; i < predictions.size(); i++)
-                    {
+                    for (int i = 0; i < predictions.size(); i++) {
                         String description = predictions.get(i).getDescription();
                         Log.d("description", description);
                         names.add(description);
