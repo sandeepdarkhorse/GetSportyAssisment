@@ -36,12 +36,10 @@
 
                     <VideoView
                         android:id="@+id/videoview"
-                        android:layout_width="match_parent"
+                        android:layout_width="fill_parent"
                         android:layout_height="match_parent"
 
                         />
-
-
                 </LinearLayout>
 
 
@@ -59,21 +57,14 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
 
-
-                        <main.darkhorse.com.getsportyassisment.shapesview.TriangleView
+                        <main.darkhorse.com.getsportyassisment.shapesview.CutCornerView
                             android:id="@+id/test_cardview"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="8dp"
-                            android:layout_weight="1"
-                            android:elevation="4dp"
-                            app:diagonal_angle="10"
-                            app:diagonal_direction="left"
-                            app:diagonal_position="bottom"
-                            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-                            app:layout_constraintTop_toBottomOf="@+id/circle">
-
+                            android:background="@android:color/transparent"
+                            app:cutCorner_bottomRightSize="20dp"
+                            android:layout_weight="1">
                             <LinearLayout
 
                                 android:layout_width="match_parent"
@@ -96,25 +87,16 @@
                                     android:textStyle="bold" />
 
                             </LinearLayout>
-
-                        </main.darkhorse.com.getsportyassisment.shapesview.TriangleView>
-
-                        <main.darkhorse.com.getsportyassisment.shapesview.TriangleView
+                        </main.darkhorse.com.getsportyassisment.shapesview.CutCornerView>
+                        <main.darkhorse.com.getsportyassisment.shapesview.CutCornerView
                             android:id="@+id/tectical_cardView"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal"
-
-                            android:layout_marginTop="8dp"
+                            android:background="@android:color/transparent"
+                            app:cutCorner_bottomRightSize="20dp"
                             android:layout_weight="1"
-
-                            android:elevation="4dp"
-                            app:diagonal_angle="3"
-                            app:diagonal_direction="left"
-                            app:diagonal_position="bottom"
-                            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-                            app:layout_constraintTop_toBottomOf="@+id/circle">
-
+                            android:layout_marginTop="8dp">
                             <LinearLayout
 
                                 android:layout_width="match_parent"
@@ -127,33 +109,27 @@
 
                                 <TextView
                                     android:id="@+id/tectical_text"
-
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:fontFamily="sans-serif-medium"
-                                    android:text="Tactical"
+                                    android:gravity="center"
+                                    android:text="Tectical"
                                     android:textColor="@color/white"
                                     android:textSize="@dimen/body_text"
                                     android:textStyle="bold" />
-                            </LinearLayout>
 
-                        </main.darkhorse.com.getsportyassisment.shapesview.TriangleView>
-                        <main.darkhorse.com.getsportyassisment.shapesview.TriangleView
+                            </LinearLayout>
+                        </main.darkhorse.com.getsportyassisment.shapesview.CutCornerView>
+
+                        <main.darkhorse.com.getsportyassisment.shapesview.CutCornerView
                             android:id="@+id/technical_cardView"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="8dp"
+                            android:background="@android:color/transparent"
+                            app:cutCorner_bottomRightSize="20dp"
                             android:layout_weight="1"
-
-                            android:elevation="4dp"
-                            app:diagonal_angle="3"
-                            app:diagonal_direction="left"
-                            app:diagonal_position="bottom"
-                            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-                            app:layout_constraintTop_toBottomOf="@+id/circle">
-
+                            android:layout_marginTop="8dp">
                             <LinearLayout
 
                                 android:layout_width="match_parent"
@@ -175,24 +151,17 @@
                                     android:textStyle="bold" />
 
                             </LinearLayout>
+                        </main.darkhorse.com.getsportyassisment.shapesview.CutCornerView>
 
-                        </main.darkhorse.com.getsportyassisment.shapesview.TriangleView>
-
-                        <main.darkhorse.com.getsportyassisment.shapesview.TriangleView
+                        <main.darkhorse.com.getsportyassisment.shapesview.CutCornerView
                             android:id="@+id/physical_card"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="8dp"
+                            android:background="@android:color/transparent"
+                            app:cutCorner_bottomRightSize="20dp"
                             android:layout_weight="1"
-
-                            android:elevation="4dp"
-                            app:diagonal_angle="3"
-                            app:diagonal_direction="left"
-                            app:diagonal_position="bottom"
-                            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-                            app:layout_constraintTop_toBottomOf="@+id/circle">
-
+                            android:layout_marginTop="8dp">
                             <LinearLayout
 
                                 android:layout_width="match_parent"
@@ -200,6 +169,7 @@
                                 android:background="#9CCC65"
                                 android:gravity="center"
                                 android:orientation="vertical">
+
 
 
                                 <TextView
@@ -213,24 +183,18 @@
                                     android:textStyle="bold" />
 
                             </LinearLayout>
+                        </main.darkhorse.com.getsportyassisment.shapesview.CutCornerView>
 
-                        </main.darkhorse.com.getsportyassisment.shapesview.TriangleView>
 
-                        <main.darkhorse.com.getsportyassisment.shapesview.TriangleView
+                        <main.darkhorse.com.getsportyassisment.shapesview.CutCornerView
                             android:id="@+id/psycological_card"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="8dp"
+                            android:background="@android:color/transparent"
+                            app:cutCorner_bottomRightSize="20dp"
                             android:layout_weight="1"
-
-                            android:elevation="4dp"
-                            app:diagonal_angle="3"
-                            app:diagonal_direction="left"
-                            app:diagonal_position="bottom"
-                            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-                            app:layout_constraintTop_toBottomOf="@+id/circle">
-
+                            android:layout_marginTop="8dp">
                             <LinearLayout
 
                                 android:layout_width="match_parent"
@@ -238,6 +202,7 @@
                                 android:background="#FFD54F"
                                 android:gravity="center"
                                 android:orientation="vertical">
+
 
 
                                 <TextView
@@ -251,8 +216,9 @@
                                     android:textStyle="bold" />
 
                             </LinearLayout>
+                        </main.darkhorse.com.getsportyassisment.shapesview.CutCornerView>
 
-                        </main.darkhorse.com.getsportyassisment.shapesview.TriangleView>
+
 
 
                     </LinearLayout>

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -25,6 +26,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
 import android.util.Pair;
@@ -50,6 +53,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
@@ -78,10 +82,12 @@ import main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress;
 import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentModle;
 import main.darkhorse.com.getsportyassisment.model_classes.AssistmentResponse;
+import main.darkhorse.com.getsportyassisment.model_classes.GooglePlaceApiResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.InstituteDataPojo;
 import main.darkhorse.com.getsportyassisment.model_classes.InstituteDataPojoApi;
 import main.darkhorse.com.getsportyassisment.model_classes.InstituteResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.PlacesSportsdetail;
+import main.darkhorse.com.getsportyassisment.model_classes.Predictions;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -156,6 +162,7 @@ public class FragmentInstList extends Fragment {
 
     Button button_submit;
     MaterialSpinner inst_type;
+
     ScrollView scrollview;
 
     TextInputLayout tl_name;
@@ -163,9 +170,9 @@ public class FragmentInstList extends Fragment {
     TextInputLayout layout_tl_mobile_no;
     TextInputLayout layout_tl_institute_regno;
     TextInputLayout layout_tl_institute_address;
-    TextInputLayout layout_tl_institute_location;
 
-    TextInputEditText editText_institute_location, editText_name;
+
+    TextInputEditText  editText_name;
     TextInputEditText editText_institute_address;
     TextInputEditText editText_institute_regno, editText_institute_mobileno;
     TextInputEditText editText_institute_email;
@@ -175,7 +182,11 @@ public class FragmentInstList extends Fragment {
 
     TextView filename;
     ImageView tick;
-
+    ArrayAdapter<String> adapter;
+    String browserKey = "AIzaSyDfdIdeA96qORreYWTCGto85nz0_ZSx_dc";
+    String url;
+    AutoCompleteTextView adress_location;
+    ArrayList<String> names;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -287,8 +298,6 @@ public class FragmentInstList extends Fragment {
         layout_tl_institute_address = (TextInputLayout) dialog.findViewById(R.id.tl_institute_address);
         editText_institute_address = (TextInputEditText) dialog.findViewById(R.id.institute_address);
 
-        layout_tl_institute_location = (TextInputLayout) dialog.findViewById(R.id.tl_institute_location);
-        editText_institute_location = (TextInputEditText) dialog.findViewById(R.id.institute_location);
         textimage = (TextView) dialog.findViewById(R.id.text_image);
         button_submit = (Button) dialog.findViewById(R.id.submit_details);
 
@@ -297,6 +306,36 @@ public class FragmentInstList extends Fragment {
         tick = (ImageView) dialog.findViewById(R.id.tick);
 
         TextView addimage = (TextView) dialog.findViewById(R.id.addimage);
+
+        adress_location = (AutoCompleteTextView) dialog.findViewById(R.id.institute_location);
+
+        adress_location.setThreshold(0);
+
+        names = new ArrayList<String>();
+
+        adress_location.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {
+
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+
+            }
+
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
+                if (s.toString().length() <= 3) {
+                    names = new ArrayList<String>();
+                    updateList(s.toString());
+                }
+
+            }
+        });
+
+
+
         addimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -321,7 +360,7 @@ public class FragmentInstList extends Fragment {
                 String name = editText_name.getText().toString();
                 String instituteemail = editText_institute_email.getText().toString();
                 String institutemobileno = editText_institute_mobileno.getText().toString();
-                String institutelocation = editText_institute_location.getText().toString();
+                String institutelocation = adress_location.getText().toString();
                 String instituteaddress = editText_institute_address.getText().toString();
                 String instituteregno = editText_institute_regno.getText().toString();
                 String insttype = inst_type.getSelectedItem().toString();
@@ -363,13 +402,13 @@ public class FragmentInstList extends Fragment {
                 }
                 if (institutelocation.equals("")) {
                     validation[3] = 1;
-                    layout_tl_institute_location.setErrorEnabled(true);
-                    layout_tl_institute_location.setError("You need to enter a location");
+
+                    adress_location.setError("You need to enter a location");
                     scrollview.fullScroll(ScrollView.FOCUS_UP);
 
                 } else {
                     validation[3] = 0;
-                    layout_tl_institute_location.setError(null);
+                    adress_location.setError(null);
                 }
                 if (instituteaddress.equals("")) {
                     validation[4] = 1;
@@ -440,12 +479,6 @@ public class FragmentInstList extends Fragment {
                                     InstituteDataPojo datapojo = new InstituteDataPojo(insttype, name, instituteemail
                                             , institutemobileno, instituteregno, instituteaddress, institutelocation, encoded);
 
-//                                    arrylistinstitute.add(datapojo);
-
-//                                    InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
-//                                    recycleview_eventListing.setAdapter(adapter);
-//                                    adapter.notifyDataSetChanged();
-////                                    DateConversion.saveArrayList(arrylistinstitute, "institutelist", getActivity());
 
                                     Call<JsonElement> checklogin = apiCall.Addinstitute("add_institute", datapojo);
                                     Log.e("institute listing url:", checklogin.request().url().toString());
@@ -783,5 +816,67 @@ public class FragmentInstList extends Fragment {
                 .start(getContext(), this);
     }
 
+
+    public void updateList(String place)
+    {
+        String input = "";
+        try {
+            input = "input=" + URLEncoder.encode(place, "utf-8");
+        } catch (UnsupportedEncodingException e1) {
+            e1.printStackTrace();
+        }
+        String output = "json";
+        String parameter = input + "&types=geocode&sensor=true&key="
+                + browserKey;
+        url = output + "?" + parameter;
+        Retrofit retrofit = ApiClient.getGooglePlaceClient();
+        ApiAtheliteCall apiCall = retrofit.create(ApiAtheliteCall.class);
+        Call<GooglePlaceApiResponse> jsonObjReq = apiCall.GoogleApiCall(url);
+        Log.e("well", jsonObjReq.request().url().toString());
+        jsonObjReq.enqueue(new Callback<GooglePlaceApiResponse>() {
+            @Override
+            public void onResponse(Call<GooglePlaceApiResponse> call, Response<GooglePlaceApiResponse> response) {
+
+                ArrayList<Predictions> predictions = new ArrayList<Predictions>();
+                predictions = response.body().getPredictions();
+
+                try {
+                    for (int i = 0; i < predictions.size(); i++)
+                    {
+                        String description = predictions.get(i).getDescription();
+                        Log.d("description", description);
+                        names.add(description);
+                    }
+                } catch (Exception e) {
+                }
+
+                adapter = new ArrayAdapter<String>(
+                        getActivity(),
+                        android.R.layout.simple_list_item_1, names) {
+                    @Override
+                    public View getView(int position,
+                                        View convertView, ViewGroup parent) {
+                        View view = super.getView(position,
+                                convertView, parent);
+                        TextView text = (TextView) view
+                                .findViewById(android.R.id.text1);
+                        text.setTextColor(Color.BLACK);
+                        return view;
+                    }
+                };
+                adress_location.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailure(Call<GooglePlaceApiResponse> call, Throwable t) {
+
+
+            }
+        });
+
+
+    }
 
 }

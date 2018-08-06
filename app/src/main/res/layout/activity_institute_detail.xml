@@ -1,10 +1,9 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f6f6f6"
-    android:fitsSystemWindows="true"
-    android:id="@+id/main_layout"
     app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
     <android.support.design.widget.AppBarLayout
@@ -21,45 +20,80 @@
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                app:layout_collapseMode="parallax"
                 android:background="@drawable/gradient_1"
-                android:orientation="horizontal">
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                app:layout_collapseMode="parallax">
 
                 <ImageView
                     android:id="@+id/institute_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
-                    android:transitionName="image_transition"
-                    android:src="@drawable/assessment_program" />
+                    android:src="@drawable/assessment_program"
+                    android:transitionName="image_transition" />
 
-                <ImageView
-                    android:id="@+id/back_press"
-                    android:layout_width="23dp"
-                    android:layout_height="23dp"
-                    android:layout_marginLeft="6dp"
-                    android:scaleType="fitXY"
+
+                <LinearLayout
+                    android:id="@+id/ll_back_press"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
                     android:layout_marginTop="25dp"
-                    android:src="@mipmap/ic_arrow_back_white"
-                 />
+                    android:background="@android:color/transparent"
+                    android:gravity="top|left">
+
+                    <ImageView
+                        android:id="@+id/back_press"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="6dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/backbutton" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="25dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/search_assessment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="16"
+                        android:visibility="gone"
+                        android:gravity="center|left"
+                        android:hint="Search assessment"
+                        android:inputType="textCapSentences"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAllCaps="false"
+                        android:textColor="@color/navigationHeader"
+                        android:textSize="@dimen/body_text" />
+                </LinearLayout>
+
 
                 <ImageView
-                    android:id="@+id/notification"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:id="@+id/im_search"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
-                    android:scaleType="fitXY"
                     android:layout_marginTop="25dp"
+                    android:scaleType="fitXY"
                     android:src="@android:drawable/ic_menu_search" />
 
 
             </RelativeLayout>
-
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -97,18 +131,18 @@
                         android:id="@+id/inst_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
                         android:text="Name"
-                        android:transitionName="name_transition"
-                        android:fontFamily="sans-serif-medium"/>
+                        android:transitionName="name_transition" />
 
                     <TextView
                         android:id="@+id/inst_location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-medium"
                         android:text="Location"
-                        android:transitionName="location_transition"
-                        android:fontFamily="sans-serif-medium"/>
+                        android:transitionName="location_transition" />
                 </LinearLayout>
 
 
@@ -122,13 +156,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Assessment List"
                         android:fontFamily="sans-serif-medium"
+                        android:text="Assessment List"
                         android:textSize="@dimen/body_text_large" />
 
                     <android.support.v7.widget.RecyclerView
+                        android:id="@+id/assessmentlist"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginBottom="60dp"
                         android:layout_marginTop="10dp">
 
                     </android.support.v7.widget.RecyclerView>
@@ -148,22 +184,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:elevation="2dp"
-        android:orientation="vertical"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="3dp"
-        android:background="#F1F1F1">
+        android:background="#F1F1F1"
+        android:elevation="2dp"
+
+        android:orientation="vertical">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/darker_gray" />
 
         <Button
-            android:id="@+id/submit_details"
+            android:id="@+id/add_assisment"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/selected_item"
