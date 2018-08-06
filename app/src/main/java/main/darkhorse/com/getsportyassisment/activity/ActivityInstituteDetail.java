@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -41,6 +42,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.JsonElement;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -117,6 +119,19 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
                 instituteId = institutedataitem.getId();
                 instname.setText(institutedataitem.getCollege_name());
                 instlocation.setText(institutedataitem.getLocation());
+
+
+                String imageurl = institutedataitem.getImage();
+                if (imageurl.isEmpty()) {
+                    imageView.setImageDrawable(ContextCompat.getDrawable(ActivityInstituteDetail.this, R.drawable.assessment_program));
+
+                } else {
+                    Picasso.with(ActivityInstituteDetail.this)
+                            .load(imageurl)
+                            .error(R.drawable.assessment_program)
+                            .into(imageView);
+                }
+
 
             } else {
 

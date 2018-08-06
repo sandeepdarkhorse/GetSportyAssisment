@@ -28,7 +28,6 @@
                 android:layout_height="220dp"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                android:src="@drawable/assessment_program"
                 android:transitionName="image_transition"
                 app:layout_collapseMode="parallax" />
 
@@ -61,7 +60,7 @@
                         android:text=""
                         android:visibility="gone"
                         android:textAllCaps="false"
-                        android:textColor="@color/navigationHeader"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/body_text" />
 
                     <ImageView
