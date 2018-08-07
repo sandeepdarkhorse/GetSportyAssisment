@@ -250,6 +250,7 @@ public class ActivityLoginAdmin extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
                 SharedPreferences.Editor editor_login = sharedPreferences.edit();
                 editor_login.putBoolean("login", true);
+                editor_login.putString("userType",userType);
                 editor_login.commit();
 
                 SharedPreferences.Editor editor = getSharedPreferences("Dashboard_prefs", MODE_PRIVATE).edit();

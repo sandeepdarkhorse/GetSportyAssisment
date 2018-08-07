@@ -65,6 +65,8 @@ public class AssessmentProgress extends Fragment implements View.OnClickListener
     CutCornerView triangleView_test;
     CutCornerView tecticalCardView,technicalCardView,physicalCardView,psycologicalCardView;
     Context context;
+    String decimalDob;
+    String decimalAssessmentDate;
 
 
     public AssessmentProgress() {
@@ -132,7 +134,7 @@ public class AssessmentProgress extends Fragment implements View.OnClickListener
 
                 break;
             case R.id.tectical_cardView:
-openQuestionnareForm();
+                 openQuestionnareForm();
 
                 break;
             case R.id.technical_cardView:
@@ -143,7 +145,8 @@ openQuestionnareForm();
                 break;
             case R.id.psycological_card:
                // openQuestionnareForm();
-                readjson();
+                readjson("2006-01-05");
+               decimal_ageCalculation("2018-03-10");
                 break;
 
 
@@ -152,12 +155,90 @@ openQuestionnareForm();
         }
 
     }
+    @TargetApi(Build.VERSION_CODES.O)
+    private void decimal_ageCalculation(String age) {
+        // String age="2006-01-05";
+        Log.e("Tag","date data::"+ DateConversion.getday(age));
+       String  dateDecimalValue="";
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern( "yyyy-MM-dd" );
+        LocalDate localDate2 = LocalDate.parse( age , formatter2 );
+
+        int year = localDate2.getYear();
+        int month = localDate2.getMonthValue();
+        int dayOfMonth = localDate2.getDayOfMonth();
+        Month nameOfMonth=localDate2.getMonth();
+        String monthName=String.valueOf(nameOfMonth);
+        Log.e("Tag"," year::"+ year +"-month::: "+nameOfMonth+"-day::  "+dayOfMonth);
+
+        String json = null;
+        try {
+            InputStream is = getActivity().getAssets().open("decimalage.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+
+        }
+
+        try{
+            JSONObject obj = new JSONObject(json);
+            String strData = obj.getString("decimalAge");
+            Log.e("TaG","decimal age data::" +strData);
+            JSONArray jjArray=obj.getJSONArray("decimalAge");
+            for(int i=0;i<jjArray.length();i++){
+                JSONObject jjObject=jjArray.getJSONObject(i);
+                JSONArray jsonArray1=jjObject.getJSONArray(monthName);
+                Log.e("TaG","month data::" +jsonArray1.toString());
+                Log.e("TaG","length of array::" +jsonArray1.length());
+                for(int j=0;j<jsonArray1.length();j++){
+                    JSONObject jmonth=jsonArray1.getJSONObject(j);
+
+
+
+                    Log.e("TAG","month data value::" +jmonth.getString(Integer.toString(dayOfMonth)));
+                    dateDecimalValue=jmonth.getString(Integer.toString(dayOfMonth));
+
+
+                }
+                decimalAssessmentDate=Integer.toString(year)+"."+dateDecimalValue;
+
+            }
+            double actualAge=Double.parseDouble(decimalAssessmentDate)-Double.parseDouble(decimalDob);
+            Log.e("TAG","decimal age::" +actualAge);
+            double height=157.0;
+            double legLength=77.4;
+            double sittingHeight=79.6;
+            double weight=53.0;
+
+            double weightByHeightRatio=(weight/height)*100;
+            String gender="Male";
+            switch(gender){
+                case "Male":
+                    double maturityOffsetMale=(-9.236)+(0.0002708*legLength*sittingHeight)+(-0.001663 * actualAge*legLength)+(0.007216*actualAge*sittingHeight)+(0.02292 *weightByHeightRatio);
+                    Log.e("Tag","value of maturityOff set::"+maturityOffsetMale);
+               break;
+                case "Female":
+
+                    double maturityOffsetFemale =(-9.376)+(0.0001882*legLength*sittingHeight)+(-0.0022 * actualAge*legLength)+(0.005841*actualAge*sittingHeight)-(0.002658*actualAge*weight)+(0.07693 *weightByHeightRatio);
+                    Log.e("Tag","value of maturityOff set::"+maturityOffsetFemale);
+                    break;
+
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     @TargetApi(Build.VERSION_CODES.O)
-    private void readjson() {
-        String age="2006-01-05";
+    private void readjson(String age) {
+       // String age="2006-01-05";
        Log.e("Tag","date data::"+ DateConversion.getday(age));
-
+        String dateDecimalValue="";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "yyyy-MM-dd" );
         LocalDate localDate = LocalDate.parse( age , formatter );
 
@@ -165,6 +246,7 @@ openQuestionnareForm();
         int month = localDate.getMonthValue();
         int dayOfMonth = localDate.getDayOfMonth();
         Month nameOfMonth=localDate.getMonth();
+        String monthName=String.valueOf(nameOfMonth);
         Log.e("Tag"," year::"+ year +"-month::: "+nameOfMonth+"-day::  "+dayOfMonth);
 
         String json = null;
@@ -184,10 +266,10 @@ try{
             JSONObject obj = new JSONObject(json);
             String strData = obj.getString("decimalAge");
     Log.e("TaG","decimal age data::" +strData);
-JSONArray jjArray=obj.getJSONArray("decimalAge");
-for(int i=0;i<jjArray.length();i++){
+    JSONArray jjArray=obj.getJSONArray("decimalAge");
+    for(int i=0;i<jjArray.length();i++){
     JSONObject jjObject=jjArray.getJSONObject(i);
-    JSONArray jsonArray1=jjObject.getJSONArray("January");
+    JSONArray jsonArray1=jjObject.getJSONArray(monthName);
     Log.e("TaG","month data::" +jsonArray1.toString());
     Log.e("TaG","length of array::" +jsonArray1.length());
     for(int j=0;j<jsonArray1.length();j++){
@@ -195,21 +277,14 @@ for(int i=0;i<jjArray.length();i++){
 
 
         Log.e("TAG","month data::" +jmonth);
-        Log.e("TAG","month data value::" +jmonth.getString("30"));
-
-
+        Log.e("TAG","month data value::" +jmonth.getString(Integer.toString(dayOfMonth)));
+         dateDecimalValue=jmonth.getString(Integer.toString(dayOfMonth));
 
     }
-
+        decimalDob=Integer.toString(year)+"."+dateDecimalValue;
 
 }
-//            JSONArray jsonArray1=obj.getJSONArray("January");
-//            Log.e("TaG","JSON length::" + jsonArray1.length());
-//            for (int i = 0; i < jsonArray1.length(); i++) {
-//                JSONObject jo_inside = jsonArray1.getJSONObject(0);
-//                Log.e("TaG","JSON length::" + i);
-//                Log.e("Details-->", jo_inside.getString("30" + ""));
-//            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

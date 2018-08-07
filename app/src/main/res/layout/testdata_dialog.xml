@@ -61,12 +61,12 @@
             >
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:gravity="center"
-                android:layout_marginTop="15dp"
+
                 android:text="Exercise Details"
                 android:elevation="3dp"
-                android:background="@color/grey"
+                android:background="#F2F2F2"
                 />
 
             <RelativeLayout
@@ -101,7 +101,7 @@
                     android:id="@+id/unit"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:text="Km/hr"
+                    android:text="km/hr"
                     android:layout_weight="1"
                     android:textSize="@dimen/body_text"
                     android:fontFamily="sans-serif-medium"
@@ -201,7 +201,7 @@
                     android:id="@+id/unit3"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:text="Kg"
+                    android:text="kg"
                     android:layout_weight="1"
                     android:textSize="@dimen/body_text"
                     android:fontFamily="sans-serif-medium"
@@ -325,12 +325,12 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:gravity="center"
                 android:layout_marginTop="15dp"
                 android:text="Athlete Details"
                 android:elevation="3dp"
-                android:background="@color/grey"
+                android:background="#F2F2F2"
                 />
 
             <RelativeLayout
@@ -439,7 +439,7 @@
                     android:id="@+id/sitting_head"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="Leg Length"
+                    android:text="Sitting Height"
                     android:textSize="@dimen/body_text"
                     android:textStyle="bold"
                     android:fontFamily="sans-serif-medium"
