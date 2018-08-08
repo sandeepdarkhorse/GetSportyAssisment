@@ -1,29 +1,25 @@
 package main.darkhorse.com.getsportyassisment.fragment;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.DimenRes;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -34,6 +30,7 @@ import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -41,14 +38,13 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.gson.JsonElement;
 import com.squareup.picasso.Picasso;
-
+import org.json.JSONException;
+import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -56,70 +52,32 @@ import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Date;
-
-
 import fr.ganfra.materialspinner.MaterialSpinner;
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.UtilsFile.ApiClient;
 import main.darkhorse.com.getsportyassisment.UtilsFile.CheckAndroidPermission;
-import main.darkhorse.com.getsportyassisment.UtilsFile.CommonUtils;
 import main.darkhorse.com.getsportyassisment.UtilsFile.NetworkStatus;
-import main.darkhorse.com.getsportyassisment.activity.ActivityDashboardDetail;
 import main.darkhorse.com.getsportyassisment.activity.ActivityInstituteDetail;
-import main.darkhorse.com.getsportyassisment.activity.ActivityLoginAdmin;
-import main.darkhorse.com.getsportyassisment.activity.ActivityVideoLink;
-import main.darkhorse.com.getsportyassisment.activity.MainActivity;
-import main.darkhorse.com.getsportyassisment.activity.UserProfile;
 import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.ApiAtheliteCall;
 import main.darkhorse.com.getsportyassisment.compressor.Compressor;
 import main.darkhorse.com.getsportyassisment.compressor.FileUtil;
 import main.darkhorse.com.getsportyassisment.cropper.CropImage;
 import main.darkhorse.com.getsportyassisment.cropper.CropImageView;
-import main.darkhorse.com.getsportyassisment.custom_classes.AutoFitGridLayoutManager;
 import main.darkhorse.com.getsportyassisment.custom_classes.AutoFitGridRecyclerView;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress;
-import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
-import main.darkhorse.com.getsportyassisment.model_classes.AssistmentModle;
-import main.darkhorse.com.getsportyassisment.model_classes.AssistmentResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.GooglePlaceApiResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.InstituteDataPojo;
 import main.darkhorse.com.getsportyassisment.model_classes.InstituteDataPojoApi;
 import main.darkhorse.com.getsportyassisment.model_classes.InstituteResponse;
-import main.darkhorse.com.getsportyassisment.model_classes.PlacesSportsdetail;
 import main.darkhorse.com.getsportyassisment.model_classes.Predictions;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-
-
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.graphics.drawable.ColorDrawable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.ViewAnimationUtils;
-import android.view.Window;
-import android.widget.ImageView;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import static android.app.Activity.RESULT_OK;
-
-
 public class FragmentInstList extends Fragment {
-
-
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     public FragmentInstList newInstance(String param1, String param2) {
         FragmentInstList fragment = new FragmentInstList();
         Bundle args = new Bundle();
@@ -129,10 +87,8 @@ public class FragmentInstList extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     private String mParam1;
     private String mParam2;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,12 +98,10 @@ public class FragmentInstList extends Fragment {
         }
 
     }
-
     private int[] validation = new int[8];
     View rootView;
     AutoFitGridRecyclerView recycleview_eventListing;
     RecyclerView.LayoutManager myLayoutManager;
-
     CustomProgress customProgress;
     FloatingActionButton add_institute;
     private NetworkStatus network_status;
@@ -156,30 +110,21 @@ public class FragmentInstList extends Fragment {
     private File actualImage;
     private File compressedImage;
     String encoded = "";
-
     private String[] typeArray = {"School", "Institution", "Club", "Academy"};
-
-
     Button button_submit;
     MaterialSpinner inst_type;
-
     ScrollView scrollview;
-
     TextInputLayout tl_name;
     TextInputLayout layout_tl_email;
     TextInputLayout layout_tl_mobile_no;
     TextInputLayout layout_tl_institute_regno;
     TextInputLayout layout_tl_institute_address;
-
-
     TextInputEditText editText_name;
     TextInputEditText editText_institute_address;
     TextInputEditText editText_institute_regno, editText_institute_mobileno;
     TextInputEditText editText_institute_email;
     TextView textimage;
-
     ArrayList<InstituteDataPojoApi> arrylistinstitute;
-
     TextView filename,no_data;
     ImageView tick;
     ArrayAdapter<String> adapter;
@@ -187,7 +132,6 @@ public class FragmentInstList extends Fragment {
     String url;
     AutoCompleteTextView adress_location;
     ArrayList<String> names;
-
     @SuppressLint("RestrictedApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -227,21 +171,16 @@ public class FragmentInstList extends Fragment {
     }
 
     private void showDiag() {
-
         final View dialogView = View.inflate(getActivity(), R.layout.add_institute_dialog, null);
-
-//        final Dialog dialog = new Dialog(getActivity(), R.style.MyAlertDialogStyle);
+        //        final Dialog dialog = new Dialog(getActivity(), R.style.MyAlertDialogStyle);
 //        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 //        dialog.setContentView(dialogView);
-
         final Dialog dialog = new Dialog(getActivity(), R.style.CustomDialog);
         dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
         dialog.setContentView(dialogView);
         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-
-
         Toolbar toolbar_dissmiss = (Toolbar) dialog.findViewById(R.id.toolbar);
         toolbar_dissmiss.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -249,15 +188,12 @@ public class FragmentInstList extends Fragment {
                 revealShow(dialogView, false, dialog);
             }
         });
-
-
         dialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(DialogInterface dialogInterface) {
                 revealShow(dialogView, true, null);
             }
         });
-
         dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
             @Override
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
@@ -270,53 +206,31 @@ public class FragmentInstList extends Fragment {
                 return false;
             }
         });
-
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
         scrollview = (ScrollView) dialog.findViewById(R.id.scrollview);
         inst_type = (MaterialSpinner) dialog.findViewById(R.id.inst_type);
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, typeArray);
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         inst_type.setAdapter(adapter);
-
-
         tl_name = (TextInputLayout) dialog.findViewById(R.id.tl_name);
         editText_name = (TextInputEditText) dialog.findViewById(R.id.name);
-
-
         layout_tl_email = (TextInputLayout) dialog.findViewById(R.id.tl_email);
         editText_institute_email = (TextInputEditText) dialog.findViewById(R.id.institute_email);
-
-
         layout_tl_mobile_no = (TextInputLayout) dialog.findViewById(R.id.tl_mobile_no);
         editText_institute_mobileno = (TextInputEditText) dialog.findViewById(R.id.institute_mobile_no);
-
-
         layout_tl_institute_regno = (TextInputLayout) dialog.findViewById(R.id.tl_institute_regno);
         editText_institute_regno = (TextInputEditText) dialog.findViewById(R.id.institute_regno);
-
-
         layout_tl_institute_address = (TextInputLayout) dialog.findViewById(R.id.tl_institute_address);
         editText_institute_address = (TextInputEditText) dialog.findViewById(R.id.institute_address);
-
         textimage = (TextView) dialog.findViewById(R.id.text_image);
         button_submit = (Button) dialog.findViewById(R.id.submit_details);
-
-
         filename = (TextView) dialog.findViewById(R.id.file_name);
         tick = (ImageView) dialog.findViewById(R.id.tick);
-
         TextView addimage = (TextView) dialog.findViewById(R.id.addimage);
-
         adress_location = (AutoCompleteTextView) dialog.findViewById(R.id.institute_location);
-
         adress_location.setThreshold(0);
-
         names = new ArrayList<String>();
-
         adress_location.addTextChangedListener(new TextWatcher() {
-
             public void afterTextChanged(Editable s) {
 
             }
@@ -325,7 +239,6 @@ public class FragmentInstList extends Fragment {
                                           int after) {
 
             }
-
             public void onTextChanged(CharSequence s, int start, int before,
                                       int count) {
                 if (s.toString().length() <= 3) {
@@ -335,7 +248,6 @@ public class FragmentInstList extends Fragment {
 
             }
         });
-
 
         addimage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -349,7 +261,6 @@ public class FragmentInstList extends Fragment {
 
             }
         });
-
 
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -455,35 +366,24 @@ public class FragmentInstList extends Fragment {
                     textimage.setError("");
                     textimage.setTextColor(getResources().getColor(R.color.red));
                     scrollview.fullScroll(ScrollView.FOCUS_UP);
-
-
-                } else {
+                    } else {
                     validation[7] = 0;
                     textimage.setError(null);
                 }
-
-
                 int sum = validation[0] + validation[1] + validation[2] + validation[3] + validation[4] + validation[5] + validation[6] + validation[7];
                 if (sum == 0) {
                     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
                     if (instituteemail.trim().matches(emailPattern)) {
                         layout_tl_email.setError(null);
-
                         try {
-
                             if (network_status.isConnectingToInternet()) {
-
                                 try {
                                     Retrofit retrofit = ApiClient.getClient();
                                     ApiAtheliteCall apiCall = retrofit.create(ApiAtheliteCall.class);
-
                                     InstituteDataPojo datapojo = new InstituteDataPojo(insttype, name, instituteemail
                                             , institutemobileno, instituteregno, instituteaddress, institutelocation, encoded);
-
-
                                     Call<JsonElement> checklogin = apiCall.Addinstitute("add_institute", datapojo);
                                     Log.e("institute listing url:", checklogin.request().url().toString());
-
                                     customProgress.showProgress(getActivity(), false);
                                     checklogin.enqueue(new Callback<JsonElement>() {
                                         @Override
@@ -495,7 +395,6 @@ public class FragmentInstList extends Fragment {
                                                 JSONObject jsonobj = new JSONObject(jsonElement.toString());
                                                 String status = jsonobj.getString("status");
                                                 if (status.equals("1")) {
-
                                                     revealShow(dialogView, false, dialog);
                                                     Retrofit_listdata();
 
@@ -505,15 +404,13 @@ public class FragmentInstList extends Fragment {
 
                                                 }
 
-
-                                            } catch (JSONException e) {
+                                                } catch (JSONException e) {
                                                 e.printStackTrace();
                                                 Toast.makeText(getActivity(), "Please try again", Toast.LENGTH_SHORT).show();
 
                                             }
 
-
-                                        }
+                                            }
 
                                         @Override
                                         public void onFailure(Call<JsonElement> call, Throwable t) {
@@ -600,9 +497,6 @@ public class FragmentInstList extends Fragment {
     public void Retrofit_listdata() {
         arrylistinstitute = new ArrayList<>();
         arrylistinstitute.clear();
-
-        final int network = CommonUtils.getConnectivityStatus(getActivity());
-
         if (network_status.isConnectingToInternet()) {
             try {
                 String performanceUrl = "http://testingapp.getsporty.in/add_property_controller.php?";
@@ -614,7 +508,6 @@ public class FragmentInstList extends Fragment {
                 Call<InstituteResponse> checklogin = apiCall.getinstitutelist(performanceUrl + data);
                 Log.d("Resourse listing url:::", checklogin.request().url().toString());
                 customProgress.showProgress(getActivity(), false);
-
                 checklogin.enqueue(new Callback<InstituteResponse>() {
                     @Override
                     public void onResponse(Call<InstituteResponse> call, Response<InstituteResponse> response)

@@ -411,6 +411,13 @@
     <string name="guardian_name">Guardian Name</string>
     <string name="student_reg_no">Student Registration No.</string>
 
+    <string name="class_name">Class name</string>
+
+    <string name="class_section">Class Section</string>
+    <string name="noof_student">No. of Student</string>
+
+    <string name="class_teachername">Class teacher name</string>
+
     </resources>
 
 

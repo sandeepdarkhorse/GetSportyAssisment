@@ -59,7 +59,7 @@ dependencies {
     compile 'com.github.mmin18:realtimeblurview:1.0.4'
     compile 'com.android.support:appcompat-v7:26.0.1'
     compile 'com.google.firebase:firebase-messaging:10.2.1'
-    compile 'com.google.firebase:firebase-auth:10.0.1'
+
 
     compile('com.google.api-client:google-api-client-android:1.23.0') {
         exclude group: 'org.apache.httpcomponents'

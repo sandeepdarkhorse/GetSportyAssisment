@@ -163,7 +163,7 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
             @Override
             public void onClick(View view) {
 
-                showDiag();
+                showDialog();
 
             }
         });
@@ -369,13 +369,10 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
         public void onBindViewHolder(InstituteListingAdapter.ViewHolder holder, int position) {
 
             holder.setItem(DataItems.get(position));
-            if (position % 2 == 0)
-            {
+            if (position % 2 == 0) {
                 holder.background.setBackground(getDrawable(R.color.db_institute_color));
-            }
-            else
-                {
-                    holder.background.setBackground(getDrawable(R.color.db_selfEvent_color));
+            } else {
+                holder.background.setBackground(getDrawable(R.color.db_selfEvent_color));
 
 
             }
@@ -392,7 +389,7 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
 
             private TextView name;
 
-            private TextView date, assignmaster;
+            private TextView date, assignmaster, addclass;
             RelativeLayout background;
 
             public ViewHolder(final View itemView) {
@@ -407,6 +404,8 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
 
                 background = (RelativeLayout) itemView.findViewById(R.id.relativeLayout);
 
+                addclass = (TextView) itemView.findViewById(R.id.add_class);
+
 
                 assignmaster.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -414,6 +413,58 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
                         Toast.makeText(ActivityInstituteDetail.this, "Waiting for Api implementation", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+
+                addclass.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        final View dialogView = View.inflate(ActivityInstituteDetail.this, R.layout.event_addclassdialog, null);
+                        final Dialog dialog = new Dialog(ActivityInstituteDetail.this, R.style.CustomDialog);
+                        dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+                        dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
+                        dialog.setContentView(dialogView);
+                        dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+                        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
+                        Toolbar toolbar_dissmiss = (Toolbar) dialog.findViewById(R.id.toolbar);
+                        toolbar_dissmiss.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                revealShow(dialogView, false, dialog);
+                            }
+                        });
+
+
+                        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                            @Override
+                            public void onShow(DialogInterface dialogInterface) {
+                                revealShow(dialogView, true, null);
+                            }
+                        });
+
+                        dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+                            @Override
+                            public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+                                if (i == KeyEvent.KEYCODE_BACK) {
+
+                                    revealShow(dialogView, false, dialog);
+                                    return true;
+                                }
+
+                                return false;
+                            }
+                        });
+
+                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+
+
+
+                        dialog.show();
+
+                    }
+                });
+
 
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -459,7 +510,8 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
 
     private int[] validation = new int[4];
 
-    private void showDiag() {
+    private void showDialog()
+    {
 
         final View dialogView = View.inflate(ActivityInstituteDetail.this, R.layout.create_assistment_dialog, null);
         final Dialog dialog = new Dialog(ActivityInstituteDetail.this, R.style.CustomDialog);
@@ -499,6 +551,9 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
         });
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+
+
         scrollview = (ScrollView) dialog.findViewById(R.id.scrollview);
 
         assessment_type = (MaterialSpinner) dialog.findViewById(R.id.assessment_type);
