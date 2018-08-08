@@ -20,8 +20,8 @@ public class ActivityDashboardDetail extends Activity implements Serializable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places_sportdetail);
-        ImageView imageView = (ImageView) findViewById(R.id.imagezoom);
-        TextView sports = (TextView) findViewById(R.id.sports_name);
+        ImageView imageView = findViewById(R.id.imagezoom);
+        TextView sports = findViewById(R.id.sports_name);
 
         Bundle userinfo = getIntent().getExtras();
         if (userinfo != null) {
@@ -39,7 +39,7 @@ public class ActivityDashboardDetail extends Activity implements Serializable {
 
 
         }
-        RelativeLayout mainlaout = (RelativeLayout) findViewById(R.id.main_layout);
+        RelativeLayout mainlaout = findViewById(R.id.main_layout);
         mainlaout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,7 +47,7 @@ public class ActivityDashboardDetail extends Activity implements Serializable {
             }
         });
 
-        CardView  cardviewathlete=(CardView)findViewById(R.id.athletecard);
+        CardView  cardviewathlete= findViewById(R.id.athletecard);
 
         cardviewathlete.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -171,10 +171,10 @@ public class ActivityLoginAdmin extends AppCompatActivity {
 
     public void intilization() {
         customProgress = CustomProgress.getInstance();
-        btnSignin = (MorphingButton) findViewById(R.id.signin);
+        btnSignin = findViewById(R.id.signin);
         network_status = new NetworkStatus(this);
-        editText_email = (EditText) findViewById(R.id.ed_email_id);
-        editText_password = (EditText) findViewById(R.id.ed_password);
+        editText_email = findViewById(R.id.ed_email_id);
+        editText_password = findViewById(R.id.ed_password);
         // set listeners
         editText_email.addTextChangedListener(mTextWatcher);
         editText_password.addTextChangedListener(mTextWatcher);

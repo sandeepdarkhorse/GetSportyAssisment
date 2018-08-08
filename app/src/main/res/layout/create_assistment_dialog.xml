@@ -1,8 +1,8 @@
-<RelativeLayout android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/primary_white">
 
     <ScrollView
@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="60dp"
-        android:fillViewport="true"
-        >
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,35 +22,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#2196f3"
-                    android:padding="0dp"
-                    >
+                    android:padding="0dp">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
+                        android:layout_height="wrap_content">
+
                         <ImageView
                             android:id="@+id/closeDialogImg"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:scaleType="fitXY"
                             android:layout_alignParentLeft="true"
+                            android:scaleType="fitXY"
                             android:src="@mipmap/backbutton" />
+
                         <TextView
                             android:id="@+id/toolbar_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Create Assessment"
-                            android:textColor="@color/white"
-                            android:layout_toRightOf="@+id/closeDialogImg"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="10dp"
-                            android:textSize="17sp"/>
+                            android:layout_toRightOf="@+id/closeDialogImg"
+                            android:text="Create Assessment"
+                            android:textColor="@color/white"
+                            android:textSize="17sp" />
                     </RelativeLayout>
 
                 </android.support.v7.widget.Toolbar>
@@ -70,24 +71,22 @@
                     android:id="@+id/assessment_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
                     android:textColor="@color/offblack"
                     app:ms_floatingLabelText="@string/assessment_type"
                     app:ms_hint="@string/assessment_type"
-                    app:ms_multiline="false"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
-
-
+                    app:ms_multiline="false" />
 
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tl_assessment_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
                     android:hint="@string/institute_name">
 
                     <android.support.design.widget.TextInputEditText
@@ -104,10 +103,10 @@
                     android:id="@+id/tl_assessment_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusableInTouchMode="false"
-                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/assessment_date">
 
                     <android.support.design.widget.TextInputEditText
@@ -120,10 +119,8 @@
                         android:focusable="false"
                         android:focusableInTouchMode="false"
                         android:gravity="center|left"
-                        android:minHeight="60dp"
-                        />
+                        android:minHeight="60dp" />
                 </android.support.design.widget.TextInputLayout>
-
 
 
                 <android.support.design.widget.TextInputLayout
@@ -144,6 +141,71 @@
                         android:singleLine="true" />
                 </android.support.design.widget.TextInputLayout>
 
+                <TextView
+                    android:id="@+id/text_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Upload student Csv file"
+                    android:textColor="#1f1f1f" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/upload_csv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="6dp"
+                        android:background="#2196f3"
+                        android:gravity="center"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="10dp"
+                        android:text="UPLOAD"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/file_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_toRightOf="@+id/upload_csv"
+                         android:textColor="#1f1f1f" />
+
+                    <ImageView
+                        android:id="@+id/tick"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="3dp"
+                        android:src="@android:drawable/checkbox_on_background"
+                        android:visibility="gone" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar2"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/addimage"
+                        android:layout_below="@+id/file_name"
+                        android:layout_marginRight="10dp"
+                        android:layout_toRightOf="@+id/addimage"
+                        android:progress="0"
+                        android:progressTint="#ffce59"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
 
                 <!--</FrameLayout>-->
 
@@ -158,15 +220,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="#F1F1F1"
         android:elevation="2dp"
-        android:orientation="vertical"
         android:gravity="bottom"
-        android:background="#F1F1F1">
+        android:orientation="vertical">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/darker_gray" />
 
         <Button
             android:id="@+id/submit_details"

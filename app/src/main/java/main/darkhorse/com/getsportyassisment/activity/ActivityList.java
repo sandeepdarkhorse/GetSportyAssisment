@@ -10,7 +10,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.UtilsFile.CheckAndroidPermission;
 import main.darkhorse.com.getsportyassisment.fragment.FragmentInstList;
@@ -41,18 +40,15 @@ public class ActivityList extends AppCompatActivity
 
 
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         toolbar.setVisibility(View.VISIBLE);
         toolbar.setTitle("Institution");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        ImageView logo_image = (ImageView) toolbar.findViewById(R.id.logs);
+        ImageView logo_image = toolbar.findViewById(R.id.logs);
         logo_image.setVisibility(View.GONE);
-
-
         CheckAndroidPermission.checkAndRequestPermissions(getApplicationContext(), this);
-        FrameLayout  container = (FrameLayout) findViewById(R.id.user_profile);
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.user_profile, new FragmentInstList().newInstance("","")).commit();
 

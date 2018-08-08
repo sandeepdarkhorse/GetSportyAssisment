@@ -18,7 +18,14 @@ public class AboutActivity extends AppCompatActivity implements CustomDialogNoIn
     private TextView headingAbout;
     private TextView bodyAbout;
     private ImageView backButton;
-    private TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8;
+    private TextView textView1;
+    private TextView textView2;
+    private TextView textView3;
+    private TextView textView4;
+    private TextView textView5;
+    private TextView textView6;
+    private TextView textView7;
+    private TextView textView8;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -29,21 +36,21 @@ public class AboutActivity extends AppCompatActivity implements CustomDialogNoIn
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("About Us");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        headingAbout = (TextView) findViewById(R.id.about_app);
-        bodyAbout = (TextView) findViewById(R.id.body_about);
-        textView1 = (TextView) findViewById(R.id.text_contact_us_1);
-        textView2 = (TextView) findViewById(R.id.text_contact_us_2);
-        textView3 = (TextView) findViewById(R.id.text_contact_us_3);
-        textView4 = (TextView) findViewById(R.id.text_contact_us_4);
-        textView5 = (TextView) findViewById(R.id.text_contact_us_5);
-        textView6 = (TextView) findViewById(R.id.text_contact_us_6);
-        textView7 = (TextView) findViewById(R.id.text_contact_us_7);
-        textView8 = (TextView) findViewById(R.id.text_contact_us_8);
+        headingAbout = findViewById(R.id.about_app);
+        bodyAbout =  findViewById(R.id.body_about);
+        textView1 = findViewById(R.id.text_contact_us_1);
+        textView2 =  findViewById(R.id.text_contact_us_2);
+        textView3 = findViewById(R.id.text_contact_us_3);
+        textView4 =  findViewById(R.id.text_contact_us_4);
+        textView5 =  findViewById(R.id.text_contact_us_5);
+        textView6 =  findViewById(R.id.text_contact_us_6);
+        textView7 =  findViewById(R.id.text_contact_us_7);
+        textView8 =  findViewById(R.id.text_contact_us_8);
 
 
     }

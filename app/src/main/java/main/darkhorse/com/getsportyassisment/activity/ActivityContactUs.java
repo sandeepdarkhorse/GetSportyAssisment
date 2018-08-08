@@ -38,22 +38,15 @@ public class ActivityContactUs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
         CheckAndroidPermission.checkAndRequestPermissions(getApplicationContext(),this );
-
         instantiation();
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Contact Us");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-
-
-
-        bodyMail = (EditText) findViewById(R.id.body_of_mail);
-        contactUs = (TextView) findViewById(R.id.contactUs);
-
-        sendMail = (Button) findViewById(R.id.send_mail);
+        bodyMail = findViewById(R.id.body_of_mail);
+        contactUs = findViewById(R.id.contactUs);
+        sendMail = findViewById(R.id.send_mail);
         sendMail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,12 +72,12 @@ public class ActivityContactUs extends AppCompatActivity {
 
     private void instantiation() {
 
-        textView_line1 = (TextView) findViewById(R.id.text_line_1);
-        textView_line2 = (TextView) findViewById(R.id.text_line_2);
-        textView_line3 = (TextView) findViewById(R.id.text_line_3);
-        textView_line4 = (TextView) findViewById(R.id.text_line_4);
-        textView_line5 = (TextView) findViewById(R.id.text_line_5);
-        textView_line6 = (TextView) findViewById(R.id.text_line_6);
+        textView_line1 = findViewById(R.id.text_line_1);
+        textView_line2 = findViewById(R.id.text_line_2);
+        textView_line3 = findViewById(R.id.text_line_3);
+        textView_line4 = findViewById(R.id.text_line_4);
+        textView_line5 =  findViewById(R.id.text_line_5);
+        textView_line6 =  findViewById(R.id.text_line_6);
 
 
     }

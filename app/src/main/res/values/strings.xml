@@ -9,380 +9,377 @@
     <string name="action_settings">Settings</string>
 
 
+    <string name="signup_getsporty">Sign Up</string>
+    <string name="signin">Sign In</string>
+    <string name="title_first_screen_part1">GET</string>
+    <string name="title_first_screen_part2">SPORTY</string>
+
+    <string name="slider_editprofile">Edit Profile</string>
+    <string name="slider_logout">Logout</string>
+    <string name="slider_dashboard">Dashboard</string>
+    <string name="slider_contectus">Contact Us</string>
+    <string name="my_creation">MY CREATION</string>
+
+    <string name="diet">DIET</string>
+    <string name="scheduling">SCHEDULING</string>
+    <string name="accounting">ACCOUNTING</string>
+    <string name="performance">ASSESSMENT</string>
+    <string name="traning">TRAINING</string>
+
+    <string name="classes">Classses</string>
+    <string name="jobs">Jobs</string>
+    <string name="events">Events</string>
+    <string name="tournament">Tournaments</string>
+    <string name="no_performance_record">No Performance Record Found</string>
+
+    <!--<string name="performance_tab_text">Individuals and instiutions can best sports \n jobs and get profiles of professionals from\n the field of sportd.</string>-->
 
 
-        <string name="signup_getsporty">Sign Up</string>
-        <string name="signin">Sign In</string>
-        <string name="title_first_screen_part1">GET</string>
-        <string name="title_first_screen_part2">SPORTY</string>
-
-        <string name="slider_editprofile">Edit Profile</string>
-        <string name="slider_logout">Logout</string>
-        <string name="slider_dashboard">Dashboard</string>
-        <string name="slider_contectus">Contact Us</string>
-        <string name="my_creation">MY CREATION</string>
-
-        <string name="diet">DIET</string>
-        <string name="scheduling">SCHEDULING</string>
-        <string name="accounting">ACCOUNTING</string>
-        <string name="performance">ASSESSMENT</string>
-        <string name="traning">TRAINING</string>
-
-        <string name="classes">Classses</string>
-        <string name="jobs">Jobs</string>
-        <string name="events">Events</string>
-        <string name="tournament">Tournaments</string>
-        <string name="no_performance_record">No Performance Record Found</string>
-
-        <!--<string name="performance_tab_text">Individuals and instiutions can best sports \n jobs and get profiles of professionals from\n the field of sportd.</string>-->
+    <string name="performance_tab_text">A specially designed feature for the professionals  who want to be more competitive and ruthless in their pursuit of excellence.</string>
+    <string name="class_tab_text">Athletes and coaches can pre-book exercise classes  and other activities through their GetSporty App.</string>
+    <string name="job_tab_text">Search through the diverse range of latest sports jobs. We’re sure to have something to suit your needs and ability. Apply for your dream job.</string>
+    <string name="event_tab_text">Discover the best options available for you and get active. Either organize or take participation in the sports events or tournaments in your nearby area.</string>
 
 
-        <string name="performance_tab_text">A specially designed feature for the professionals  who want to be more competitive and ruthless in their pursuit of excellence.</string>
-        <string name="class_tab_text">Athletes and coaches can pre-book exercise classes  and other activities through their GetSporty App.</string>
-        <string name="job_tab_text">Search through the diverse range of latest sports jobs. We’re sure to have something to suit your needs and ability. Apply for your dream job.</string>
-        <string name="event_tab_text">Discover the best options available for you and get active. Either organize or take participation in the sports events or tournaments in your nearby area.</string>
+    <!--<string name="performance">PERFORMANCE ASSESSMENT</string>-->
 
 
-        <!--<string name="performance">PERFORMANCE ASSESSMENT</string>-->
+    <!--<string name="facebook_app_id">1606017926329315</string>-->
+    <string name="hint_tournament"><i>Tournament Name</i></string>
 
 
-        <!--<string name="facebook_app_id">1606017926329315</string>-->
-        <string name="hint_tournament"><i>Tournament Name</i></string>
+    <string name="msg_sit_back">Relax! while we verify your mobile number</string>
+    <string name="msg_manual_otp">(Enter the OTP below in case if we fail to detect the SMS automatically)</string>
+    <string name="lbl_enter_otp">Enter OTP</string>
+    <string name="lbl_submit">Submit</string>
+    <string name="terms">T&amp;C</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="no_inetnet_connection">No internet connection</string>
+    <string name="credential_notavaliable">Server not response for save your credential.</string>
+    <string name="already_signin">You enter existing credential please login if you already signup.</string>
+    <string name="welcome_getsporty">Welcome to Getsport,credential has been saved please check you email id.</string>
+    <string name="welcome_getsport_checkemail">Welcome to Getsport,credential has been saved please check you email id.</string>
+    <string name="user_already_as">"User already exists "</string>
+    <string name="server_not_response">Server did not Respond</string>
+    <string name="add_details_here">Add Details Here</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone No</string>
+    <string name="dob">Date Of Birth</string>
+    <string name="submit">Submit</string>
+    <string name="header_signup">Signup Info</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="register_here">Register Here</string>
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="enter_email_id">Enter Email Id</string>
+    <string name="enter_email">Please enter email id</string>
+    <string name="check_emailid">Please check you email id</string>
+    <string name="email_notexist">No existing email id</string>
+    <string name="credential_notupdate">Your credential not update  for manage app \n Please click below for update your user type...</string>
+    <string name="notification">Notifications</string>
+    <string name="logout">Logout</string>
+
+    <string name="connection_accept">Connection request accept</string>
+    <string name="sorry_inconven">Sorry for Inconvenience!! Please Try Again</string>
+    <string name="candidate_shortlisted">Candidate shortlisted</string>
+    <string name="not_shortlisted">Candidate not shortlisted</string>
+    <string name="sent_offer">Do you want to send this \n offer of employmet to \n</string>
+    <string name="offer_send_to">The offer has been send to \n</string>
+    <string name="text_coach">Coach</string>
+    <string name="academy_or_club">Academy or club</string>
+    <string name="style">Style</string>
+    <string name="date_of_birth">Age</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="proffession">Profession</string>
+    <string name="sport">Sport</string>
+    <string name="gender">Gender</string>
+    <string name="best_results">Best results</string>
+    <string name="result">Result</string>
+    <string name="awards">Awards</string>
+    <string name="award_name">Award name</string>
+
+    <string name="connection_request">Connection request sent</string>
+    <string name="sports_education">Sports education</string>
+    <string name="formal_education">Formal education</string>
+    <string name="other_certification">Other certification</string>
+    <string name="add_education">Add education</string>
+
+    <string name="header_details">Header Details</string>
+    <string name="designation">Designation</string>
+    <string name="academy_business_name">Academy/business name</string>
+    <string name="location">Location</string>
+    <string name="description">Description</string>
+    <string name="Address">Address</string>
+    <string name="institution_organisation_name">Institution / organisation name</string>
+    <string name="stream_specialisation">Stream / specialisation</string>
+    <string name="period">Period</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="fill_all_detail">Please fill all details</string>
+    <string name="enter_start_date">Enter starting date</string>
+    <string name="enter_ending_date">Enter ending date</string>
+    <string name="work_experience">Work Experience</string>
+    <string name="experience_as_player">Experience as player</string>
+    <string name="other_experience">Other Experience</string>
+
+    <string name="other_details">Other Details</string>
+    <string name="languages_known">Languages known</string>
+    <string name="age_group_coached">Age group coached</string>
+    <string name="profession">Profession</string>
+    <string name="link_to_personal_website">Link to personal website</string>
+    <string name="candidatelist">Candidate List</string>
+    <string name="shortlist_candidate">Shorlisted Candidate</string>
+    <string name="my_jobs">My Jobs</string>
+    <string name="my_tournaments">My Tournaments</string>
+    <string name="my_events">My Events</string>
+    <string name="publish">Publish</string>
+    <string name="unpublish">Unpublish</string>
+    <string name="createjobs">Create Jobs</string>
+
+    <string name="createtournament">Create Tournament</string>
+    <string name="manage_jobs_others">You can manage Jobs,\n Tournaments or Events \n in this section</string>
+    <string name="manage_jobs">You can manage Jobs in this section.</string>
+    <string name="manage_event">You can create Tournaments here.</string>
+
+    <string name="create_event">You can create event here.</string>
+    <string name="createjob">Create Job</string>
+    <string name="emp_type">Employment Type</string>
+    <string name="qualification">Qualification</string>
+    <string name="certification">Certification</string>
+    <string name="job_location">Job Location</string>
+    <string name="desired_skills">Desired Skills</string>
+    <string name="desired_salary">Desired Salary</string>
+    <string name="salary">Salary </string>
+    <string name="save">Save </string>
+    <string name="header_info">Header Info </string>
+    <string name="some_manadatory_fields">Some manadatory fields are \n still not filled.Please fill \n them before you Publish."</string>
+    <string name="edit_now">Edit Now </string>
+    <string name="edit_later">Edit Later</string>
+    <string name="job_detail">Job Detail</string>
+    <string name="candidates">Candidates</string>
+    <string name="create_log">Create Log</string>
+    <string name="create_schedule">Create Schedule</string>
+    <string name="training_log">Training Logs</string>
+    <string name="assign">Assign</string>
+    <string name="data_update">Data updated</string>
+    <string name="no_class">There is no  class</string>
+    <string name="no_student">There is no student for this class</string>
+    <string name="timing">Timing</string>
+    <string name="startdate">Start Date </string>
+    <string name="course">Course Duration</string>
+    <string name="address">Address</string>
+    <string name="title">Title</string>
+    <string name="fees">Fees</string>
+    <string name="time_could_notsame">Time could not be same..</string>
+    <string name="published">Publish</string>
+    <string name="terms_condition_full_text">Terms and condition</string>
+    <string name="eligibality">Eligibility</string>
+    <string name="other_details_text">Other details</string>
+    <string name="email_text">Email Id</string>
+    <string name="address_text">Address</string>
+    <string name="web_link_text">Web Link</string>
+    <string name="organizer_name_text">Organizer Name</string>
+    <string name="others_tab_text">Others</string>
+    <string name="detail_text">Details</string>
+    <string name="resource_enter_text">Enter</string>
+    <string name="participant">Participants</string>
+    <string name="add_event">Live updates</string>
+    <string name="did_attend">Did Attend</string>
+    <string name="employment_type">Employment Type</string>
+    <string name="new_assessment">New Assessment</string>
+    <string name="view_performance">View Performance</string>
+    <string name="no_whatsapp_message">WhatsApp not Installed</string>
+    <string name="no_twitter_message">Twitter app isn\'t found</string>
+    <attr name="fontPath" format="string" />
+    <item name="calligraphy_tag_id" type="id" />
+    <string name="enter_message_for_contact">Please enter the message</string>
+    <string name="contact_us_text">Contact Us</string>
+    <string name="story_share">Do you have any story to share.</string>
+    <string name="hint_name">Write your problem...</string>
+    <string name="getsporty_contact_email"> Info@getSporty.in</string>
+    <string name="submit_text">Submit</string>
+    <string name="about_text">About</string>
 
 
-        <string name="msg_sit_back">Relax! while we verify your mobile number</string>
-        <string name="msg_manual_otp">(Enter the OTP below in case if we fail to detect the SMS automatically)</string>
-        <string name="lbl_enter_otp">Enter OTP</string>
-        <string name="lbl_submit">Submit</string>
-        <string name="terms">T&amp;C</string>
+    <string name="Certificate_Name">Name of certificate</string>
+    <string name="Add_Certification">Add certification</string>
 
-        <!-- TODO: Remove or change this placeholder text -->
-        <string name="no_inetnet_connection">No internet connection</string>
-        <string name="credential_notavaliable">Server not response for save your credential.</string>
-        <string name="already_signin">You enter existing credential please login if you already signup.</string>
-        <string name="welcome_getsporty">Welcome to Getsport,credential has been saved please check you email id.</string>
-        <string name="welcome_getsport_checkemail">Welcome to Getsport,credential has been saved please check you email id.</string>
-        <string name="user_already_as">"User already exists "</string>
-        <string name="server_not_response">Server did not Respond</string>
-        <string name="add_details_here">Add Details Here</string>
-        <string name="name">Name</string>
-        <string name="email">Email</string>
-        <string name="phone">Phone No</string>
-        <string name="dob">Date Of Birth</string>
-        <string name="submit">Submit</string>
-        <string name="header_signup">Signup Info</string>
-        <string name="password">Password</string>
-        <string name="forgot_password">Forgot Password?</string>
-        <string name="register_here">Register Here</string>
-        <string name="forgot_password_title">Forgot Password</string>
-        <string name="enter_email_id">Enter Email Id</string>
-        <string name="enter_email">Please enter email id</string>
-        <string name="check_emailid">Please check you email id</string>
-        <string name="email_notexist">No existing email id</string>
-        <string name="credential_notupdate">Your credential not update  for manage app \n Please click below for update your user type...</string>
-        <string name="notification">Notifications</string>
-        <string name="logout">Logout</string>
+    <string name="Add_Sport">Add sport education</string>
 
-        <string name="connection_accept">Connection request accept</string>
-        <string name="sorry_inconven">Sorry for Inconvenience!! Please Try Again</string>
-        <string name="candidate_shortlisted">Candidate shortlisted</string>
-        <string name="not_shortlisted">Candidate not shortlisted</string>
-        <string name="sent_offer">Do you want to send this \n offer of employmet to \n</string>
-        <string name="offer_send_to">The offer has been send to \n</string>
-        <string name="text_coach">Coach</string>
-        <string name="academy_or_club">Academy or club</string>
-        <string name="style">Style</string>
-        <string name="date_of_birth">Age</string>
-        <string name="height">Height</string>
-        <string name="weight">Weight</string>
-        <string name="proffession">Profession</string>
-        <string name="sport">Sport</string>
-        <string name="gender">Gender</string>
-        <string name="best_results">Best results</string>
-        <string name="result">Result</string>
-        <string name="awards">Awards</string>
-        <string name="award_name">Award name</string>
+    <string name="name_of_sporteducation">Name of sport education</string>
 
-        <string name="connection_request">Connection request sent</string>
-        <string name="sports_education">Sports education</string>
-        <string name="formal_education">Formal education</string>
-        <string name="other_certification">Other certification</string>
-        <string name="add_education">Add education</string>
+    <string name="Add_formal_ed">Edit formal education</string>
+    <string name="name_of_formaleducation">Name of formal education</string>
+    <string name="add_experience">Add work experience</string>
+    <string name="add_experienceasplayer">Add experience as player </string>
+    <string name="DietplanName">Name your plan </string>
+    <string name="duration">Duration</string>
+    <string name="enddate">End date</string>
+    <string name="monday">Monday</string>
+    <string name="tues">Tuesday</string>
+    <string name="wed">Wednesday</string>
+    <string name="thus">Thursday</string>
+    <string name="fri">Friday</string>
+    <string name="sat">Saturday</string>
+    <string name="sun">Sunday</string>
 
-        <string name="header_details">Header Details</string>
-        <string name="designation">Designation</string>
-        <string name="academy_business_name">Academy/business name</string>
-        <string name="location">Location</string>
-        <string name="description">Description</string>
-        <string name="Address">Address</string>
-        <string name="institution_organisation_name">Institution / organisation name</string>
-        <string name="stream_specialisation">Stream / specialisation</string>
-        <string name="period">Period</string>
-        <string name="from">From</string>
-        <string name="to">To</string>
-        <string name="fill_all_detail">Please fill all details</string>
-        <string name="enter_start_date">Enter starting date</string>
-        <string name="enter_ending_date">Enter ending date</string>
-        <string name="work_experience">Work Experience</string>
-        <string name="experience_as_player">Experience as player</string>
-        <string name="other_experience">Other Experience</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="snack">Snack</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner </string>
+    <string name="time">Time </string>
+    <string name="food1">Food 1 </string>
+    <string name="food2">Food 2 </string>
+    <string name="food3">Food 3 </string>
+    <string name="food4">Food 4 </string>
+    <string name="food5">Food 5 </string>
+    <string name="veg_dietplan">Veg Dietplan</string>
+    <string name="non_vegdietplan">Nonveg Dietplan </string>
 
-        <string name="other_details">Other Details</string>
-        <string name="languages_known">Languages known</string>
-        <string name="age_group_coached">Age group coached</string>
-        <string name="profession">Profession</string>
-        <string name="link_to_personal_website">Link to personal website</string>
-        <string name="candidatelist">Candidate List</string>
-        <string name="shortlist_candidate">Shorlisted Candidate</string>
-        <string name="my_jobs">My Jobs</string>
-        <string name="my_tournaments">My Tournaments</string>
-        <string name="my_events">My Events</string>
-        <string name="publish">Publish</string>
-        <string name="unpublish">Unpublish</string>
-        <string name="createjobs">Create Jobs</string>
+    <string name="fill_all_diet_plan">Please fill all diet plan for a day</string>
 
-        <string name="createtournament">Create Tournament</string>
-        <string name="manage_jobs_others">You can manage Jobs,\n Tournaments or Events \n in this section</string>
-        <string name="manage_jobs">You can manage Jobs in this section.</string>
-        <string name="manage_event">You can create Tournaments here.</string>
+    <string name="fill_all_one_day_plan">Please fill atleast one day diet plan</string>
 
-        <string name="create_event">You can create event here.</string>
-        <string name="createjob">Create Job</string>
-        <string name="emp_type">Employment Type</string>
-        <string name="qualification">Qualification</string>
-        <string name="certification">Certification</string>
-        <string name="job_location">Job Location</string>
-        <string name="desired_skills">Desired Skills</string>
-        <string name="desired_salary">Desired Salary</string>
-        <string name="salary">Salary </string>
-        <string name="save">Save </string>
-        <string name="header_info">Header Info </string>
-        <string name="some_manadatory_fields">Some manadatory fields are \n still not filled.Please fill \n them before you Publish."</string>
-        <string name="edit_now">Edit Now </string>
-        <string name="edit_later">Edit Later</string>
-        <string name="job_detail">Job Detail</string>
-        <string name="candidates">Candidates</string>
-        <string name="create_log">Create Log</string>
-        <string name="create_schedule">Create Schedule</string>
-        <string name="training_log">Training Logs</string>
-        <string name="assign">Assign</string>
-        <string name="data_update">Data updated</string>
-        <string name="no_class">There is no  class</string>
-        <string name="no_student">There is no student for this class</string>
-        <string name="timing">Timing</string>
-        <string name="startdate">Start Date </string>
-        <string name="course">Course Duration</string>
-        <string name="address">Address</string>
-        <string name="title">Title</string>
-        <string name="fees">Fees</string>
-        <string name="time_could_notsame">Time could not be same..</string>
-        <string name="published">Publish</string>
-        <string name="terms_condition_full_text">Terms and condition</string>
-        <string name="eligibality">Eligibility</string>
-        <string name="other_details_text">Other details</string>
-        <string name="email_text">Email Id</string>
-        <string name="address_text">Address</string>
-        <string name="web_link_text">Web Link</string>
-        <string name="organizer_name_text">Organizer Name</string>
-        <string name="others_tab_text">Others</string>
-        <string name="detail_text">Details</string>
-        <string name="resource_enter_text">Enter</string>
-        <string name="participant">Participants</string>
-        <string name="add_event">Live updates</string>
-        <string name="did_attend">Did Attend</string>
-        <string name="employment_type">Employment Type</string>
-        <string name="new_assessment">New Assessment</string>
-        <string name="view_performance">View Performance</string>
-        <string name="no_whatsapp_message">WhatsApp not Installed</string>
-        <string name="no_twitter_message">Twitter app isn\'t found</string>
-        <attr name="fontPath" format="string" />
-        <item name="calligraphy_tag_id" type="id" />
-        <string name="enter_message_for_contact">Please enter the message</string>
-        <string name="contact_us_text">Contact Us</string>
-        <string name="story_share">Do you have any story to share.</string>
-        <string name="hint_name">Write your problem...</string>
-        <string name="getsporty_contact_email"> Info@getSporty.in</string>
-        <string name="submit_text">Submit</string>
-        <string name="about_text">About</string>
+    <string name="class_exit_sametime">Class alreday exist for same schedule</string>
+    <string name="gst_string">The Indian Government\'s much appreciated initiative to bring one tax percentage across the country to all the categories/products, has been implemented in the sports industry also. Under GST, the Sports industry has been placed under 12-28 per cent slab.</string>
 
+    <string name="day_notselecterd">Please select day acoording to date selected</string>
 
-        <string name="Certificate_Name">Name of certificate</string>
-        <string name="Add_Certification">Add certification</string>
+    <string name="class_clashwith">Class clash with </string>
 
-        <string name="Add_Sport">Add sport education</string>
+    <!---->
+    <!--imagecrop-->
 
-        <string name="name_of_sporteducation">Name of sport education</string>
+    <string name="app_title">Image Cropper</string>
+    <string name="result_image_desc">crop result</string>
 
-        <string name="Add_formal_ed">Edit formal education</string>
-        <string name="name_of_formaleducation">Name of formal education</string>
-        <string name="add_experience">Add work experience</string>
-        <string name="add_experienceasplayer">Add experience as player </string>
-        <string name="DietplanName">Name your plan </string>
-        <string name="duration">Duration</string>
-        <string name="enddate">End date</string>
-        <string name="monday">Monday</string>
-        <string name="tues">Tuesday</string>
-        <string name="wed">Wednesday</string>
-        <string name="thus">Thursday</string>
-        <string name="fri">Friday</string>
-        <string name="sat">Saturday</string>
-        <string name="sun">Sunday</string>
+    <string name="main_drawer_load">Load Image for cropping</string>
+    <string name="main_drawer_open">Open navigation drawer</string>
+    <string name="main_drawer_close">Close navigation drawer</string>
 
-        <string name="breakfast">Breakfast</string>
-        <string name="snack">Snack</string>
-        <string name="lunch">Lunch</string>
-        <string name="dinner">Dinner </string>
-        <string name="time">Time </string>
-        <string name="food1">Food 1 </string>
-        <string name="food2">Food 2 </string>
-        <string name="food3">Food 3 </string>
-        <string name="food4">Food 4 </string>
-        <string name="food5">Food 5 </string>
-        <string name="veg_dietplan">Veg Dietplan</string>
-        <string name="non_vegdietplan">Nonveg Dietplan </string>
+    <string name="main_action_crop">CROP</string>
+    <string name="main_action_rotate">Rotate 90 degrees clockwise</string>
+    <string name="main_action_flip">Flip</string>
+    <string name="main_action_flip_horizontally">Flip horizontally</string>
+    <string name="main_action_flip_vertically">Flip vertically</string>
+    <string name="drawer_option_title">Crop View Presets</string>
+    <string name="drawer_option_oval">Circular</string>
+    <string name="drawer_option_rect">Rectangular</string>
+    <string name="drawer_option_min_max">Min/Max limits override</string>
+    <string name="drawer_option_customized_overlay">Customized Overlay</string>
+    <string name="drawer_option_scale_center">Scale Center Inside</string>
+    <string name="drawer_option_title2">Customization Toggles</string>
+    <string name="drawer_option_toggle_scale">Image Scale: %1s</string>
+    <string name="drawer_option_toggle_shape">Crop Shape: %1s</string>
+    <string name="drawer_option_toggle_guidelines">Guidelines: %1s</string>
+    <string name="drawer_option_toggle_aspect_ratio">Aspect Ratio: %1s</string>
+    <string name="drawer_option_toggle_auto_zoom">Auto zoom: %1s</string>
+    <string name="drawer_option_toggle_max_zoom">Max zoom level: %1s</string>
+    <string name="drawer_option_set_initial_crop_rect">Set initial crop rectangle</string>
+    <string name="drawer_option_reset_crop_rect">Reset crop rectangle to initial</string>
+    <string name="drawer_option_toggle_multitouch">Multitouch: %1s</string>
+    <string name="drawer_option_toggle_show_overlay">Show Overlay: %1s</string>
+    <string name="drawer_option_toggle_show_progress_bar">Show Progress Bar: %1s</string>
+    <string name="crop_image_activity_title"></string>
+    <string name="crop_image_menu_rotate_left">Rotate counter clockwise</string>
+    <string name="crop_image_menu_rotate_right">Rotate</string>
+    <string name="crop_image_menu_crop">Crop</string>
+    <string name="crop_image_menu_flip">Flip</string>
+    <string name="crop_image_menu_flip_horizontally">Flip horizontally</string>
+    <string name="crop_image_menu_flip_vertically">Flip vertically</string>
 
-        <string name="fill_all_diet_plan">Please fill all diet plan for a day</string>
+    <string name="pick_image_intent_chooser_title">Select source</string>
 
-        <string name="fill_all_one_day_plan">Please fill atleast one day diet plan</string>
+    <string name="crop_image_activity_no_permissions">Cancelling, required permissions are not granted</string>
 
-        <string name="class_exit_sametime">Class alreday exist for same schedule</string>
-        <string name="gst_string">The Indian Government\'s much appreciated initiative to bring one tax percentage across the country to all the categories/products, has been implemented in the sports industry also. Under GST, the Sports industry has been placed under 12-28 per cent slab.</string>
+    <!-- TODO: Remove or change this placeholder text -->
 
-        <string name="day_notselecterd">Please select day acoording to date selected</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
-        <string name="class_clashwith">Class clash with </string>
+    <string name="Save_intro">Save intro</string>
+    <string name="Save_sportEd">Save sports education</string>
+    <string name="Save_formalEd">Save formal education</string>
+    <string name="Save_certificate">Save certification</string>
 
-        <!---->
-        <!--imagecrop-->
+    <string name="edit_Certification">Edit certification</string>
+    <string name="edit_experience">Edit experience</string>
+    <string name="Save_experience">Save experience</string>
 
-        <string name="app_title">Image Cropper</string>
-        <string name="result_image_desc">crop result</string>
+    <string name="Save_other">Save others</string>
+    <string name="calendar_hint">Date Hint:</string>
 
-        <string name="main_drawer_load">Load Image for cropping</string>
-        <string name="main_drawer_open">Open navigation drawer</string>
-        <string name="main_drawer_close">Close navigation drawer</string>
+    <string name="calendar_hint_present">Present</string>
+    <string name="calendar_hint_Absent">Absent</string>
 
-        <string name="main_action_crop">CROP</string>
-        <string name="main_action_rotate">Rotate 90 degrees clockwise</string>
-        <string name="main_action_flip">Flip</string>
-        <string name="main_action_flip_horizontally">Flip horizontally</string>
-        <string name="main_action_flip_vertically">Flip vertically</string>
-        <string name="drawer_option_title">Crop View Presets</string>
-        <string name="drawer_option_oval">Circular</string>
-        <string name="drawer_option_rect">Rectangular</string>
-        <string name="drawer_option_min_max">Min/Max limits override</string>
-        <string name="drawer_option_customized_overlay">Customized Overlay</string>
-        <string name="drawer_option_scale_center">Scale Center Inside</string>
-        <string name="drawer_option_title2">Customization Toggles</string>
-        <string name="drawer_option_toggle_scale">Image Scale: %1s</string>
-        <string name="drawer_option_toggle_shape">Crop Shape: %1s</string>
-        <string name="drawer_option_toggle_guidelines">Guidelines: %1s</string>
-        <string name="drawer_option_toggle_aspect_ratio">Aspect Ratio: %1s</string>
-        <string name="drawer_option_toggle_auto_zoom">Auto zoom: %1s</string>
-        <string name="drawer_option_toggle_max_zoom">Max zoom level: %1s</string>
-        <string name="drawer_option_set_initial_crop_rect">Set initial crop rectangle</string>
-        <string name="drawer_option_reset_crop_rect">Reset crop rectangle to initial</string>
-        <string name="drawer_option_toggle_multitouch">Multitouch: %1s</string>
-        <string name="drawer_option_toggle_show_overlay">Show Overlay: %1s</string>
-        <string name="drawer_option_toggle_show_progress_bar">Show Progress Bar: %1s</string>
-        <string name="crop_image_activity_title"></string>
-        <string name="crop_image_menu_rotate_left">Rotate counter clockwise</string>
-        <string name="crop_image_menu_rotate_right">Rotate</string>
-        <string name="crop_image_menu_crop">Crop</string>
-        <string name="crop_image_menu_flip">Flip</string>
-        <string name="crop_image_menu_flip_horizontally">Flip horizontally</string>
-        <string name="crop_image_menu_flip_vertically">Flip vertically</string>
+    <string name="calendar_hint_noclass">No class</string>
+    <string name="calendar_hint_cancleclass">Cancle Class</string>
+    <string name="server_error_text">Sorry for inconvenience!! \nPlease try again later</string>
+    <string name="no_internet_connection_error">No Internet Connection</string>
 
-        <string name="pick_image_intent_chooser_title">Select source</string>
+    <string name="bestresult">Best result</string>
+    <string name="tournament_competition">Tournament / competition name</string>\
+    <string name="level">Level</string>
 
-        <string name="crop_image_activity_no_permissions">Cancelling, required permissions are not granted</string>
+    <string name="tab_latestresult">LATEST RESULTS</string>
+    <string name="tad_achivement">ACHIEVEMENTS</string>
+    <string name="tab_bio">BIO</string>
+    <string name="education">EDUCATION</string>
+    <string name="experience">EXPERIENCE</string>
+    <string name="other">OTHERS</string>
+    <string name="AthleteLoginString"> Already registered as athlete in Liteapp </string>
+    <string name="activejobs">Active Jobs</string>
+    <string name="closedjobs">Closed Jobs</string>
+    <string name="savedjobs">Saved Jobs</string>
+    <string name="title_activity_manager">ActivityManager</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="org_name">Organisation Name</string>
+    <string name="address1">Address 1</string>
+    <string name="address2">Address 2</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="pin">Pin</string>
+    <string name="mobile_no">Mobile No</string>
+    <string name="gst">GST No</string>
+    <string name="best_result_text">BEST RESULTS</string>
+    <string name="result_text">Result</string>
+    <string name="round_hit_text_profile">Round/Heat</string>
+    <string name="competition_name_text">Name of competition</string>
+    <string name="competition_date_text">Date of competition</string>
+    <string name="award">AWARDS</string>
+    <string name="award_name_text">Award Name</string>
+    <string name="award_date_text">Award Date</string>
+    <string name="description_text">Description</string>
 
-        <!-- TODO: Remove or change this placeholder text -->
+    <string name="simple_fragment_transition">simple_fragment_transition</string>
+    <string name="title_activity_tab_candidate"></string>
+    <string name="ordersummary">Order Summary</string>
+    <string name="paymentplan">Payment Plan</string>
+    <string name="title_activity_order_job_summary">OrderJobSummary</string>
+    <string name="payment_failure_text">Payment failure. Try again later</string>
+    <string name="enter_job_detail">Enter Job Detail</string>
+    <string name="job_title">Job Title</string>
 
-        <string name="hello_blank_fragment">Hello blank fragment</string>
-
-        <string name="Save_intro">Save intro</string>
-        <string name="Save_sportEd">Save sports education</string>
-        <string name="Save_formalEd">Save formal education</string>
-        <string name="Save_certificate">Save certification</string>
-
-        <string name="edit_Certification">Edit certification</string>
-        <string name="edit_experience">Edit experience</string>
-        <string name="Save_experience">Save experience</string>
-
-        <string name="Save_other">Save others</string>
-        <string name="calendar_hint">Date Hint:</string>
-
-        <string name="calendar_hint_present">Present</string>
-        <string name="calendar_hint_Absent">Absent</string>
-
-        <string name="calendar_hint_noclass">No class</string>
-        <string name="calendar_hint_cancleclass">Cancle Class</string>
-        <string name="server_error_text">Sorry for inconvenience!! \nPlease try again later</string>
-        <string name="no_internet_connection_error">No Internet Connection</string>
-
-        <string name="bestresult">Best result</string>
-        <string name="tournament_competition">Tournament / competition name</string>\
-        <string name="level">Level</string>
-
-        <string name="tab_latestresult">LATEST RESULTS</string>
-        <string name="tad_achivement">ACHIEVEMENTS</string>
-        <string name="tab_bio">BIO</string>
-        <string name="education">EDUCATION</string>
-        <string name="experience">EXPERIENCE</string>
-        <string name="other">OTHERS</string>
-        <string name="AthleteLoginString"> Already registered as athlete in Liteapp </string>
-        <string name="activejobs">Active Jobs</string>
-        <string name="closedjobs">Closed Jobs</string>
-        <string name="savedjobs">Saved Jobs</string>
-        <string name="title_activity_manager">ActivityManager</string>
-        <string name="section_format">Hello World from section: %1$d</string>
-        <string name="org_name">Organisation Name</string>
-        <string name="address1">Address 1</string>
-        <string name="address2">Address 2</string>
-        <string name="city">City</string>
-        <string name="state">State</string>
-        <string name="pin">Pin</string>
-        <string name="mobile_no">Mobile No</string>
-        <string name="gst">GST No</string>
-        <string name="best_result_text">BEST RESULTS</string>
-        <string name="result_text">Result</string>
-        <string name="round_hit_text_profile">Round/Heat</string>
-        <string name="competition_name_text">Name of competition</string>
-        <string name="competition_date_text">Date of competition</string>
-        <string name="award">AWARDS</string>
-        <string name="award_name_text">Award Name</string>
-        <string name="award_date_text">Award Date</string>
-        <string name="description_text">Description</string>
-
-        <string name="simple_fragment_transition">simple_fragment_transition</string>
-        <string name="title_activity_tab_candidate"></string>
-        <string name="ordersummary">Order Summary</string>
-        <string name="paymentplan">Payment Plan</string>
-        <string name="title_activity_order_job_summary">OrderJobSummary</string>
-        <string name="payment_failure_text">Payment failure. Try again later</string>
-        <string name="enter_job_detail">Enter Job Detail</string>
-        <string name="job_title">Job Title</string>
-
-        <string name="termscondition">1. The final number of players will only be confirmed by the tournament organizing committee.\n
+    <string name="termscondition">1. The final number of players will only be confirmed by the tournament organizing committee.\n
 2. GetSporty will not charge any amount for the tournament and events. The fee should be paid as per the rules and regulations.\n
 3. Current fees and charges may be changed by the tournament officials without sending prior notification. GetSporty will be playing no part in this and therefore can’t be held responsible for the same.\n
 4. Any player causing delay to other players may be asked to leave the tournament and events premises.\n
 5. The tournament committee will decide how many players will play in a particular event.</string>
 
-        <string name="addtourupdate">Add Tournament Updates</string>
+    <string name="addtourupdate">Add Tournament Updates</string>
 
-        <string name="image_cropper">Image Cropper</string>
+    <string name="image_cropper">Image Cropper</string>
 
-        <string name="gs_chat_string"> Welcome to our app,
+    <string name="gs_chat_string"> Welcome to our app,
         if you need help simply tap to chat button, we are online and ready to help.
     </string>
 
-        <string name="participated">Participated</string>
-        <string name="attended">Attended</string>
+    <string name="participated">Participated</string>
+    <string name="attended">Attended</string>
 
     <string name="login_validation">Please enter valid username or password</string>
-
 
 
     <string name="institute_name">Name</string>
@@ -424,6 +421,13 @@
 
     <string name="class_teachername">Class teacher name</string>
 
+
+    <string name="empty_directory">Empty Directory</string>
+    <string name="storage_removed">Storage was removed or unmounted.</string>
+    <string name="choose_file">Select a file</string>
+    <string name="error_selecting_file">Error selecting File</string>
+    <string name="internal_storage">Internal storage</string>
+    <string name="chooser_title">Lorem ipsum</string>
 
 </resources>
 

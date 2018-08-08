@@ -3,13 +3,15 @@ package main.darkhorse.com.getsportyassisment.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
@@ -35,7 +37,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -47,6 +48,7 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.Serializable;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -59,10 +61,15 @@ import main.darkhorse.com.getsportyassisment.UtilsFile.NetworkStatus;
 import main.darkhorse.com.getsportyassisment.athleteprofilemodelclassess.ApiAtheliteCall;
 import main.darkhorse.com.getsportyassisment.custom_classes.CustomProgress;
 import main.darkhorse.com.getsportyassisment.custom_classes.DateConversion;
+import main.darkhorse.com.getsportyassisment.ipaulpro.afilechooser.utils.FileUtils;
 import main.darkhorse.com.getsportyassisment.model_classes.AssessmentDataPojo;
 import main.darkhorse.com.getsportyassisment.model_classes.AssessmentListDataPojo;
 import main.darkhorse.com.getsportyassisment.model_classes.AssessmentListResponse;
 import main.darkhorse.com.getsportyassisment.model_classes.InstituteDataPojoApi;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -91,7 +98,8 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
     RecyclerView recycleView_Listing;
     RecyclerView.LayoutManager myLayoutManager;
     AutoCompleteTextView Auto_search;
-
+    TextView filename;
+    ImageView tick;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,16 +114,16 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
 
         customProgress = CustomProgress.getInstance();
         network_status = new NetworkStatus(ActivityInstituteDetail.this);
-        ImageView imageView = (ImageView) findViewById(R.id.institute_image);
-        TextView instname = (TextView) findViewById(R.id.inst_name);
+        ImageView imageView = findViewById(R.id.institute_image);
+        TextView instname =  findViewById(R.id.inst_name);
 
-        TextView instlocation = (TextView) findViewById(R.id.inst_location);
+        TextView instlocation =  findViewById(R.id.inst_location);
 
         Bundle userinfo = getIntent().getExtras();
         if (userinfo != null) {
 
             institutedataitem = (InstituteDataPojoApi) userinfo.getSerializable("institutedetail");
-            if (institutedataitem != null && institutedataitem != null) {
+            if (institutedataitem != null) {
                 instituteId = institutedataitem.getId();
                 instname.setText(institutedataitem.getCollege_name());
                 instlocation.setText(institutedataitem.getLocation());
@@ -306,8 +314,6 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
         if (network_status.isConnectingToInternet()) {
             try {
                 String performanceUrl = "http://testingapp.getsporty.in/assessment_admin_controller.php?";
-
-
                 String data = URLEncoder.encode("act", "UTF-8") + "=" + URLEncoder.encode("assessment_list", "UTF-8")
                         + "&" + URLEncoder.encode("institute_id", "UTF-8") + "=" + URLEncoder.encode(instituteId, "UTF-8");
 
@@ -395,16 +401,16 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
             public ViewHolder(final View itemView) {
                 super(itemView);
 
-                name = (TextView) itemView.findViewById(R.id.name);
+                name = itemView.findViewById(R.id.name);
 
-                date = (TextView) itemView.findViewById(R.id.date);
+                date = itemView.findViewById(R.id.date);
 
-                assignmaster = (TextView) itemView.findViewById(R.id.assign_master);
+                assignmaster = itemView.findViewById(R.id.assign_master);
 
 
-                background = (RelativeLayout) itemView.findViewById(R.id.relativeLayout);
+                background = itemView.findViewById(R.id.relativeLayout);
 
-                addclass = (TextView) itemView.findViewById(R.id.add_class);
+                addclass = itemView.findViewById(R.id.add_class);
 
 
                 assignmaster.setOnClickListener(new View.OnClickListener() {
@@ -426,7 +432,7 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
                         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
                         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
-                        Toolbar toolbar_dissmiss = (Toolbar) dialog.findViewById(R.id.toolbar);
+                        Toolbar toolbar_dissmiss = dialog.findViewById(R.id.toolbar);
                         toolbar_dissmiss.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -521,7 +527,7 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
-        Toolbar toolbar_dissmiss = (Toolbar) dialog.findViewById(R.id.toolbar);
+        Toolbar toolbar_dissmiss = dialog.findViewById(R.id.toolbar);
         toolbar_dissmiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -554,29 +560,32 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
 
 
 
-        scrollview = (ScrollView) dialog.findViewById(R.id.scrollview);
+        scrollview = dialog.findViewById(R.id.scrollview);
 
-        assessment_type = (MaterialSpinner) dialog.findViewById(R.id.assessment_type);
+        assessment_type = dialog.findViewById(R.id.assessment_type);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(ActivityInstituteDetail.this, android.R.layout.simple_spinner_item, typeArray);
+        ArrayAdapter<String> adapter;
+        adapter = new ArrayAdapter<>(ActivityInstituteDetail.this, android.R.layout.simple_spinner_item, typeArray);
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         assessment_type.setAdapter(adapter);
 
 
-        tl_assessment_name = (TextInputLayout) dialog.findViewById(R.id.tl_assessment_name);
-        assessment_name = (TextInputEditText) dialog.findViewById(R.id.assessment_name);
+        tl_assessment_name = dialog.findViewById(R.id.tl_assessment_name);
+        assessment_name = dialog.findViewById(R.id.assessment_name);
 
 
-        tl_assessment_date = (TextInputLayout) dialog.findViewById(R.id.tl_assessment_date);
-        assessment_date = (TextInputEditText) dialog.findViewById(R.id.assessment_date);
+        tl_assessment_date = dialog.findViewById(R.id.tl_assessment_date);
+        assessment_date = dialog.findViewById(R.id.assessment_date);
 
 
-        tl_assessment_vanue = (TextInputLayout) dialog.findViewById(R.id.tl_assessment_vanue);
-        assessment_vanue = (TextInputEditText) dialog.findViewById(R.id.assessment_vanue);
+        tl_assessment_vanue = dialog.findViewById(R.id.tl_assessment_vanue);
+        assessment_vanue = dialog.findViewById(R.id.assessment_vanue);
 
 
-        button_submit = (Button) dialog.findViewById(R.id.submit_details);
+        button_submit =  dialog.findViewById(R.id.submit_details);
 
+        filename = (TextView) dialog.findViewById(R.id.file_name);
+        tick = (ImageView) dialog.findViewById(R.id.tick);
 
         assessment_date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -664,6 +673,18 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
         });
 
 
+        TextView uploadfile = (TextView) dialog.findViewById(R.id.upload_csv);
+        uploadfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                showChooser();
+            }
+        });
+
+
+
+
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -714,13 +735,13 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
                     tl_assessment_vanue.setError(null);
                 }
 
-                if (assessmenttype.equals("Type of assessment")) {
+                if ("Type of assessment".equals(assessmenttype)) {
                     validation[3] = 1;
                     assessment_type.setError("You need to enter assessment type");
                     scrollview.fullScroll(ScrollView.FOCUS_UP);
 
 
-                } else if (assessmenttype.equals("")) {
+                } else if ("".equals(assessmenttype)) {
                     validation[3] = 1;
                     assessment_type.setError("You need to enter assessment type");
                     scrollview.fullScroll(ScrollView.FOCUS_UP);
@@ -730,7 +751,14 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
                     validation[3] = 0;
 
                     assessment_type.setError(null);
+
                 }
+
+
+
+
+
+
                 int sum = validation[0] + validation[1] + validation[2] + validation[3];
                 if (sum == 0) {
 
@@ -851,6 +879,97 @@ public class ActivityInstituteDetail extends AppCompatActivity implements Serial
         }
 
     }
+    private void showChooser() {
+        // Use the GET_CONTENT intent from the utility class
+        Intent target = FileUtils.createGetContentIntent();
+        // Create the chooser Intent
+        Intent intent = Intent.createChooser(
+                target, getString(R.string.chooser_title));
+        try {
+            startActivityForResult(intent, REQUEST_CODE);
+        } catch (ActivityNotFoundException e) {
+            // The reason for the existence of aFileChooser
+        }
+    }
+    private static final String TAG = "FileChooserExampleActivity";
+
+    private static final int REQUEST_CODE = 6384; // onActivityResult request
+
+    @SuppressLint("LongLogTag")
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQUEST_CODE:
+                // If the file selection was successful
+                if (resultCode == RESULT_OK) {
+                    if (data != null) {
+                        // Get the URI of the selected file
+                        final Uri uri = data.getData();
+                        Log.i(TAG, "Uri = " + uri.toString());
+                        try {
+                            // Get the file path from the URI
+                            final String path = FileUtils.getPath(this, uri);
+
+
+                            filename.setText(path);
+                            tick.setVisibility(View.VISIBLE);
+
+
+                            Log.e("Image path", path);
+
+
+                            Toast.makeText(ActivityInstituteDetail.this,
+                                    "File Selected: " + path, Toast.LENGTH_LONG).show();
+                        } catch (Exception e) {
+                            Log.e("FileSelectorTestActivity", "File select error", e);
+                        }
+                    }
+                }
+                break;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+
+    private void uploadFile(Uri fileUri) {
+        Retrofit retrofit = ApiClient.getClient();
+        ApiAtheliteCall apiCall = retrofit.create(ApiAtheliteCall.class);
+
+        File file = FileUtils.getFile(this, fileUri);
+        // create RequestBody instance from file
+        RequestBody requestFile =
+                RequestBody.create(
+                        MediaType.parse(getContentResolver().getType(fileUri)),
+                        file
+                );
+
+        // MultipartBody.Part is used to send also the actual file name
+        MultipartBody.Part body =
+                MultipartBody.Part.createFormData("picture", file.getName(), requestFile);
+
+        // add another part within the multipart request
+        String descriptionString = "hello, this is description speaking";
+        RequestBody description =
+                RequestBody.create(
+                        okhttp3.MultipartBody.FORM, descriptionString);
+
+        // finally, execute the request
+        Call<ResponseBody> call = apiCall.upload(description, body);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call,
+                                   Response<ResponseBody> response) {
+                Log.v("Upload", "success");
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("Upload error:", t.getMessage());
+            }
+        });
+    }
+
 
 
 }

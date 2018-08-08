@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,7 +14,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.Menu;
@@ -44,9 +44,9 @@ public class Activity_dashboard extends AppCompatActivity  implements Navigation
 
         setContentView(R.layout.activity_dashboard_assistmanager);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         //       setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -54,7 +54,7 @@ public class Activity_dashboard extends AppCompatActivity  implements Navigation
         customProgress = CustomProgress.getInstance();
 
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(Activity_dashboard.this);
 
         initView();
@@ -158,7 +158,7 @@ public class Activity_dashboard extends AppCompatActivity  implements Navigation
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -177,16 +177,16 @@ public class Activity_dashboard extends AppCompatActivity  implements Navigation
             SharedPreferences sharedPreferences_logout = getSharedPreferences("Login", 0);
             SharedPreferences.Editor editor = sharedPreferences_logout.edit();
             editor.clear();
-            editor.commit();
+            editor.apply();
             SharedPreferences sharedPreferences = getSharedPreferences("Profile", MODE_PRIVATE);
             SharedPreferences.Editor editor1 = sharedPreferences.edit();
             editor1.clear();
-            editor1.commit();
+            editor1.apply();
 
             SharedPreferences sharedPreferences1 = getSharedPreferences("Dashboard_prefs", MODE_PRIVATE);
             SharedPreferences.Editor editor2 = sharedPreferences1.edit();
             editor2.clear();
-            editor2.commit();
+            editor2.apply();
 
             Intent main = new Intent(Activity_dashboard.this, ActivityLoginAdmin.class);
             main.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -197,7 +197,7 @@ public class Activity_dashboard extends AppCompatActivity  implements Navigation
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -207,7 +207,7 @@ public class Activity_dashboard extends AppCompatActivity  implements Navigation
     @Override
     public void onBackPressed() {
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {

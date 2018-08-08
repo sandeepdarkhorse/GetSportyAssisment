@@ -41,10 +41,13 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.gson.JsonElement;
 import com.squareup.picasso.Picasso;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -52,6 +55,7 @@ import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+
 import fr.ganfra.materialspinner.MaterialSpinner;
 import main.darkhorse.com.getsportyassisment.R;
 import main.darkhorse.com.getsportyassisment.UtilsFile.ApiClient;
@@ -74,10 +78,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+
 import static android.app.Activity.RESULT_OK;
+
 public class FragmentInstList extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
     public FragmentInstList newInstance(String param1, String param2) {
         FragmentInstList fragment = new FragmentInstList();
         Bundle args = new Bundle();
@@ -87,8 +94,10 @@ public class FragmentInstList extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     private String mParam1;
     private String mParam2;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +107,7 @@ public class FragmentInstList extends Fragment {
         }
 
     }
+
     private int[] validation = new int[8];
     View rootView;
     AutoFitGridRecyclerView recycleview_eventListing;
@@ -125,13 +135,14 @@ public class FragmentInstList extends Fragment {
     TextInputEditText editText_institute_email;
     TextView textimage;
     ArrayList<InstituteDataPojoApi> arrylistinstitute;
-    TextView filename,no_data;
+    TextView filename, no_data;
     ImageView tick;
     ArrayAdapter<String> adapter;
     String browserKey = "AIzaSyDfdIdeA96qORreYWTCGto85nz0_ZSx_dc";
     String url;
     AutoCompleteTextView adress_location;
     ArrayList<String> names;
+
     @SuppressLint("RestrictedApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -226,7 +237,7 @@ public class FragmentInstList extends Fragment {
         button_submit = (Button) dialog.findViewById(R.id.submit_details);
         filename = (TextView) dialog.findViewById(R.id.file_name);
         tick = (ImageView) dialog.findViewById(R.id.tick);
-        TextView addimage = (TextView) dialog.findViewById(R.id.addimage);
+
         adress_location = (AutoCompleteTextView) dialog.findViewById(R.id.institute_location);
         adress_location.setThreshold(0);
         names = new ArrayList<String>();
@@ -239,6 +250,7 @@ public class FragmentInstList extends Fragment {
                                           int after) {
 
             }
+
             public void onTextChanged(CharSequence s, int start, int before,
                                       int count) {
                 if (s.toString().length() <= 3) {
@@ -248,7 +260,7 @@ public class FragmentInstList extends Fragment {
 
             }
         });
-
+        TextView addimage = (TextView) dialog.findViewById(R.id.addimage);
         addimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -366,7 +378,7 @@ public class FragmentInstList extends Fragment {
                     textimage.setError("");
                     textimage.setTextColor(getResources().getColor(R.color.red));
                     scrollview.fullScroll(ScrollView.FOCUS_UP);
-                    } else {
+                } else {
                     validation[7] = 0;
                     textimage.setError(null);
                 }
@@ -404,13 +416,13 @@ public class FragmentInstList extends Fragment {
 
                                                 }
 
-                                                } catch (JSONException e) {
+                                            } catch (JSONException e) {
                                                 e.printStackTrace();
                                                 Toast.makeText(getActivity(), "Please try again", Toast.LENGTH_SHORT).show();
 
                                             }
 
-                                            }
+                                        }
 
                                         @Override
                                         public void onFailure(Call<JsonElement> call, Throwable t) {
@@ -510,19 +522,15 @@ public class FragmentInstList extends Fragment {
                 customProgress.showProgress(getActivity(), false);
                 checklogin.enqueue(new Callback<InstituteResponse>() {
                     @Override
-                    public void onResponse(Call<InstituteResponse> call, Response<InstituteResponse> response)
-                    {
+                    public void onResponse(Call<InstituteResponse> call, Response<InstituteResponse> response) {
                         customProgress.hideProgress();
-                        if(response.body().getStatus().equals("1"))
-                        {
+                        if (response.body().getStatus().equals("1")) {
                             no_data.setVisibility(View.GONE);
                             arrylistinstitute = response.body().getData();
                             InstituteListingAdapter adapter = new InstituteListingAdapter(arrylistinstitute);
                             recycleview_eventListing.setAdapter(adapter);
 
-                            }
-                            else
-                        {
+                        } else {
                             no_data.setVisibility(View.VISIBLE);
                         }
 
@@ -685,7 +693,7 @@ public class FragmentInstList extends Fragment {
                 Bitmap bm;
                 try {
                     bm = (BitmapFactory.decodeFile(compressedImage.getAbsolutePath()));
-
+                    Log.e("BitmapValue", bm.toString());
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     bm.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();

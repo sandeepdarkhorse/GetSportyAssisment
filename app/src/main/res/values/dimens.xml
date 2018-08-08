@@ -59,4 +59,7 @@
     <dimen name="movie_grid_item_width">120dp</dimen>
     <dimen name="text_margin">16dp</dimen>
 
+    <dimen name="list_padding">0dp</dimen>
+    <dimen name="list_item_padding">16dp</dimen>
+
 </resources>

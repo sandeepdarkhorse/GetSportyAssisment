@@ -1,5 +1,6 @@
 package main.darkhorse.com.getsportyassisment.activity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -282,6 +283,7 @@ public class ActivityParticipateList extends AppCompatActivity implements SwipeR
                 buttonCategories = itemView.findViewById(R.id.categories);
             }
 
+            @SuppressLint("SetTextI18n")
             public void setItem(AppliedTournamentApplicantResponse professionalsDataItem) {
 
                 textViewName.setText(professionalsDataItem.getName());
