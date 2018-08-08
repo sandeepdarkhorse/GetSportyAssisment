@@ -250,6 +250,7 @@ public class ActivityLoginAdmin extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
                 SharedPreferences.Editor editor_login = sharedPreferences.edit();
                 editor_login.putBoolean("login", true);
+                editor_login.putString("userType",userType);
                 editor_login.commit();
 
                 SharedPreferences.Editor editor = getSharedPreferences("Dashboard_prefs", MODE_PRIVATE).edit();
@@ -278,16 +279,16 @@ public class ActivityLoginAdmin extends AppCompatActivity {
 
                             sleep(2 * 500);
 
-//                            if(userType.equals("102")) {
+                            if(userType.equals("102")) {
                                 Intent i = new Intent(ActivityLoginAdmin.this, Activity_dashboard.class);
                                 startActivity(i);
                                 finish();
 
-//                            }else if(userType.equals("103")){
-//                                Intent i = new Intent(ActivityLoginAdmin.this, AmDashboardActivity.class);
-//                                startActivity(i);
-//                                finish();
-//                            }
+                            }else if(userType.equals("103")){
+                                Intent i = new Intent(ActivityLoginAdmin.this, AmDashboardActivity.class);
+                                startActivity(i);
+                                finish();
+                            }
 
                         } catch (Exception e) {
                         }

@@ -411,14 +411,23 @@
     <string name="guardian_name">Guardian Name</string>
     <string name="student_reg_no">Student Registration No.</string>
 
+    <string name="record_video">Record Video</string>
+    <string name="do_assessment">Do Assessment</string>
+    <string name="report">Report</string>
+    <string name="sprint_speed">Sprint Speed</string>
+    <string name="jump">Jump </string>
+    <string name="balance">Balance</string>
     <string name="class_name">Class name</string>
 
-    <string name="class_section">Class Section</string>
-    <string name="noof_student">No. of Student</string>
+    <string name="class_section">Class section</string>
+    <string name="noof_student">No. of student</string>
 
     <string name="class_teachername">Class teacher name</string>
 
-    </resources>
+
+</resources>
+
+
 
 
 

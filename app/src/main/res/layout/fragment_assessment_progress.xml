@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/submit_details">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+
+                    android:orientation="vertical">
+
+                    <VideoView
+                        android:id="@+id/videoview"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <main.darkhorse.com.getsportyassisment.shapesview.CutCornerView
+                            android:id="@+id/test_cardview"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            app:cutCorner_bottomRightSize="20dp"
+                            android:layout_weight="1">
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#b9a6ff"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+
+                                <TextView
+                                    android:id="@+id/test_data"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:gravity="center"
+                                    android:text="Test Data"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/body_text"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                        </main.darkhorse.com.getsportyassisment.shapesview.CutCornerView>
+                        <main.darkhorse.com.getsportyassisment.shapesview.CutCornerView
+                            android:id="@+id/tectical_cardView"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            app:cutCorner_bottomRightSize="20dp"
+                            android:layout_weight="1"
+                            android:layout_marginTop="8dp">
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#ffc58b"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+
+                                <TextView
+                                    android:id="@+id/tectical_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:gravity="center"
+                                    android:text="Tectical"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/body_text"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                        </main.darkhorse.com.getsportyassisment.shapesview.CutCornerView>
+
+                        <main.darkhorse.com.getsportyassisment.shapesview.CutCornerView
+                            android:id="@+id/technical_cardView"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            app:cutCorner_bottomRightSize="20dp"
+                            android:layout_weight="1"
+                            android:layout_marginTop="8dp">
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#ff9aa4"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+
+                                <TextView
+                                    android:id="@+id/technical_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Technical"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/body_text"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                        </main.darkhorse.com.getsportyassisment.shapesview.CutCornerView>
+
+                        <main.darkhorse.com.getsportyassisment.shapesview.CutCornerView
+                            android:id="@+id/physical_card"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            app:cutCorner_bottomRightSize="20dp"
+                            android:layout_weight="1"
+                            android:layout_marginTop="8dp">
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#9CCC65"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+
+                                <TextView
+                                    android:id="@+id/physical_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Physical"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/body_text"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                        </main.darkhorse.com.getsportyassisment.shapesview.CutCornerView>
+
+
+                        <main.darkhorse.com.getsportyassisment.shapesview.CutCornerView
+                            android:id="@+id/psycological_card"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            app:cutCorner_bottomRightSize="20dp"
+                            android:layout_weight="1"
+                            android:layout_marginTop="8dp">
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#FFD54F"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+
+                                <TextView
+                                    android:id="@+id/psycological_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Psycological"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/body_text"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                        </main.darkhorse.com.getsportyassisment.shapesview.CutCornerView>
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/submit_details"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/selected_item"
+        android:text="@string/submit_text"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/body_text"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

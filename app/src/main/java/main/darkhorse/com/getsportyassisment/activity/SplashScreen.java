@@ -36,6 +36,7 @@ public class SplashScreen extends Activity {
             {
                 SharedPreferences sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
                 boolean login = sharedPreferences.getBoolean("login", false);
+                String userType=sharedPreferences.getString("userType", "");
                 if (login == false)
                 {
 
@@ -49,13 +50,24 @@ public class SplashScreen extends Activity {
 
                 } else {
 
-                    Intent i = new Intent(SplashScreen.this, Activity_dashboard.class);
-                    startActivity(i);
-                    finish();
+//                    Intent i = new Intent(SplashScreen.this, Activity_dashboard.class);
+//                    startActivity(i);
+//                    finish();
 
 //                    Intent i = new Intent(SplashScreen.this, AmDashboardActivity.class);
 //                    startActivity(i);
 //                    finish();
+
+                    if (userType.equals("102")) {
+                        Intent i = new Intent(SplashScreen.this, Activity_dashboard.class);
+                        startActivity(i);
+                        finish();
+
+                    } else if (userType.equals("103")) {
+                        Intent i2 = new Intent(SplashScreen.this, AmDashboardActivity.class);
+                        startActivity(i2);
+                        finish();
+                    }
 
 
                 }

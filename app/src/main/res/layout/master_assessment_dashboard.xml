@@ -100,8 +100,8 @@
 
                                 <ImageView
                                     android:id="@+id/cricket"
-                                    android:layout_width="80dp"
-                                    android:layout_height="80dp"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
                                     android:padding="5dp"
                                     android:scaleType="fitXY"
                                     android:src="@drawable/institution" />
@@ -147,8 +147,8 @@
 
                                 <ImageView
                                     android:id="@+id/selfassessment"
-                                    android:layout_width="80dp"
-                                    android:layout_height="80dp"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
                                     android:padding="5dp"
                                     android:scaleType="fitXY"
                                     android:src="@drawable/ic_assessment_icon" />
@@ -192,8 +192,8 @@
 
                                 <ImageView
                                     android:id="@+id/tennis"
-                                    android:layout_width="80dp"
-                                    android:layout_height="80dp"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
                                     android:padding="5dp"
                                     android:scaleType="fitXY"
 
